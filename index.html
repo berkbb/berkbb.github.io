@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Berk Babadogan için modern, şık ve responsive portfolyo sitesi." />
-  <title>Berk Babadogan | Portfolyo</title>
+  <meta name="description" content="Berk Babadoğan için üç dilli kişisel portfolyo: yazılım mühendisliği, projeler, eğitim ve iletişim." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Berk Babadoğan" />
+  <meta property="og:title" content="Berk Babadoğan | Software Engineer" />
+  <meta property="og:description" content="Berk Babadoğan için üç dilli kişisel portfolyo: yazılım mühendisliği, projeler, eğitim ve iletişim." />
+  <meta property="og:locale" content="tr_TR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Berk Babadoğan | Software Engineer" />
+  <meta name="twitter:description" content="Berk Babadoğan için üç dilli kişisel portfolyo: yazılım mühendisliği, projeler, eğitim ve iletişim." />
+  <title>Berk Babadoğan | Software Engineer</title>
   <style>
     :root {
       --bg: #08111f;
@@ -19,10 +27,39 @@
       --accent-2: #a78bfa;
       --accent-3: #34d399;
       --shadow: 0 28px 80px rgba(1, 8, 20, 0.48);
+      --page-bg-1: #050b15;
+      --page-bg-2: #091225;
+      --page-bg-3: #050b15;
+      --glow-1: rgba(125, 211, 252, 0.22);
+      --glow-2: rgba(167, 139, 250, 0.16);
+      --glow-3: rgba(52, 211, 153, 0.11);
+      --grid-line: rgba(255, 255, 255, 0.03);
       --radius-xl: 32px;
       --radius-lg: 24px;
       --radius-md: 18px;
       --max: 1160px;
+    }
+
+    html[data-theme="light"] {
+      --bg: #f4f7fb;
+      --bg-alt: #e9eef7;
+      --card: rgba(255, 255, 255, 0.84);
+      --card-strong: rgba(255, 255, 255, 0.94);
+      --line: rgba(16, 24, 40, 0.1);
+      --text: #0b1220;
+      --muted: #42536d;
+      --soft: #627089;
+      --accent: #2563eb;
+      --accent-2: #7c3aed;
+      --accent-3: #059669;
+      --shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+      --page-bg-1: #f7fbff;
+      --page-bg-2: #edf3fb;
+      --page-bg-3: #f4f7fb;
+      --glow-1: rgba(37, 99, 235, 0.12);
+      --glow-2: rgba(124, 58, 237, 0.1);
+      --glow-3: rgba(5, 150, 105, 0.08);
+      --grid-line: rgba(15, 23, 42, 0.05);
     }
 
     * {
@@ -38,10 +75,10 @@
       color: var(--text);
       font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(125, 211, 252, 0.22), transparent 30%),
-        radial-gradient(circle at top right, rgba(167, 139, 250, 0.16), transparent 28%),
-        radial-gradient(circle at 20% 20%, rgba(52, 211, 153, 0.11), transparent 26%),
-        linear-gradient(180deg, #050b15 0%, #091225 42%, #050b15 100%);
+        radial-gradient(circle at top left, var(--glow-1), transparent 30%),
+        radial-gradient(circle at top right, var(--glow-2), transparent 28%),
+        radial-gradient(circle at 20% 20%, var(--glow-3), transparent 26%),
+        linear-gradient(180deg, var(--page-bg-1) 0%, var(--page-bg-2) 42%, var(--page-bg-3) 100%);
       min-height: 100vh;
       overflow-x: hidden;
     }
@@ -52,8 +89,8 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
       background-size: 48px 48px;
       mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 92%);
       opacity: 0.55;
@@ -91,7 +128,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       font-size: 0.82rem;
-      color: #dbeafe;
+      color: var(--text);
     }
 
     .brand-mark {
@@ -128,6 +165,57 @@
       background: rgba(255, 255, 255, 0.08);
       transform: translateY(-1px);
       outline: none;
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      gap: 8px;
+      padding: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      flex-wrap: wrap;
+    }
+
+    .theme-switcher {
+      display: inline-flex;
+      gap: 8px;
+      padding: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      flex-wrap: wrap;
+    }
+
+    .lang-switcher button,
+    .theme-switcher button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .lang-switcher button:hover,
+    .lang-switcher button:focus-visible,
+    .theme-switcher button:hover,
+    .theme-switcher button:focus-visible {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .lang-switcher button[aria-pressed="true"],
+    .theme-switcher button[aria-pressed="true"] {
+      color: #06101c;
+      background: linear-gradient(135deg, #c4f1ff 0%, #8bd3ff 35%, #c4b5fd 100%);
+      box-shadow: 0 10px 24px rgba(125, 211, 252, 0.16);
     }
 
     .hero {
@@ -464,7 +552,7 @@
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #dbeafe;
+      color: var(--text);
       font-size: 0.82rem;
     }
 
@@ -472,7 +560,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: #d7eeff;
+      color: var(--text);
       font-size: 0.9rem;
       letter-spacing: 0.03em;
       text-transform: uppercase;
@@ -537,7 +625,7 @@
     }
 
     .timeline-item time {
-      color: #dbeafe;
+      color: var(--text);
       font-weight: 600;
       letter-spacing: 0.02em;
     }
@@ -724,15 +812,25 @@
 <body>
   <div class="page">
     <header class="topbar">
-      <a class="brand" href="#top" aria-label="Ana sayfa">
+      <a class="brand" href="#top" data-i18n-attr="aria-label:brand.home" aria-label="Ana sayfa">
         <span class="brand-mark">B</span>
-        <span>Berk Babadogan</span>
+        <span data-i18n="brand.name">Berk Babadoğan</span>
       </a>
-      <nav class="nav" aria-label="Birincil">
-        <a href="#projeler">Projeler</a>
-        <a href="#yetenekler">Yetenekler</a>
-        <a href="#deneyim">Deneyim</a>
-        <a href="#iletisim">İletişim</a>
+      <nav class="nav" data-i18n-attr="aria-label:nav.primary" aria-label="Birincil">
+        <a href="#projeler" data-i18n="nav.projects">Projeler</a>
+        <a href="#yetenekler" data-i18n="nav.skills">Yetenekler</a>
+        <a href="#deneyim" data-i18n="nav.experience">Deneyim</a>
+        <a href="#iletisim" data-i18n="nav.contact">İletişim</a>
+      </nav>
+      <nav class="lang-switcher" aria-label="Language selector">
+        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang="ro" aria-pressed="false">RO</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </nav>
+      <nav class="theme-switcher" data-i18n-attr="aria-label:theme.switcher" aria-label="Theme selector">
+        <button type="button" data-theme="auto" aria-pressed="true" data-i18n="theme.auto">AUTO</button>
+        <button type="button" data-theme="dark" aria-pressed="false" data-i18n="theme.dark">DARK</button>
+        <button type="button" data-theme="light" aria-pressed="false" data-i18n="theme.light">LIGHT</button>
       </nav>
     </header>
 
@@ -740,9 +838,9 @@
       <section class="hero">
         <div class="hero-main reveal">
           <div>
-            <span class="eyebrow"><span class="eyebrow-dot"></span> UI, ürün ve deneyim odaklı tasarım</span>
-            <h1>Merhaba, ben Berk.</h1>
-            <p class="lead">
+            <span class="eyebrow"><span class="eyebrow-dot"></span> <span data-i18n="hero.badge">UI, ürün ve deneyim odaklı tasarım</span></span>
+            <h1 data-i18n="hero.title">Merhaba, ben Berk.</h1>
+            <p class="lead" data-i18n="hero.lead">
               İnsanların gerçekten kullanmak istediği dijital deneyimler tasarlıyorum.
               Net yapı, güçlü görsel kimlik ve hızlı performans benim için aynı masada oturur.
               Bu portfolyo; seçili işlerimi, yaklaşımımı ve birlikte neler üretebileceğimizi anlatıyor.
@@ -751,22 +849,22 @@
 
           <div>
             <div class="hero-actions">
-              <a class="button primary" href="#projeler">Projeleri incele</a>
-              <a class="button secondary" href="#iletisim">Birlikte çalışalım</a>
+              <a class="button primary" href="#projeler" data-i18n="hero.cta.projects">Projeleri incele</a>
+              <a class="button secondary" href="#iletisim" data-i18n="hero.cta.contact">Birlikte çalışalım</a>
             </div>
 
             <div class="hero-stats">
               <div class="stat">
-                <strong>12+</strong>
-                <span>yayınlanmış ürün ve web deneyimi</span>
+                <strong>⟡</strong>
+                <span data-i18n="hero.stat1">yayınlanmış ürün ve web deneyimi</span>
               </div>
               <div class="stat">
                 <strong>3 hafta</strong>
-                <span>ortalamada ilk çalışan prototip süresi</span>
+                <span data-i18n="hero.stat2">ortalamada ilk çalışan prototip süresi</span>
               </div>
               <div class="stat">
                 <strong>1 hedef</strong>
-                <span>gösterişli değil, işe yarayan tasarım</span>
+                <span data-i18n="hero.stat3">gösterişli değil, işe yarayan tasarım</span>
               </div>
             </div>
           </div>
@@ -775,27 +873,27 @@
         <aside class="hero-side reveal delay-1">
           <div class="profile">
             <div class="avatar">BB</div>
-            <h2>Ürün odaklı tasarımcı ve geliştirici</h2>
-            <p>
+            <h2 data-i18n="profile.title">Ürün odaklı tasarımcı ve geliştirici</h2>
+            <p data-i18n="profile.text">
               Hızlı prototiplemeden sezgisel arayüzlere, landing page’lerden kişisel markalara
               kadar sade ama karakterli işler üretmeyi seviyorum.
             </p>
             <div class="floating-pill">
               <span class="pulse"></span>
-              Şu anda yeni projelere açığım
+              <span data-i18n="profile.status">Şu anda yeni projelere açığım</span>
             </div>
           </div>
 
           <div class="info-grid">
             <div class="info-card">
-              <div class="label">Odak</div>
-              <strong>Web &amp; ürün</strong>
-              <span>Temiz bilgi mimarisi ve güçlü ilk izlenim.</span>
+              <div class="label" data-i18n="info.focus.label">Odak</div>
+              <strong data-i18n="info.focus.title">Web &amp; ürün</strong>
+              <span data-i18n="info.focus.text">Temiz bilgi mimarisi ve güçlü ilk izlenim.</span>
             </div>
             <div class="info-card">
-              <div class="label">Stil</div>
-              <strong>Modern &amp; net</strong>
-              <span>Görsel derinlik, ritim ve okunabilirlik.</span>
+              <div class="label" data-i18n="info.style.label">Stil</div>
+              <strong data-i18n="info.style.title">Modern &amp; net</strong>
+              <span data-i18n="info.style.text">Görsel derinlik, ritim ve okunabilirlik.</span>
             </div>
           </div>
         </aside>
@@ -804,9 +902,9 @@
       <section id="projeler" class="section">
         <div class="section-head reveal">
           <div>
-            <h3>Seçili Projeler</h3>
+            <h3 data-i18n="projects.title">Seçili Projeler</h3>
           </div>
-          <p>
+          <p data-i18n="projects.desc">
             Farklı ölçeklerdeki işlerden birkaç örnek. Her biri, tasarım kararlarının
             sadece güzel görünmek için değil, kullanım kalitesi için verildiği işler.
           </p>
@@ -814,58 +912,191 @@
 
         <div class="project-grid">
           <article class="project reveal">
-            <span class="meta"><span class="meta-dot"></span> Öne çıkan çalışma</span>
-            <h4>Kurumsal marka sitesi</h4>
-            <p>
+            <span class="meta"><span class="meta-dot"></span> <span data-i18n="project1.badge">Öne çıkan çalışma</span></span>
+            <h4 data-i18n="project1.title">Kurumsal marka sitesi</h4>
+            <p data-i18n="project1.desc">
               Premium algı, net mesaj ve yüksek dönüşüm için tasarlanmış çok bölümlü bir kurumsal web sitesi.
               İçerik akışı sadeleştirildi, sayfa hızı ve mobil deneyim iyileştirildi.
             </p>
             <div class="tags">
-              <span class="tag">Brand system</span>
-              <span class="tag">Landing page</span>
-              <span class="tag">Conversion</span>
+              <span class="tag" data-i18n="project1.tag1">Brand system</span>
+              <span class="tag" data-i18n="project1.tag2">Landing page</span>
+              <span class="tag" data-i18n="project1.tag3">Conversion</span>
             </div>
           </article>
 
           <article class="project reveal delay-1">
-            <span class="meta"><span class="meta-dot"></span> Ürün deneyimi</span>
-            <h4>Dashboard arayüzü</h4>
-            <p>
+            <span class="meta"><span class="meta-dot"></span> <span data-i18n="project2.badge">Ürün deneyimi</span></span>
+            <h4 data-i18n="project2.title">Dashboard arayüzü</h4>
+            <p data-i18n="project2.desc">
               Yoğun veriyi anlaşılır bir yapıya dönüştüren, odaklanmayı kolaylaştıran
               modüler bir yönetim paneli.
             </p>
             <div class="tags">
-              <span class="tag">UI kit</span>
-              <span class="tag">Data viz</span>
-              <span class="tag">Responsive</span>
+              <span class="tag" data-i18n="project2.tag1">UI kit</span>
+              <span class="tag" data-i18n="project2.tag2">Data viz</span>
+              <span class="tag" data-i18n="project2.tag3">Responsive</span>
             </div>
           </article>
 
           <article class="project reveal delay-2">
-            <span class="meta"><span class="meta-dot"></span> Kişisel marka</span>
-            <h4>Portfolyo deneyimi</h4>
-            <p>
+            <span class="meta"><span class="meta-dot"></span> <span data-i18n="project3.badge">Kişisel marka</span></span>
+            <h4 data-i18n="project3.title">Portfolyo deneyimi</h4>
+            <p data-i18n="project3.desc">
               Kendi işlerini güçlü bir hikaye ile sunmak isteyen yaratıcılar için kurulan
               karakterli bir kişisel portfolyo yapısı.
             </p>
             <div class="tags">
-              <span class="tag">Storytelling</span>
-              <span class="tag">Motion</span>
-              <span class="tag">SEO</span>
+              <span class="tag" data-i18n="project3.tag1">Storytelling</span>
+              <span class="tag" data-i18n="project3.tag2">Motion</span>
+              <span class="tag" data-i18n="project3.tag3">SEO</span>
             </div>
           </article>
 
           <article class="project reveal delay-3">
-            <span class="meta"><span class="meta-dot"></span> Kampanya sayfası</span>
-            <h4>Etkinlik / ürün lansmanı</h4>
-            <p>
+            <span class="meta"><span class="meta-dot"></span> <span data-i18n="project4.badge">Kampanya sayfası</span></span>
+            <h4 data-i18n="project4.title">Etkinlik / ürün lansmanı</h4>
+            <p data-i18n="project4.desc">
               Tek mesajı güçlü biçimde taşıyan, görsel ritmi yüksek ve hızlı yüklenen kampanya sayfası.
               Sosyal paylaşım ve CTA akışı göz önünde tutuldu.
             </p>
             <div class="tags">
-              <span class="tag">Launch</span>
-              <span class="tag">CTA flow</span>
-              <span class="tag">Performance</span>
+              <span class="tag" data-i18n="project4.tag1">Launch</span>
+              <span class="tag" data-i18n="project4.tag2">CTA flow</span>
+              <span class="tag" data-i18n="project4.tag3">Performance</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="github" class="section">
+        <div class="section-head reveal">
+          <div>
+            <h3 data-i18n="github.title">GitHub Öne Çıkanlar</h3>
+          </div>
+          <p data-i18n="github.desc">
+            GitHub profilinde görünen repo sayısı, yıldızlar, takipçiler ve öne çıkan depolar.
+          </p>
+        </div>
+
+        <div class="hero-stats reveal delay-1" style="margin-bottom: 16px;">
+          <div class="stat">
+            <strong data-i18n="github.stat1.value">13</strong>
+            <span data-i18n="github.stat1.label">repository</span>
+          </div>
+          <div class="stat">
+            <strong data-i18n="github.stat2.value">6</strong>
+            <span data-i18n="github.stat2.label">stars</span>
+          </div>
+          <div class="stat">
+            <strong data-i18n="github.stat3.value">5</strong>
+            <span data-i18n="github.stat3.label">followers</span>
+          </div>
+          <div class="stat">
+            <strong data-i18n="github.stat4.value">7</strong>
+            <span data-i18n="github.stat4.label">following</span>
+          </div>
+        </div>
+
+        <div class="section-head reveal" style="margin-top: 10px;">
+          <div>
+            <h3 data-i18n="github.allTitle">All Public Repos</h3>
+          </div>
+          <p data-i18n="github.allDesc">
+            Every public repository visible on GitHub, including package libraries, the site repo, and theme work.
+          </p>
+        </div>
+
+        <div id="repo-grid" class="project-grid"></div>
+      </section>
+
+      <section id="packages" class="section">
+        <div class="section-head reveal">
+          <div>
+            <h3 data-i18n="packages.title">Paket Yayıncıları</h3>
+          </div>
+          <p data-i18n="packages.desc">
+            pub.dev ve NuGet profillerinde yayınlanan paketler ve yayıncı sayfaları.
+          </p>
+        </div>
+
+        <div class="hero-stats reveal delay-1" style="margin-bottom: 16px;">
+          <div class="stat">
+            <strong data-i18n="packages.pub.value">4</strong>
+            <span data-i18n="packages.pub.label">pub.dev paketi</span>
+          </div>
+          <div class="stat">
+            <strong data-i18n="packages.nuget.value">4</strong>
+            <span data-i18n="packages.nuget.label">NuGet paketi</span>
+          </div>
+          <div class="stat">
+            <strong data-i18n="packages.nuget.downloads">7,318</strong>
+            <span data-i18n="packages.nuget.downloadsLabel">NuGet toplam indirme</span>
+          </div>
+          <div class="stat">
+            <strong data-i18n="packages.publisher">Verified</strong>
+            <span data-i18n="packages.publisherLabel">pub.dev yayıncısı</span>
+          </div>
+        </div>
+
+        <div class="project-grid">
+          <article class="project reveal">
+            <span class="meta"><span class="meta-dot"></span> pub.dev</span>
+            <h4>berk.babadogan.net</h4>
+            <p data-i18n="packages.pub.desc">
+              Verified publisher on pub.dev with four Dart packages: dart_encrypter, logbox_color, tcid_checker, and isbn_searcher.
+            </p>
+            <div class="tags">
+              <span class="tag">dart_encrypter</span>
+              <span class="tag">logbox_color</span>
+              <span class="tag">tcid_checker</span>
+              <span class="tag">isbn_searcher</span>
+            </div>
+            <div class="tags" style="margin-top: 14px;">
+              <a class="tag" href="https://pub.dev/publishers/berk.babadogan.net/packages" target="_blank" rel="noreferrer" data-i18n="packages.pub.link">Publisher page</a>
+            </div>
+          </article>
+
+          <article class="project reveal delay-1">
+            <span class="meta"><span class="meta-dot"></span> NuGet</span>
+            <h4>berkbaba</h4>
+            <p data-i18n="packages.nuget.desc">
+              NuGet profile with four .NET packages: TCIDChecker_NET, ColorLogger_NET, Encrypter_NET, and ISBNSearcher_NET.
+            </p>
+            <div class="tags">
+              <span class="tag">TCIDChecker_NET</span>
+              <span class="tag">ColorLogger_NET</span>
+              <span class="tag">Encrypter_NET</span>
+              <span class="tag">ISBNSearcher_NET</span>
+            </div>
+            <div class="tags" style="margin-top: 14px;">
+              <a class="tag" href="https://www.nuget.org/profiles/berkbaba" target="_blank" rel="noreferrer" data-i18n="packages.nuget.link">Profile page</a>
+            </div>
+          </article>
+
+          <article class="project reveal delay-2">
+            <span class="meta"><span class="meta-dot"></span> pub.dev</span>
+            <h4 data-i18n="packages.pub.summaryTitle">Publisher summary</h4>
+            <p data-i18n="packages.pub.summaryDesc">
+              The publisher page lists 4 packages and shows the verified publisher badge for berk.babadogan.net.
+            </p>
+            <div class="tags">
+              <span class="tag">Verified publisher</span>
+              <span class="tag">4 packages</span>
+              <span class="tag">Dart</span>
+            </div>
+          </article>
+
+          <article class="project reveal delay-3">
+            <span class="meta"><span class="meta-dot"></span> NuGet</span>
+            <h4 data-i18n="packages.nuget.summaryTitle">Profile summary</h4>
+            <p data-i18n="packages.nuget.summaryDesc">
+              The NuGet profile shows 4 packages and 7,318 total downloads.
+            </p>
+            <div class="tags">
+              <span class="tag">4 packages</span>
+              <span class="tag">7,318 downloads</span>
+              <span class="tag">.NET</span>
             </div>
           </article>
         </div>
@@ -874,9 +1105,9 @@
       <section id="yetenekler" class="section">
         <div class="section-head reveal">
           <div>
-            <h3>Yetenekler</h3>
+            <h3 data-i18n="skills.title">Yetenekler</h3>
           </div>
-          <p>
+          <p data-i18n="skills.desc">
             Tasarımın, geliştirme kadar ürün düşüncesiyle de ilerlemesi gerektiğine inanıyorum.
             Bu yüzden görsel estetikle işlevselliği birlikte kuruyorum.
           </p>
@@ -885,22 +1116,22 @@
         <div class="skills">
           <div class="skill reveal">
             <div class="icon">✦</div>
-            <h4>Arayüz Tasarımı</h4>
-            <p>
+            <h4 data-i18n="skill1.title">Arayüz Tasarımı</h4>
+            <p data-i18n="skill1.desc">
               Bileşen bazlı düşünür, düzen, tipografi ve boşluklarla yüksek okunabilirlik kurarım.
             </p>
           </div>
           <div class="skill reveal delay-1">
             <div class="icon">⌘</div>
-            <h4>Front-end Geliştirme</h4>
-            <p>
+            <h4 data-i18n="skill2.title">Front-end Geliştirme</h4>
+            <p data-i18n="skill2.desc">
               Statik sitelerden etkileşimli deneyimlere kadar temiz, hızlı ve bakım dostu yapı kurarım.
             </p>
           </div>
           <div class="skill reveal delay-2">
             <div class="icon">◌</div>
-            <h4>Ürün Hikayesi</h4>
-            <p>
+            <h4 data-i18n="skill3.title">Ürün Hikayesi</h4>
+            <p data-i18n="skill3.desc">
               Kullanıcıya ne sunduğunuzu birkaç saniyede net anlatan sayfa akışları oluştururum.
             </p>
           </div>
@@ -910,41 +1141,50 @@
       <section id="deneyim" class="section">
         <div class="section-head reveal">
           <div>
-            <h3>Deneyim Akışı</h3>
+            <h3 data-i18n="experience.title">Deneyim Akışı</h3>
           </div>
-          <p>
+          <p data-i18n="experience.desc">
             Güçlü bir portfolyo sadece projelerden ibaret değildir; nasıl düşündüğünüzü de göstermelidir.
           </p>
         </div>
 
         <div class="timeline">
           <div class="timeline-item reveal">
-            <time>2024 - 2026</time>
+            <time data-i18n="exp1.time">2024 - 2026</time>
             <div>
-              <h4>Bağımsız tasarım ve geliştirme</h4>
-              <p>
+              <h4 data-i18n="exp1.title">Bağımsız tasarım ve geliştirme</h4>
+              <p data-i18n="exp1.desc">
                 Kişisel markalar, kurumsal tanıtım siteleri ve ürün odaklı arayüzler için
                 konseptten yayına kadar uçtan uca çalışmalar.
               </p>
             </div>
           </div>
           <div class="timeline-item reveal delay-1">
-            <time>2022 - 2024</time>
+            <time data-i18n="exp2.time">2022 - 2024</time>
             <div>
-              <h4>Ürün ekipleriyle çalışma</h4>
-              <p>
+              <h4 data-i18n="exp2.title">Ürün ekipleriyle çalışma</h4>
+              <p data-i18n="exp2.desc">
                 Tasarım sistemi, kullanım akışı ve içerik yapısı üzerinden kararları
                 sadeleştirip uygulamaya dönüştürme.
               </p>
             </div>
           </div>
           <div class="timeline-item reveal delay-2">
-            <time>Öncesi</time>
+            <time data-i18n="exp3.time">Öncesi</time>
             <div>
-              <h4>Kendi deneme alanım</h4>
-              <p>
+              <h4 data-i18n="exp3.title">Kendi deneme alanım</h4>
+              <p data-i18n="exp3.desc">
                 Sitede gördüğünüz yaklaşım; düzenli denemeler, küçük iyileştirmeler ve
                 kullanıcı odaklı düşünme alışkanlığının bir sonucu.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item reveal delay-3">
+            <time data-i18n="exp4.time">2014 - 2016 · 2009 - 2013 · 1997 - 2009</time>
+            <div>
+              <h4 data-i18n="exp4.title">Hacettepe, Çankaya ve Bilim Özel Okulları</h4>
+              <p data-i18n="exp4.desc">
+                Yüksek lisans, lisans ve önceki eğitim geçmişi.
               </p>
             </div>
           </div>
@@ -954,42 +1194,42 @@
       <section id="iletisim" class="section">
         <div class="contact">
           <div class="contact-card reveal">
-            <h3>Bir sonraki projen için hazır mısın?</h3>
-            <p>
+            <h3 data-i18n="contact.title">Bir sonraki projen için hazır mısın?</h3>
+            <p data-i18n="contact.desc">
               Yeni bir siteye, ürün lansmanına veya markanı daha güçlü anlatacak bir
               portfolyo yapısına ihtiyacın varsa, buradan başlayabiliriz.
             </p>
 
             <div class="contact-list">
-              <a class="contact-link" href="mailto:hello@berkbabadogan.com">
-                <strong>E-posta ile ulaş</strong>
-                <span>hello@berkbabadogan.com</span>
+              <a class="contact-link" href="https://berk.babadogan.net" target="_blank" rel="noreferrer">
+                <strong data-i18n="contact.emailLabel">Web sitesi</strong>
+                <span data-i18n="contact.websiteValue">berk.babadogan.net</span>
               </a>
-              <a class="contact-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-                <strong>LinkedIn</strong>
-                <span>Profil bağlantısı</span>
+              <a class="contact-link" href="https://www.linkedin.com/in/berkbabadogan/" target="_blank" rel="noreferrer">
+                <strong data-i18n="contact.linkedinLabel">LinkedIn</strong>
+                <span data-i18n="contact.linkedinValue">in/berkbabadogan</span>
               </a>
-              <a class="contact-link" href="https://github.com" target="_blank" rel="noreferrer">
-                <strong>GitHub</strong>
-                <span>Kaynaklar ve projeler</span>
+              <a class="contact-link" href="https://github.com/berkbb" target="_blank" rel="noreferrer">
+                <strong data-i18n="contact.githubLabel">GitHub</strong>
+                <span data-i18n="contact.githubValue">berkbb</span>
               </a>
             </div>
           </div>
 
           <aside class="contact-card reveal delay-1">
-            <h3>Hızlı özet</h3>
-            <p>
+            <h3 data-i18n="summary.title">Hızlı özet</h3>
+            <p data-i18n="summary.desc">
               Bu sayfa, tek dosyada çalışan bir portfolyo iskeleti olarak hazırlandı.
               İçerikleri ve linkleri kendi bilgilerinle kolayca değiştirebilirsin.
             </p>
             <div class="hero-stats" style="margin-top: 22px; grid-template-columns: 1fr;">
               <div class="stat">
-                <strong>Responsive</strong>
-                <span>Mobil, tablet ve masaüstü için optimize edildi.</span>
+                <strong data-i18n="summary.card1.title">Responsive</strong>
+                <span data-i18n="summary.card1.desc">Mobil, tablet ve masaüstü için optimize edildi.</span>
               </div>
               <div class="stat">
-                <strong>Hızlı</strong>
-                <span>Harici kütüphane yok, doğrudan GitHub Pages uyumlu.</span>
+                <strong data-i18n="summary.card2.title">Hızlı</strong>
+                <span data-i18n="summary.card2.desc">Harici kütüphane yok, doğrudan GitHub Pages uyumlu.</span>
               </div>
             </div>
           </aside>
@@ -998,28 +1238,758 @@
     </main>
 
     <footer class="footer-note">
-      <span>© 2026 Berk Babadogan</span>
-      <span>Modern, sade ve karakterli bir portfolyo</span>
+      <span data-i18n="footer.left">© 2026 Berk Babadoğan</span>
+      <span data-i18n="footer.right">Modern, sade ve karakterli bir portfolyo</span>
     </footer>
   </div>
 
   <script>
-    const copyEmail = document.querySelector('a[href^="mailto:"]');
+    const translations = {
+      tr: {
+        page: {
+          title: "Berk Babadoğan | Software Engineer",
+          description: "Berk Babadoğan için üç dilli kişisel portfolyo: yazılım mühendisliği, projeler, eğitim ve iletişim.",
+          locale: "tr_TR"
+        },
+        brand: {
+          home: "Ana sayfa",
+          name: "Berk Babadoğan"
+        },
+        nav: {
+          primary: "Birincil",
+          projects: "Projeler",
+          skills: "Yetenekler",
+          experience: "Deneyim",
+          contact: "İletişim"
+        },
+        theme: {
+          switcher: "Tema seçici",
+          auto: "Otomatik",
+          dark: "Koyu",
+          light: "Açık"
+        },
+        hero: {
+          badge: "Yazılım mühendisliği, ürün geliştirme ve çapraz platform uygulamalar",
+          title: "Merhaba, ben Berk Babadoğan.",
+          lead: "Yazılım mühendisiyim ve Babadogan Tech and Edu'da kurucu ortak ile genel müdür olarak çalışıyorum. WinUI, .NET MAUI, Flutter, Azure ve Firebase ile masaüstü, mobil ve bulut çözümleri geliştiriyorum.",
+          cta: {
+            projects: "Projeleri incele",
+            contact: "İletişime geç"
+          },
+          stat1: "Ankara, Türkiye",
+          stat2: "2022 - şimdi",
+          stat3: "EX2023D833118 · ORCID"
+        },
+        profile: {
+          title: "Software Engineer ve ekip lideri",
+          text: "Çapraz platform uygulamalar, SaaS fikirleri, IoT, elektrikli ve otonom araçlara yönelik yazılım çözümleri üzerine çalışıyorum.",
+          status: "Yeni iş birliklerine açığım"
+        },
+        info: {
+          focus: {
+            label: "Teknolojiler",
+            title: "WinUI · .NET MAUI · Flutter",
+            text: "macOS, iOS, iPadOS, Android, .NET, Azure ve Firebase."
+          },
+          style: {
+            label: "Diller",
+            title: "C# · Java · Dart · Swift",
+            text: "Araştırma ve ürün geliştirme için çok dilli bir teknik profil."
+          }
+        },
+        projects: {
+          title: "Seçili Projeler",
+          desc: "Resmî sitedeki öne çıkan projelerden kısa bir seçim."
+        },
+        packages: {
+          title: "Paket Yayıncıları",
+          desc: "pub.dev ve NuGet profillerinde yayınlanan paketler ve yayıncı sayfaları.",
+          pub: {
+            value: "4",
+            label: "pub.dev paketi",
+            desc: "pub.dev üzerinde doğrulanmış yayıncı berk.babadogan.net altında dört Dart paketi bulunuyor: dart_encrypter, logbox_color, tcid_checker ve isbn_searcher.",
+            link: "Publisher page",
+            summaryTitle: "Publisher summary",
+            summaryDesc: "Publisher sayfası 4 paketi listeliyor ve berk.babadogan.net için doğrulanmış yayıncı rozeti gösteriyor."
+          },
+          nuget: {
+            value: "4",
+            label: "NuGet paketi",
+            downloads: "7,318",
+            downloadsLabel: "NuGet toplam indirme",
+            desc: "NuGet profilinde dört .NET paketi bulunuyor: TCIDChecker_NET, ColorLogger_NET, Encrypter_NET ve ISBNSearcher_NET.",
+            link: "Profile page",
+            summaryTitle: "Profile summary",
+            summaryDesc: "NuGet profili 4 paketi ve 7,318 toplam indirmeyi gösteriyor."
+          },
+          publisher: "Verified",
+          publisherLabel: "pub.dev yayıncısı"
+        },
+        project1: {
+          badge: "Araştırma projesi",
+          title: "SKILLS4JUSTICE",
+          desc: "HORIZON-CL2-2023-TRANSFORMATIONS-01: 101132435 kapsamında yer alan çalışma.",
+          tag1: "EU Project",
+          tag2: "Research",
+          tag3: "Transformation"
+        },
+        project2: {
+          badge: "AI destekli uygulama",
+          title: "BOWOFI",
+          desc: "Bologna Process Workflows App Optimized for Future Intelligence Supported with AI.",
+          tag1: "AI",
+          tag2: ".NET",
+          tag3: "Workflow"
+        },
+        project3: {
+          badge: "Eğitsel yazılım",
+          title: "ESICSQ",
+          desc: "Educational Software to Improve Children's Sense of Quality.",
+          tag1: "Education",
+          tag2: "Software",
+          tag3: "UX"
+        },
+        project4: {
+          badge: "Masaüstü araç",
+          title: "Apartment Receipt Generator for macOS",
+          desc: "Swift Storyboard ile geliştirilen, JPEG çıktısı alabilen ve imza ekleme desteği olan apartman makbuzu üretici.",
+          tag1: "Swift",
+          tag2: "macOS",
+          tag3: "Storyboard"
+        },
+        skills: {
+          title: "Teknoloji Yığını",
+          desc: "Kullandığım platformlar, diller, araçlar ve çalışma alanları."
+        },
+        github: {
+          title: "GitHub Öne Çıkanlar",
+          desc: "GitHub profilinde görünen repo sayısı, yıldızlar, takipçiler ve tüm public depolar.",
+          stat1: {
+            value: "13",
+            label: "repository"
+          },
+          stat2: {
+            value: "6",
+            label: "stars"
+          },
+          stat3: {
+            value: "5",
+            label: "followers"
+          },
+          stat4: {
+            value: "7",
+            label: "following"
+          },
+          allTitle: "Tüm Public Repolar",
+          allDesc: "GitHub’da görünen tüm public repolar: paket kütüphaneleri, site deposu ve tema çalışmaları."
+        },
+        skill1: {
+          title: "Platformlar",
+          desc: "Microsoft WinUI, .NET MAUI, Flutter, macOS, iOS, iPadOS, Android ve Microsoft .NET."
+        },
+        skill2: {
+          title: "Programlama dilleri",
+          desc: "C#, Java, Dart ve Swift."
+        },
+        skill3: {
+          title: "Araçlar ve alanlar",
+          desc: "Azure, Firebase, SQL Server, MariaDB, Firestore, Visual Studio, VS Code, Android Studio, Xcode, Photoshop, Illustrator, InDesign ve Figma."
+        },
+        experience: {
+          title: "Eğitim ve Deneyim",
+          desc: "Akademik geçmiş, iş deneyimi ve uzmanlık kimlikleri."
+        },
+        exp1: {
+          time: "2022 - şimdi",
+          title: "Babadogan Tech and Edu - Kurucu Ortak ve Genel Müdür",
+          desc: "Şirket ve ürün geliştirme, teknik kararlar ve operasyon yönetimi."
+        },
+        exp2: {
+          time: "2013 - 2022",
+          title: "Serbest Yazılım Mühendisi",
+          desc: ".NET Yazılım Mühendisi, araştırma ve uygulama geliştirme çalışmaları."
+        },
+        exp3: {
+          time: "2018 - 2021",
+          title: "Anadolu Üniversitesi - Web Tasarımı ve Kodlama",
+          desc: "Ön Lisans (uzaktan eğitim)."
+        },
+        exp4: {
+          time: "2014 - 2016 · 2009 - 2013 · 1997 - 2009",
+          title: "Hacettepe Üniversitesi, Çankaya Üniversitesi ve Bilim Özel Okulları",
+          desc: "Hacettepe Üniversitesi Yüksek Lisans - Yazılım Mühendisliği; Çankaya Üniversitesi Lisans - Bilgisayar Mühendisliği; Bilim Özel Okulları ilk, orta ve lise eğitimi."
+        },
+        contact: {
+          title: "İletişim ve bağlantılar",
+          desc: "Berk Babadoğan - Ankara, Türkiye. Resmî bağlantılar ve kimlik bilgileri aşağıda.",
+          companyLabel: "Şirket",
+          companyValue: "Babadogan Tech and Edu",
+          companyUrl: "https://babadogan.net",
+          emailLabel: "Web sitesi",
+          websiteValue: "berk.babadogan.net",
+          emailCopied: "Kopyalandı",
+          linkedinLabel: "LinkedIn",
+          linkedinValue: "in/berkbabadogan",
+          githubLabel: "GitHub",
+          githubValue: "berkbb"
+        },
+        summary: {
+          title: "Kısa özet",
+          desc: "Yazılım mühendisliği, ürün geliştirme, araştırma ve çapraz platform uygulamalara odaklanan bir profil.",
+          card1: {
+            title: "ORCID",
+            desc: "0000-0002-8840-3992"
+          },
+          card2: {
+            title: "EU F&T Expert ID",
+            desc: "EX2023D833118"
+          }
+        },
+        footer: {
+          left: "© 2026 Berk Babadoğan",
+          right: "Yazılım mühendisliği ve ürün geliştirme portfolyosu"
+        }
+      },
+      en: {
+        page: {
+          title: "Berk Babadoğan | Software Engineer",
+          description: "A three-language portfolio for Berk Babadoğan covering software engineering, projects, education, and contact details.",
+          locale: "en_US"
+        },
+        brand: {
+          home: "Home",
+          name: "Berk Babadoğan"
+        },
+        nav: {
+          primary: "Primary",
+          projects: "Projects",
+          skills: "Skills",
+          experience: "Experience",
+          contact: "Contact"
+        },
+        theme: {
+          switcher: "Theme selector",
+          auto: "Auto",
+          dark: "Dark",
+          light: "Light"
+        },
+        hero: {
+          badge: "Software engineering, product development, and cross-platform apps",
+          title: "Hi, I'm Berk Babadoğan.",
+          lead: "I'm a software engineer and the co-founder and general manager at Babadogan Tech and Edu. I build desktop, mobile, and cloud solutions with WinUI, .NET MAUI, Flutter, Azure, and Firebase.",
+          cta: {
+            projects: "View projects",
+            contact: "Get in touch"
+          },
+          stat1: "Ankara, Turkey",
+          stat2: "2022 - now",
+          stat3: "EX2023D833118 · ORCID"
+        },
+        profile: {
+          title: "Software engineer and team lead",
+          text: "I work on cross-platform apps, SaaS ideas, IoT, and software for electric and autonomous vehicles.",
+          status: "Open to new collaborations"
+        },
+        info: {
+          focus: {
+            label: "Technologies",
+            title: "WinUI · .NET MAUI · Flutter",
+            text: "macOS, iOS, iPadOS, Android, .NET, Azure, and Firebase."
+          },
+          style: {
+            label: "Languages",
+            title: "C# · Java · Dart · Swift",
+            text: "A multi-language technical profile for research and product work."
+          }
+        },
+        projects: {
+          title: "Selected Projects",
+          desc: "A short selection of featured projects from the official site."
+        },
+        packages: {
+          title: "Package Publishers",
+          desc: "Packages and publisher pages on pub.dev and NuGet.",
+          pub: {
+            value: "4",
+            label: "pub.dev package",
+            desc: "The verified pub.dev publisher berk.babadogan.net owns four Dart packages: dart_encrypter, logbox_color, tcid_checker, and isbn_searcher.",
+            link: "Publisher page",
+            summaryTitle: "Publisher summary",
+            summaryDesc: "The publisher page lists 4 packages and shows the verified publisher badge for berk.babadogan.net."
+          },
+          nuget: {
+            value: "4",
+            label: "NuGet package",
+            downloads: "7,318",
+            downloadsLabel: "NuGet total downloads",
+            desc: "The NuGet profile includes four .NET packages: TCIDChecker_NET, ColorLogger_NET, Encrypter_NET, and ISBNSearcher_NET.",
+            link: "Profile page",
+            summaryTitle: "Profile summary",
+            summaryDesc: "The NuGet profile shows 4 packages and 7,318 total downloads."
+          },
+          publisher: "Verified",
+          publisherLabel: "pub.dev publisher"
+        },
+        project1: {
+          badge: "Research project",
+          title: "SKILLS4JUSTICE",
+          desc: "A project under HORIZON-CL2-2023-TRANSFORMATIONS-01: 101132435.",
+          tag1: "EU Project",
+          tag2: "Research",
+          tag3: "Transformation"
+        },
+        project2: {
+          badge: "AI-supported app",
+          title: "BOWOFI",
+          desc: "Bologna Process Workflows App Optimized for Future Intelligence Supported with AI.",
+          tag1: "AI",
+          tag2: ".NET",
+          tag3: "Workflow"
+        },
+        project3: {
+          badge: "Educational software",
+          title: "ESICSQ",
+          desc: "Educational Software to Improve Children's Sense of Quality.",
+          tag1: "Education",
+          tag2: "Software",
+          tag3: "UX"
+        },
+        project4: {
+          badge: "Desktop tool",
+          title: "Apartment Receipt Generator for macOS",
+          desc: "A Swift Storyboard app that generates printable receipts as JPEGs and supports signature embedding and apartment info editing.",
+          tag1: "Swift",
+          tag2: "macOS",
+          tag3: "Storyboard"
+        },
+        skills: {
+          title: "Tech Stack",
+          desc: "Platforms, languages, tools, and areas I work with."
+        },
+        github: {
+          title: "GitHub Highlights",
+          desc: "Repository count, stars, followers, and all public repositories visible on the GitHub profile.",
+          stat1: {
+            value: "13",
+            label: "repositories"
+          },
+          stat2: {
+            value: "6",
+            label: "stars"
+          },
+          stat3: {
+            value: "5",
+            label: "followers"
+          },
+          stat4: {
+            value: "7",
+            label: "following"
+          },
+          allTitle: "All Public Repos",
+          allDesc: "Every public repository visible on GitHub, including package libraries, the site repo, and theme work."
+        },
+        skill1: {
+          title: "Platforms",
+          desc: "Microsoft WinUI, .NET MAUI, Flutter, macOS, iOS, iPadOS, Android, and Microsoft .NET."
+        },
+        skill2: {
+          title: "Programming languages",
+          desc: "C#, Java, Dart, and Swift."
+        },
+        skill3: {
+          title: "Tools and domains",
+          desc: "Azure, Firebase, SQL Server, MariaDB, Firestore, Visual Studio, VS Code, Android Studio, Xcode, Photoshop, Illustrator, InDesign, and Figma."
+        },
+        experience: {
+          title: "Education and Experience",
+          desc: "Academic background, work history, and expert identifiers."
+        },
+        exp1: {
+          time: "2022 - now",
+          title: "Babadogan Tech and Edu - Co-Founder and General Manager",
+          desc: "Company and product development, technical decisions, and operations."
+        },
+        exp2: {
+          time: "2013 - 2022",
+          title: "Freelance Software Engineer",
+          desc: ".NET software engineering, research, and application development work."
+        },
+        exp3: {
+          time: "2018 - 2021",
+          title: "Anadolu University - Web Design and Coding",
+          desc: "Associate degree (distance education)."
+        },
+        exp4: {
+          time: "2014 - 2016 · 2009 - 2013 · 1997 - 2009",
+          title: "Hacettepe University, Çankaya University, and Bilim Private Schools",
+          desc: "Hacettepe University MS - Software Engineering; Çankaya University BS - Computer Engineering; and primary, secondary, and high school at Bilim Private Schools."
+        },
+        contact: {
+          title: "Contact and links",
+          desc: "Berk Babadoğan - Ankara, Turkey. Official links and identifiers below.",
+          emailLabel: "Website",
+          websiteValue: "berk.babadogan.net",
+          emailCopied: "Copied",
+          linkedinLabel: "LinkedIn",
+          linkedinValue: "in/berkbabadogan",
+          githubLabel: "GitHub",
+          githubValue: "berkbb"
+        },
+        summary: {
+          title: "Quick summary",
+          desc: "A software engineering and product development profile with research and cross-platform focus.",
+          card1: {
+            title: "ORCID",
+            desc: "0000-0002-8840-3992"
+          },
+          card2: {
+            title: "EU F&T Expert ID",
+            desc: "EX2023D833118"
+          }
+        },
+        footer: {
+          left: "© 2026 Berk Babadoğan",
+          right: "A software engineering and product development portfolio"
+        }
+      },
+      ro: {
+        page: {
+          title: "Berk Babadoğan | Inginer software",
+          description: "Un portofoliu în trei limbi pentru Berk Babadoğan: inginerie software, proiecte, educație și contact.",
+          locale: "ro_RO"
+        },
+        brand: {
+          home: "Acasă",
+          name: "Berk Babadoğan"
+        },
+        nav: {
+          primary: "Principal",
+          projects: "Proiecte",
+          skills: "Abilități",
+          experience: "Experiență",
+          contact: "Contact"
+        },
+        theme: {
+          switcher: "Selector de temă",
+          auto: "Automat",
+          dark: "Întunecat",
+          light: "Deschis"
+        },
+        hero: {
+          badge: "Inginerie software, dezvoltare de produs și aplicații multi-platformă",
+          title: "Salut, sunt Berk Babadoğan.",
+          lead: "Sunt inginer software și co-fondator / director general la Babadogan Tech and Edu. Dezvolt soluții desktop, mobile și cloud cu WinUI, .NET MAUI, Flutter, Azure și Firebase.",
+          cta: {
+            projects: "Vezi proiectele",
+            contact: "Ia legătura"
+          },
+          stat1: "Ankara, Turcia",
+          stat2: "2022 - acum",
+          stat3: "EX2023D833118 · ORCID"
+        },
+        profile: {
+          title: "Inginer software și lider de echipă",
+          text: "Lucrez la aplicații multi-platformă, idei SaaS, IoT și software pentru vehicule electrice și autonome.",
+          status: "Deschis la colaborări noi"
+        },
+        info: {
+          focus: {
+            label: "Tehnologii",
+            title: "WinUI · .NET MAUI · Flutter",
+            text: "macOS, iOS, iPadOS, Android, .NET, Azure și Firebase."
+          },
+          style: {
+            label: "Limbaje",
+            title: "C# · Java · Dart · Swift",
+            text: "Un profil tehnic multilingv pentru cercetare și produs."
+          }
+        },
+        projects: {
+          title: "Proiecte Selectate",
+          desc: "O selecție scurtă de proiecte evidențiate de pe site-ul oficial."
+        },
+        packages: {
+          title: "Publicatori de pachete",
+          desc: "Pachete și pagini de publicator pe pub.dev și NuGet.",
+          pub: {
+            value: "4",
+            label: "pachet pub.dev",
+            desc: "Publicatorul verificat pub.dev berk.babadogan.net are patru pachete Dart: dart_encrypter, logbox_color, tcid_checker și isbn_searcher.",
+            link: "Pagina publicatorului",
+            summaryTitle: "Rezumat publicator",
+            summaryDesc: "Pagina publicatorului listează 4 pachete și afișează insigna de publicator verificat pentru berk.babadogan.net."
+          },
+          nuget: {
+            value: "4",
+            label: "pachet NuGet",
+            downloads: "7,318",
+            downloadsLabel: "descărcări totale NuGet",
+            desc: "Profilul NuGet include patru pachete .NET: TCIDChecker_NET, ColorLogger_NET, Encrypter_NET și ISBNSearcher_NET.",
+            link: "Pagina profilului",
+            summaryTitle: "Rezumat profil",
+            summaryDesc: "Profilul NuGet arată 4 pachete și 7,318 descărcări totale."
+          },
+          publisher: "Verificat",
+          publisherLabel: "publicator pub.dev"
+        },
+        project1: {
+          badge: "Proiect de cercetare",
+          title: "SKILLS4JUSTICE",
+          desc: "Un proiect din HORIZON-CL2-2023-TRANSFORMATIONS-01: 101132435.",
+          tag1: "UE",
+          tag2: "Cercetare",
+          tag3: "Transformare"
+        },
+        project2: {
+          badge: "Aplicație asistată de AI",
+          title: "BOWOFI",
+          desc: "Bologna Process Workflows App Optimized for Future Intelligence Supported with AI.",
+          tag1: "AI",
+          tag2: ".NET",
+          tag3: "Workflow"
+        },
+        project3: {
+          badge: "Software educațional",
+          title: "ESICSQ",
+          desc: "Educational Software to Improve Children's Sense of Quality.",
+          tag1: "Educație",
+          tag2: "Software",
+          tag3: "UX"
+        },
+        project4: {
+          badge: "Instrument desktop",
+          title: "Apartment Receipt Generator pentru macOS",
+          desc: "O aplicație Swift Storyboard care generează chitanțe imprimabile ca JPEG și permite încorporarea semnăturii și editarea datelor apartamentului.",
+          tag1: "Swift",
+          tag2: "macOS",
+          tag3: "Storyboard"
+        },
+        skills: {
+          title: "Stack tehnic",
+          desc: "Platforme, limbaje, instrumente și domenii în care lucrez."
+        },
+        github: {
+          title: "Repere GitHub",
+          desc: "Numărul de repository-uri, staruri, urmăritori și toate repository-urile publice vizibile în profilul GitHub.",
+          stat1: {
+            value: "13",
+            label: "repository-uri"
+          },
+          stat2: {
+            value: "6",
+            label: "staruri"
+          },
+          stat3: {
+            value: "5",
+            label: "urmăritori"
+          },
+          stat4: {
+            value: "7",
+            label: "urmăriți"
+          },
+          allTitle: "Toate repository-urile publice",
+          allDesc: "Fiecare repository public vizibil pe GitHub, inclusiv biblioteci de pachete, repo-ul site-ului și lucrările de temă."
+        },
+        skill1: {
+          title: "Platforme",
+          desc: "Microsoft WinUI, .NET MAUI, Flutter, macOS, iOS, iPadOS, Android și Microsoft .NET."
+        },
+        skill2: {
+          title: "Limbaje de programare",
+          desc: "C#, Java, Dart și Swift."
+        },
+        skill3: {
+          title: "Instrumente și domenii",
+          desc: "Azure, Firebase, SQL Server, MariaDB, Firestore, Visual Studio, VS Code, Android Studio, Xcode, Photoshop, Illustrator, InDesign și Figma."
+        },
+        experience: {
+          title: "Educație și experiență",
+          desc: "Context academic, istoric profesional și identificatori de expert."
+        },
+        exp1: {
+          time: "2022 - acum",
+          title: "Babadogan Tech and Edu - Co-fondator și director general",
+          desc: "Dezvoltare de companie și produs, decizii tehnice și operațiuni."
+        },
+        exp2: {
+          time: "2013 - 2022",
+          title: "Inginer software independent",
+          desc: "Inginerie software .NET, cercetare și dezvoltare de aplicații."
+        },
+        exp3: {
+          time: "2018 - 2021",
+          title: "Universitatea Anadolu - Design web și codare",
+          desc: "Studii de licență asociată (învățământ la distanță)."
+        },
+        exp4: {
+          time: "2014 - 2016 · 2009 - 2013 · 1997 - 2009",
+          title: "Universitatea Hacettepe, Universitatea Çankaya și Școlile Private Bilim",
+          desc: "Master în inginerie software la Hacettepe; licență în inginerie informatică la Çankaya; școala primară, gimnazială și liceul la Bilim Private Schools."
+        },
+        contact: {
+          title: "Contact și linkuri",
+          desc: "Berk Babadoğan - Ankara, Turcia. Mai jos sunt linkurile oficiale și identificatorii.",
+          emailLabel: "Site web",
+          websiteValue: "berk.babadogan.net",
+          emailCopied: "Copiat",
+          linkedinLabel: "LinkedIn",
+          linkedinValue: "in/berkbabadogan",
+          githubLabel: "GitHub",
+          githubValue: "berkbb"
+        },
+        summary: {
+          title: "Rezumat rapid",
+          desc: "Un profil axat pe inginerie software, dezvoltare de produs, cercetare și aplicații multi-platformă.",
+          card1: {
+            title: "ORCID",
+            desc: "0000-0002-8840-3992"
+          },
+          card2: {
+            title: "EU F&T Expert ID",
+            desc: "EX2023D833118"
+          }
+        },
+        footer: {
+          left: "© 2026 Berk Babadoğan",
+          right: "Un portofoliu de inginerie software și dezvoltare de produs"
+        }
+      }
+    };
 
-    if (copyEmail) {
-      copyEmail.addEventListener('click', async (event) => {
+    const i18nNodes = document.querySelectorAll('[data-i18n]');
+    const attrNodes = document.querySelectorAll('[data-i18n-attr]');
+    const langButtons = document.querySelectorAll('[data-lang]');
+    const themeButtons = document.querySelectorAll('[data-theme]');
+    const copyLink = document.querySelector('.contact-link[href]');
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const ogLocale = document.querySelector('meta[property="og:locale"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    const pageTitle = document.querySelector('title');
+    const translationsByLang = translations;
+    const defaultLang = 'tr';
+    const savedLang = window.localStorage.getItem('portfolio-lang');
+    const savedTheme = window.localStorage.getItem('portfolio-theme');
+    const themeMql = window.matchMedia('(prefers-color-scheme: dark)');
+    const supportedLangs = new Set(['tr', 'en', 'ro']);
+    const supportedThemes = new Set(['dark', 'light', 'auto']);
+    const initialLang = supportedLangs.has(savedLang) ? savedLang : defaultLang;
+    let currentTheme = supportedThemes.has(savedTheme) ? savedTheme : 'auto';
+    const githubRepos = [
+      { name: 'aptreceipt', desc: 'Generates apartment income / expense receipt with given data. After that , you can export receipt as an image.', lang: 'Swift', url: 'https://github.com/berkbb/aptreceipt' },
+      { name: 'berkbb', desc: 'Config files for my GitHub profile.', lang: '', url: 'https://github.com/berkbb/berkbb' },
+      { name: 'berkbb.github.io', desc: '', lang: 'HTML', url: 'https://github.com/berkbb/berkbb.github.io' },
+      { name: 'colorlogger_net', desc: 'Color logger class for .NET.', lang: 'C#', url: 'https://github.com/berkbb/colorlogger_net' },
+      { name: 'dart_encrypter', desc: 'Encrypt / Decrypt the String with given Key and IV. It includes built-in password generator also. It uses colored box for outputs if you want.', lang: 'Dart', url: 'https://github.com/berkbb/dart_encrypter' },
+      { name: 'devmatebb', desc: 'A custom VS Code theme by BB.', lang: '', url: 'https://github.com/berkbb/devmatebb' },
+      { name: 'devorabb', desc: 'A custom VS Code theme by BB.', lang: '', url: 'https://github.com/berkbb/devorabb' },
+      { name: 'encrypter_net', desc: 'Encrypt / Decrypt the String with given Key and IV. It includes built-in password generator also. It uses colored box for outputs if you want.  Resources', lang: 'C#', url: 'https://github.com/berkbb/encrypter_net' },
+      { name: 'isbn_searcher', desc: 'Searches ISBN metadata with given local JSON via API supplied by Google.', lang: 'Dart', url: 'https://github.com/berkbb/isbn_searcher' },
+      { name: 'isbn_searcher_net', desc: 'Searches ISBN metadata with given local JSON via API supplied by Google.', lang: 'C#', url: 'https://github.com/berkbb/isbn_searcher_net' },
+      { name: 'logbox_color', desc: '', lang: 'Dart', url: 'https://github.com/berkbb/logbox_color' },
+      { name: 'tcid_checker', desc: 'TC ID Checker for Dart and Flutter', lang: 'Dart', url: 'https://github.com/berkbb/tcid_checker' },
+      { name: 'tcid_checker_net', desc: 'Determines that given TC ID is correct or wrong based on rules fot .NET.', lang: 'C#', url: 'https://github.com/berkbb/tcid_checker_net' }
+    ];
+
+    function getValue(source, path) {
+      return path.split('.').reduce((value, key) => (value && value[key] !== undefined ? value[key] : undefined), source);
+    }
+
+    function resolveTheme(mode) {
+      if (mode === 'auto') {
+        return themeMql.matches ? 'dark' : 'light';
+      }
+      return mode;
+    }
+
+    function applyTheme(mode) {
+      currentTheme = mode;
+      const resolvedTheme = resolveTheme(mode);
+      document.documentElement.setAttribute('data-theme', resolvedTheme);
+      document.documentElement.setAttribute('data-theme-mode', mode);
+
+      themeButtons.forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.theme === mode));
+      });
+
+      window.localStorage.setItem('portfolio-theme', mode);
+    }
+
+    function applyLanguage(lang) {
+      const pack = translationsByLang[lang] || translationsByLang[defaultLang];
+
+      document.documentElement.lang = lang;
+      if (pageTitle) pageTitle.textContent = pack.page.title;
+      if (metaDescription) metaDescription.setAttribute('content', pack.page.description);
+      if (ogTitle) ogTitle.setAttribute('content', pack.page.title);
+      if (ogDescription) ogDescription.setAttribute('content', pack.page.description);
+      if (ogLocale) ogLocale.setAttribute('content', pack.page.locale);
+      if (twitterTitle) twitterTitle.setAttribute('content', pack.page.title);
+      if (twitterDescription) twitterDescription.setAttribute('content', pack.page.description);
+
+      i18nNodes.forEach((node) => {
+        const value = getValue(pack, node.dataset.i18n);
+        if (typeof value === 'string') node.textContent = value;
+      });
+
+      attrNodes.forEach((node) => {
+        const attrs = node.dataset.i18nAttr.split('|');
+        attrs.forEach((pair) => {
+          const [attr, path] = pair.split(':');
+          const value = getValue(pack, path);
+          if (attr && typeof value === 'string') node.setAttribute(attr, value);
+        });
+      });
+
+      langButtons.forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
+      });
+
+      window.localStorage.setItem('portfolio-lang', lang);
+    }
+
+    langButtons.forEach((button) => {
+      button.addEventListener('click', () => applyLanguage(button.dataset.lang));
+    });
+
+    themeButtons.forEach((button) => {
+      button.addEventListener('click', () => applyTheme(button.dataset.theme));
+    });
+
+    if (typeof themeMql.addEventListener === 'function') {
+      themeMql.addEventListener('change', () => {
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    } else if (typeof themeMql.addListener === 'function') {
+      themeMql.addListener(() => {
+        if (currentTheme === 'auto') {
+          applyTheme('auto');
+        }
+      });
+    }
+
+    applyTheme(currentTheme);
+    applyLanguage(initialLang);
+
+    if (copyLink) {
+      copyLink.addEventListener('click', async (event) => {
         event.preventDefault();
-        const email = copyEmail.getAttribute('href').replace('mailto:', '');
+        const value = copyLink.getAttribute('href');
+        const feedback = getValue(translationsByLang[document.documentElement.lang] || translationsByLang[defaultLang], 'contact.emailCopied') || 'Copied';
 
         try {
-          await navigator.clipboard.writeText(email);
-          const original = copyEmail.querySelector('span').textContent;
-          copyEmail.querySelector('span').textContent = 'Kopyalandı';
+          await navigator.clipboard.writeText(value);
+          const original = copyLink.querySelector('span').textContent;
+          copyLink.querySelector('span').textContent = feedback;
           window.setTimeout(() => {
-            copyEmail.querySelector('span').textContent = original;
+            copyLink.querySelector('span').textContent = original;
           }, 1500);
         } catch {
-          window.location.href = copyEmail.getAttribute('href');
+          window.open(value, '_blank', 'noopener,noreferrer');
         }
       });
     }
