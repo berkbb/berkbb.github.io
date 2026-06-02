@@ -2713,7 +2713,6 @@
     const attrNodes = document.querySelectorAll('[data-i18n-attr]');
     const langButtons = document.querySelectorAll('[data-lang]');
     const themeButtons = document.querySelectorAll('[data-theme]');
-    const copyLink = document.querySelector('.contact-link[href]');
     const metaDescription = document.querySelector('meta[name="description"]');
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDescription = document.querySelector('meta[property="og:description"]');
@@ -2929,25 +2928,6 @@
 
     applyTheme(currentTheme);
     applyLanguage(initialLang);
-
-    if (copyLink) {
-      copyLink.addEventListener('click', async (event) => {
-        event.preventDefault();
-        const value = copyLink.getAttribute('href');
-        const feedback = getValue(translationsByLang[document.documentElement.lang] || translationsByLang[defaultLang], 'contact.emailCopied') || 'Copied';
-
-        try {
-          await navigator.clipboard.writeText(value);
-          const original = copyLink.querySelector('span').textContent;
-          copyLink.querySelector('span').textContent = feedback;
-          window.setTimeout(() => {
-            copyLink.querySelector('span').textContent = original;
-          }, 1500);
-        } catch {
-          window.open(value, '_blank', 'noopener,noreferrer');
-        }
-      });
-    }
 
     // Ultimate HTML Scripts - Scroll Progress & Floating Nav Visibility
     window.addEventListener('scroll', () => {
