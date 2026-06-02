@@ -1079,9 +1079,164 @@
         align-items: flex-start;
       }
     }
+
+    /* Scroll Progress Bar */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 50%, var(--accent-3) 100%);
+      width: 0%;
+      z-index: 10000;
+      transition: width 100ms ease-out;
+    }
+
+    /* Background Canvas */
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+      transition: opacity 300ms ease;
+    }
+
+    /* Command Palette Dialog Styles */
+    .cmd-palette {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      max-width: 580px;
+      width: calc(100% - 32px);
+      border-radius: 20px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+      position: fixed;
+      top: 15%;
+      margin: 0 auto;
+      z-index: 10000;
+      outline: none;
+    }
+
+    .cmd-palette::backdrop {
+      background: rgba(4, 9, 19, 0.68);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .cmd-panel {
+      background: var(--card-strong);
+      border: 1px solid var(--line);
+      border-top: 1px solid var(--card-border-top);
+      border-radius: inherit;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cmd-header {
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--line);
+      gap: 12px;
+    }
+
+    .cmd-header .material-symbols-outlined {
+      color: var(--soft);
+      font-size: 1.5rem;
+    }
+
+    .cmd-header input {
+      flex: 1;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: 1.05rem;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .cmd-header kbd {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--soft);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-family: monospace;
+    }
+
+    html[data-theme="light"] .cmd-header kbd {
+      background: rgba(15, 23, 42, 0.05);
+      border-color: rgba(15, 23, 42, 0.08);
+      color: var(--muted);
+    }
+
+    .cmd-list {
+      max-height: 330px;
+      overflow-y: auto;
+      padding: 12px;
+    }
+
+    .cmd-group-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--soft);
+      padding: 8px 12px 4px;
+    }
+
+    .cmd-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      color: var(--text);
+      transition: background 150ms ease, color 150ms ease;
+      font-size: 0.94rem;
+    }
+
+    .cmd-item-content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cmd-item-content .material-symbols-outlined {
+      color: var(--soft);
+      font-size: 1.25rem;
+    }
+
+    .cmd-item:hover,
+    .cmd-item.active {
+      background: rgba(125, 211, 252, 0.08);
+      color: var(--accent);
+    }
+
+    .cmd-item:hover .material-symbols-outlined,
+    .cmd-item.active .material-symbols-outlined {
+      color: var(--accent);
+    }
+
+    .cmd-item kbd {
+      font-size: 0.7rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--soft);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
   </style>
 </head>
 <body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="scroll-progress" id="scroll-bar"></div>
   <div class="page">
     <header class="topbar">
       <a class="brand" href="#top" data-i18n-attr="aria-label:brand.home" aria-label="Ana sayfa">
@@ -1778,6 +1933,24 @@
           logbox_color: "Terminal üzerinde farklı günlük tiplerini (Verbose, Info, Debug, Uyarı, Hata vb.) renkli kutular içinde yazdırır.",
           tcid_checker: "Dart ve Flutter için TC Kimlik Numarası doğrulayıcı.",
           tcid_checker_net: ".NET için kurallara dayanarak verilen TC Kimlik Numarasının doğru veya yanlış olduğunu doğrular."
+        },
+        cmd: {
+          searchPlaceholder: "Komut arayın...",
+          secNavigate: "Navigasyon",
+          secLang: "Dil Değiştir",
+          secActions: "Hızlı Eylemler",
+          navProjects: "Projeler'e Git",
+          navSkills: "Yetenekler'e Git",
+          navExperience: "Deneyim'e Git",
+          navContact: "İletişim'e Git",
+          langTr: "Türkçe Yap (TR)",
+          langEn: "İngilizce Yap (EN)",
+          langRo: "Rumence Yap (RO)",
+          actTheme: "Temayı Değiştir (Koyu/Açık)",
+          actOrcid: "ORCID Numarasını Kopyala",
+          actExpert: "EU Expert ID Kopyala",
+          actLinkedin: "LinkedIn Adresini Kopyala",
+          copied: "Kopyalandı!"
         }
       },
       en: {
@@ -2009,6 +2182,24 @@
           logbox_color: "Prints different log types (Verbose, Info, Debug, Warning, Error, etc.) in colored boxes on the terminal.",
           tcid_checker: "TC ID Checker for Dart and Flutter.",
           tcid_checker_net: "Determines that given TC ID is correct or wrong based on rules for .NET."
+        },
+        cmd: {
+          searchPlaceholder: "Search commands...",
+          secNavigate: "Navigation",
+          secLang: "Switch Language",
+          secActions: "Quick Actions",
+          navProjects: "Go to Projects",
+          navSkills: "Go to Skills",
+          navExperience: "Go to Experience",
+          navContact: "Go to Contact",
+          langTr: "Switch to Turkish (TR)",
+          langEn: "Switch to English (EN)",
+          langRo: "Switch to Romanian (RO)",
+          actTheme: "Toggle Theme (Dark/Light)",
+          actOrcid: "Copy ORCID Identifier",
+          actExpert: "Copy EU Expert ID",
+          actLinkedin: "Copy LinkedIn URL",
+          copied: "Copied!"
         }
       },
       ro: {
@@ -2240,6 +2431,24 @@
           logbox_color: "Afișează diferite tipuri de loguri (Verbose, Info, Debug, Warning, Error etc.) în casete colorate în terminal.",
           tcid_checker: "Verificator de CNP turcesc (TC ID) pentru Dart și Flutter.",
           tcid_checker_net: "Determină dacă un CNP turcesc (TC ID) dat este corect sau greșit pe baza regulilor, pentru .NET."
+        },
+        cmd: {
+          searchPlaceholder: "Caută comenzi...",
+          secNavigate: "Navigare",
+          secLang: "Schimbă Limba",
+          secActions: "Acțiuni Rapide",
+          navProjects: "Mergi la Proiecte",
+          navSkills: "Mergi la Abilități",
+          navExperience: "Mergi la Experiență",
+          navContact: "Mergi la Contact",
+          langTr: "Schimbă în Turcă (TR)",
+          langEn: "Schimbă în Engleză (EN)",
+          langRo: "Schimbă în Română (RO)",
+          actTheme: "Comută Tema (Întunecat/Deschis)",
+          actOrcid: "Copiază identificatorul ORCID",
+          actExpert: "Copiază ID Expert UE",
+          actLinkedin: "Copiază URL LinkedIn",
+          copied: "Copiat!"
         }
       }
     };
@@ -2344,6 +2553,60 @@
       }).join('');
     }
 
+    class TextScramble {
+      constructor(el) {
+        this.el = el;
+        this.chars = '!<>-_\\/[]{}—=+*^?#________';
+        this.update = this.update.bind(this);
+      }
+      setText(newText) {
+        const oldText = this.el.innerText;
+        const length = Math.max(oldText.length, newText.length);
+        const promise = new Promise((resolve) => this.resolve = resolve);
+        this.queue = [];
+        for (let i = 0; i < length; i++) {
+          const from = oldText[i] || '';
+          const to = newText[i] || '';
+          const start = Math.floor(Math.random() * 20);
+          const end = start + Math.floor(Math.random() * 20);
+          this.queue.push({ from, to, start, end });
+        }
+        cancelAnimationFrame(this.frameId);
+        this.frame = 0;
+        this.update();
+        return promise;
+      }
+      update() {
+        let output = '';
+        let complete = 0;
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+          let { from, to, start, end, char } = this.queue[i];
+          if (this.frame >= end) {
+            complete++;
+            output += to;
+          } else if (this.frame >= start) {
+            if (!char || Math.random() < 0.28) {
+              char = this.randomChar();
+              this.queue[i].char = char;
+            }
+            output += `<span style="color: var(--accent);">${char}</span>`;
+          } else {
+            output += from;
+          }
+        }
+        this.el.innerHTML = output;
+        if (complete === this.queue.length) {
+          this.resolve();
+        } else {
+          this.frameId = requestAnimationFrame(this.update);
+          this.frame++;
+        }
+      }
+      randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
+      }
+    }
+
     function applyLanguage(lang) {
       const pack = translationsByLang[lang] || translationsByLang[defaultLang];
 
@@ -2358,7 +2621,14 @@
 
       i18nNodes.forEach((node) => {
         const value = getValue(pack, node.dataset.i18n);
-        if (typeof value === 'string') node.textContent = value;
+        if (typeof value === 'string') {
+          if (node.tagName.match(/H[1-3]/) || node.classList.contains('scramble')) {
+            const fx = new TextScramble(node);
+            fx.setText(value);
+          } else {
+            node.textContent = value;
+          }
+        }
       });
 
       attrNodes.forEach((node) => {
@@ -2376,6 +2646,7 @@
 
       window.localStorage.setItem('portfolio-lang', lang);
       renderRepos(lang);
+      window.dispatchEvent(new Event('languagechange'));
     }
 
     langButtons.forEach((button) => {
@@ -2421,6 +2692,280 @@
         }
       });
     }
+
+    // Ultimate HTML Scripts - Scroll Progress
+    window.addEventListener('scroll', () => {
+      const scrollBar = document.getElementById('scroll-bar');
+      if (!scrollBar) return;
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      scrollBar.style.width = scrolled + '%';
+    });
+
+    // Background Particles Canvas
+    (function initCanvas() {
+      const canvas = document.getElementById('bg-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+      let mouse = { x: null, y: null, radius: 150 };
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      window.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = (Math.random() - 0.5) * 0.4;
+          this.radius = Math.random() * 2 + 1;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+
+          if (mouse.x !== null && mouse.y !== null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.radius) {
+              const force = (mouse.radius - dist) / mouse.radius;
+              this.x -= dx * force * 0.03;
+              this.y -= dy * force * 0.03;
+            }
+          }
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'light' 
+            ? 'rgba(15, 23, 42, 0.15)' 
+            : 'rgba(125, 211, 252, 0.25)';
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        particles = [];
+        const count = Math.min(60, Math.floor((width * height) / 22000));
+        for (let i = 0; i < count; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach((p) => {
+          p.update();
+          p.draw();
+        });
+
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        const strokeColor = isLight ? 'rgba(15, 23, 42, 0.04)' : 'rgba(167, 139, 250, 0.08)';
+        
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 110) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = strokeColor;
+              ctx.lineWidth = (110 - dist) / 110 * 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+
+      init();
+      animate();
+      window.addEventListener('resize', init);
+    })();
+
+    // Cmd+K Command Palette
+    (function initCommandPalette() {
+      const palette = document.getElementById('cmd-palette');
+      const searchInput = document.getElementById('cmd-search');
+      const listContainer = document.getElementById('cmd-list');
+      let activeIndex = 0;
+      let filteredItems = [];
+
+      window.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault();
+          if (palette.open) {
+            palette.close();
+          } else {
+            palette.showModal();
+            searchInput.focus();
+            renderPalette();
+          }
+        }
+      });
+
+      searchInput.addEventListener('input', () => {
+        renderPalette();
+      });
+
+      function getCommands() {
+        const lang = document.documentElement.lang || 'tr';
+        const pack = translationsByLang[lang] || translationsByLang[defaultLang];
+        const cmdPack = pack.cmd || translationsByLang['tr'].cmd;
+
+        return [
+          { group: cmdPack.secNavigate, label: cmdPack.navProjects, icon: 'folder', action: () => scrollToSection('projeler') },
+          { group: cmdPack.secNavigate, label: cmdPack.navSkills, icon: 'code', action: () => scrollToSection('yetenekler') },
+          { group: cmdPack.secNavigate, label: cmdPack.navExperience, icon: 'work', action: () => scrollToSection('deneyim') },
+          { group: cmdPack.secNavigate, label: cmdPack.navContact, icon: 'mail', action: () => scrollToSection('iletisim') },
+          { group: cmdPack.secActions, label: cmdPack.actTheme, icon: 'dark_mode', action: () => {
+              applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+            }
+          },
+          { group: cmdPack.secLang, label: cmdPack.langTr, icon: 'language', action: () => applyLanguage('tr') },
+          { group: cmdPack.secLang, label: cmdPack.langEn, icon: 'language', action: () => applyLanguage('en') },
+          { group: cmdPack.secLang, label: cmdPack.langRo, icon: 'language', action: () => applyLanguage('ro') },
+          { group: cmdPack.secActions, label: cmdPack.actOrcid, icon: 'content_copy', action: () => copyText('0000-0002-8840-3992', cmdPack.copied) },
+          { group: cmdPack.secActions, label: cmdPack.actExpert, icon: 'content_copy', action: () => copyText('EX2023D833118', cmdPack.copied) },
+          { group: cmdPack.secActions, label: cmdPack.actLinkedin, icon: 'content_copy', action: () => copyText('https://www.linkedin.com/in/berkbabadogan/', cmdPack.copied) }
+        ];
+      }
+
+      function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (el) {
+          palette.close();
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+
+      function copyText(text, successMsg) {
+        navigator.clipboard.writeText(text).then(() => {
+          palette.close();
+          alert(successMsg);
+        });
+      }
+
+      function renderPalette() {
+        const query = searchInput.value.toLowerCase();
+        const commands = getCommands();
+        
+        filteredItems = commands.filter(item => 
+          item.label.toLowerCase().includes(query) || 
+          item.group.toLowerCase().includes(query)
+        );
+
+        if (filteredItems.length === 0) {
+          listContainer.innerHTML = `<div style="padding: 16px; text-align: center; color: var(--soft);">No results found.</div>`;
+          return;
+        }
+
+        activeIndex = Math.max(0, Math.min(activeIndex, filteredItems.length - 1));
+
+        let html = '';
+        let currentGroup = '';
+
+        filteredItems.forEach((item, index) => {
+          if (item.group !== currentGroup) {
+            currentGroup = item.group;
+            html += `<div class="cmd-group-title">${currentGroup}</div>`;
+          }
+          const isActive = index === activeIndex ? 'active' : '';
+          html += `
+            <div class="cmd-item ${isActive}" data-index="${index}">
+              <div class="cmd-item-content">
+                <span class="material-symbols-outlined">${item.icon}</span>
+                <span>${item.label}</span>
+              </div>
+              ${index === activeIndex ? '<kbd>Enter</kbd>' : ''}
+            </div>
+          `;
+        });
+
+        listContainer.innerHTML = html;
+
+        listContainer.querySelectorAll('.cmd-item').forEach(el => {
+          el.addEventListener('click', () => {
+            const index = parseInt(el.dataset.index);
+            filteredItems[index].action();
+          });
+        });
+      }
+
+      palette.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          activeIndex = (activeIndex + 1) % filteredItems.length;
+          renderPalette();
+          scrollToActive();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          activeIndex = (activeIndex - 1 + filteredItems.length) % filteredItems.length;
+          renderPalette();
+          scrollToActive();
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (filteredItems[activeIndex]) {
+            filteredItems[activeIndex].action();
+          }
+        }
+      });
+
+      function scrollToActive() {
+        const activeEl = listContainer.querySelector('.cmd-item.active');
+        if (activeEl) {
+          activeEl.scrollIntoView({ block: 'nearest' });
+        }
+      }
+
+      window.addEventListener('languagechange', () => {
+        if (palette.open) renderPalette();
+      });
+    })();
+
+    // Scramble effect trigger on load
+    setTimeout(() => {
+      const heroTitle = document.querySelector('h1');
+      if (heroTitle) {
+        const fx = new TextScramble(heroTitle);
+        fx.setText(heroTitle.textContent);
+      }
+    }, 400);
   </script>
+
+  <dialog id="cmd-palette" class="cmd-palette">
+    <div class="cmd-panel">
+      <div class="cmd-header">
+        <span class="material-symbols-outlined">search</span>
+        <input type="text" id="cmd-search" placeholder="Bir komut arayın..." autocomplete="off">
+        <kbd>ESC</kbd>
+      </div>
+      <div class="cmd-list" id="cmd-list"></div>
+    </div>
+  </dialog>
 </body>
 </html>
