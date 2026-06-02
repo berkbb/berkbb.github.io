@@ -1,0 +1,32 @@
+# Berk Babadoğan
+
+Berk Babadoğan is a professional Software Engineer and Computer Engineer specializing in cross-platform application development, software architecture, and developer tooling.
+
+## Key Information
+- **Title**: Software Engineer / Computer Engineer
+- **Company**: Babadogan Tech and Edu (Ankara University Technopolis)
+- **Location**: Ankara, Turkey
+- **Education**: Master's in Computer Engineering (Hacettepe University), Bachelor's in Computer Engineering (Çankaya University)
+- **Languages**: Turkish (Native), English (Fluent), Romanian (B1 Certified)
+- **Certificates**: ILR B1 Certificate in Romanian Language (February 2026)
+
+## Contact & Links
+- **GitHub**: [github.com/berkbb](https://github.com/berkbb)
+- **LinkedIn**: [linkedin.com/in/berkbabadogan](https://www.linkedin.com/in/berkbabadogan/)
+- **Personal Site**: [berk.babadogan.net](https://berk.babadogan.net)
+- **ORCID**: 0000-0002-8840-3992
+- **EU F&T Expert ID**: EX2023D833118
+
+## Technical Stack
+- **Languages**: C#, Dart, Swift, Java, HTML/CSS/JS
+- **Frameworks & Platforms**: WinUI, .NET MAUI, Flutter, iOS, macOS, iPadOS, Android, Microsoft .NET
+- **Cloud/Databases**: Azure, Firebase
+
+## Featured Projects & Repositories
+- **aptreceipt**: Swift application to generate apartment income/expense receipts as images.
+- **dart_encrypter** & **encrypter_net**: Encryption/decryption libraries in Dart/Flutter and .NET.
+- **logbox_color**: Colored terminal log formatter package for Verbose, Info, Debug, Warning, and Error logs.
+- **tcid_checker** & **tcid_checker_net**: Turkish National Identity Number verification libraries for Dart/Flutter and .NET.
+- **isbn_searcher** & **isbn_searcher_net**: Google API-based ISBN metadata search tools.
+- **colorlogger_net**: Color logger class for .NET.
+- **devmatebb** & **devorabb**: Custom-designed VS Code themes.
