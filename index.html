@@ -41,6 +41,8 @@
       --grid-line: rgba(255, 255, 255, 0.03);
       --topbar-bg: rgba(8, 17, 31, 0.72);
       --topbar-border: rgba(255, 255, 255, 0.06);
+      --card-border-top: rgba(255, 255, 255, 0.16);
+      --card-bevel: rgba(255, 255, 255, 0.08);
       --radius-xl: 32px;
       --radius-lg: 24px;
       --radius-md: 18px;
@@ -96,6 +98,8 @@
       --grid-line: rgba(15, 23, 42, 0.04);
       --topbar-bg: rgba(248, 250, 252, 0.75);
       --topbar-border: rgba(15, 23, 42, 0.05);
+      --card-border-top: rgba(15, 23, 42, 0.14);
+      --card-bevel: rgba(255, 255, 255, 0.65);
       
       --card-blend: rgba(255, 255, 255, 0.95);
       --stat-bg: rgba(255, 255, 255, 0.8);
@@ -327,8 +331,10 @@
     .timeline-item {
       background: var(--card);
       border: 1px solid var(--line);
-      box-shadow: var(--shadow);
+      border-top: 1px solid var(--card-border-top);
+      box-shadow: var(--shadow), inset 0 1px 1px var(--card-bevel);
       backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
 
     .hero-main {
@@ -665,7 +671,9 @@
 
     .project h4 {
       margin: 12px 0 10px;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
     .project p {
@@ -683,12 +691,56 @@
     }
 
     .tag {
-      padding: 8px 12px;
+      padding: 6px 12px;
       border-radius: 999px;
       background: var(--tag-bg);
       border: 1px solid var(--tag-border);
       color: var(--text);
       font-size: 0.82rem;
+      font-weight: 500;
+      transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+    }
+
+    #projeler .project:nth-child(1) .tag {
+      background: rgba(125, 211, 252, 0.05);
+      border: 1px solid rgba(125, 211, 252, 0.12);
+      color: var(--accent);
+    }
+    #projeler .project:nth-child(2) .tag {
+      background: rgba(167, 139, 250, 0.05);
+      border: 1px solid rgba(167, 139, 250, 0.12);
+      color: var(--accent-2);
+    }
+    #projeler .project:nth-child(3) .tag {
+      background: rgba(52, 211, 153, 0.05);
+      border: 1px solid rgba(52, 211, 153, 0.12);
+      color: var(--accent-3);
+    }
+    #projeler .project:nth-child(4) .tag {
+      background: rgba(251, 191, 36, 0.05);
+      border: 1px solid rgba(251, 191, 36, 0.12);
+      color: #fbbf24;
+    }
+
+    html[data-theme="light"] #projeler .project:nth-child(1) .tag {
+      background: rgba(2, 132, 199, 0.06);
+      border-color: rgba(2, 132, 199, 0.14);
+      color: #0284c7;
+    }
+    html[data-theme="light"] #projeler .project:nth-child(2) .tag {
+      background: rgba(124, 58, 237, 0.06);
+      border-color: rgba(124, 58, 237, 0.14);
+      color: #7c3aed;
+    }
+    html[data-theme="light"] #projeler .project:nth-child(3) .tag {
+      background: rgba(5, 150, 105, 0.06);
+      border-color: rgba(5, 150, 105, 0.14);
+      color: #059669;
+    }
+    html[data-theme="light"] #projeler .project:nth-child(4) .tag {
+      background: rgba(217, 119, 6, 0.06);
+      border-color: rgba(217, 119, 6, 0.14);
+      color: #b45309;
     }
 
     .project .meta {
@@ -2253,6 +2305,16 @@
       window.localStorage.setItem('portfolio-theme', mode);
     }
 
+    function getLangColor(lang) {
+      const colors = {
+        'C#': '#854cc7',
+        'Swift': '#f05138',
+        'Dart': '#00b4e0',
+        'HTML': '#e34c26'
+      };
+      return colors[lang] || '#7dd3fc';
+    }
+
     function renderRepos(lang) {
       const grid = document.getElementById('repo-grid');
       if (!grid) return;
@@ -2264,11 +2326,13 @@
       grid.innerHTML = githubRepos.map((repo, index) => {
         const description = (pack.repos && pack.repos[repo.name]) || repo.desc || (lang === 'tr' ? 'Açıklama bulunmuyor.' : lang === 'ro' ? 'Nicio descriere disponibilă.' : 'No description available.');
         const badge = repo.lang || repoFallback;
+        const dotColor = getLangColor(repo.lang);
+        const dotStyle = `background: ${dotColor}; box-shadow: 0 0 12px ${dotColor};`;
         
         return `
           <article class="project reveal" style="animation-delay: ${index * 40}ms;">
             <div>
-              <span class="meta"><span class="meta-dot"></span> ${badge}</span>
+              <span class="meta"><span class="meta-dot" style="${dotStyle}"></span> ${badge}</span>
               <h4>${repo.name}</h4>
               <p>${description}</p>
             </div>
