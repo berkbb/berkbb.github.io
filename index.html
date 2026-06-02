@@ -626,12 +626,6 @@
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 16px;
-      transition: opacity 200ms ease, transform 200ms ease;
-    }
-
-    .project-grid.filtering {
-      opacity: 0;
-      transform: scale(0.98);
     }
 
     .project {
@@ -1272,93 +1266,7 @@
       font-family: monospace;
     }
 
-    /* Repo Filter Pills Styles */
-    .repo-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 24px;
-    }
 
-    .filter-btn {
-      appearance: none;
-      border: 1px solid var(--line);
-      background: var(--pill-bg);
-      color: var(--soft);
-      font: inherit;
-      font-size: 0.88rem;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .filter-btn:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--text);
-      transform: translateY(-1px);
-    }
-
-    html[data-theme="light"] .filter-btn:hover {
-      background: rgba(15, 23, 42, 0.06);
-    }
-
-    .filter-btn.active {
-      background: linear-gradient(135deg, #c4f1ff 0%, #8bd3ff 35%, #c4b5fd 100%);
-      color: #06101c;
-      border-color: transparent;
-      box-shadow: 0 10px 24px rgba(125, 211, 252, 0.16);
-    }
-
-    .filter-btn:active {
-      transform: scale(0.95);
-    }
-
-    /* Network Status Indicator Styles */
-    .network-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--pill-border);
-      background: var(--pill-bg);
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--soft);
-      transition: all 300ms ease;
-    }
-
-    @keyframes net-pulse {
-      0% {
-        transform: scale(0.9);
-        opacity: 0.6;
-      }
-      50% {
-        transform: scale(1.1);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(0.9);
-        opacity: 0.6;
-      }
-    }
-
-    .net-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent-3);
-      box-shadow: 0 0 10px var(--accent-3);
-      transition: background 300ms ease, box-shadow 300ms ease;
-      animation: net-pulse 2s infinite ease-in-out;
-    }
-
-    .network-status.offline .net-dot {
-      background: #f59e0b;
-      box-shadow: 0 0 10px #f59e0b;
-    }
 
     /* Recruiter Print Media Layout */
     @media print {
@@ -1376,8 +1284,6 @@
       .floating-pill,
       .tags,
       #repo-grid,
-      .repo-filters,
-      .network-status,
       .section-head p,
       footer {
         display: none !important;
@@ -1491,10 +1397,7 @@
         <button type="button" data-lang="ro" aria-pressed="false">RO</button>
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
       </nav>
-      <div class="network-status" id="net-status">
-        <span class="net-dot"></span>
-        <span class="net-text">Online</span>
-      </div>
+
       <nav class="theme-switcher" data-i18n-attr="aria-label:theme.switcher" aria-label="Theme selector">
         <button type="button" data-theme="auto" aria-pressed="true" data-i18n-attr="aria-label:theme.auto|title:theme.auto" aria-label="Auto">
           <span class="material-symbols-outlined">hdr_auto</span>
@@ -1666,13 +1569,7 @@
           </p>
         </div>
 
-        <div class="repo-filters reveal delay-1" id="repo-filters">
-          <button type="button" class="filter-btn active" data-filter="all" data-i18n="github.filter.all">Hepsi</button>
-          <button type="button" class="filter-btn" data-filter="C#" data-i18n="github.filter.csharp">C#</button>
-          <button type="button" class="filter-btn" data-filter="Dart" data-i18n="github.filter.dart">Dart</button>
-          <button type="button" class="filter-btn" data-filter="Swift" data-i18n="github.filter.swift">Swift</button>
-          <button type="button" class="filter-btn" data-filter="HTML" data-i18n="github.filter.html">HTML</button>
-        </div>
+
 
         <div id="repo-grid" class="project-grid"></div>
       </section>
@@ -2086,14 +1983,7 @@
           allTitle: "Tüm Herkese Açık Repolar",
           allDesc: "GitHub’da görünen herkese açık tüm repolar: paket kütüphaneleri, site deposu ve tema çalışmaları.",
           repoFallback: "Repo",
-          viewBtn: "GitHub'da Gör",
-          filter: {
-            all: "Tümü",
-            csharp: "C#",
-            dart: "Dart",
-            swift: "Swift",
-            html: "HTML"
-          }
+          viewBtn: "GitHub'da Gör"
         },
         skill1: {
           title: "Platformlar",
@@ -2205,10 +2095,6 @@
           actExpert: "EU Expert ID Kopyala",
           actLinkedin: "LinkedIn Adresini Kopyala",
           copied: "Kopyalandı!"
-        },
-        net: {
-          online: "Çevrimiçi",
-          offline: "Çevrimdışı"
         }
       },
       en: {
@@ -2349,14 +2235,7 @@
           allTitle: "All Public Repos",
           allDesc: "Every public repository visible on GitHub, including package libraries, the site repo, and theme work.",
           repoFallback: "Repository",
-          viewBtn: "View on GitHub",
-          filter: {
-            all: "All",
-            csharp: "C#",
-            dart: "Dart",
-            swift: "Swift",
-            html: "HTML"
-          }
+          viewBtn: "View on GitHub"
         },
         skill1: {
           title: "Platforms",
@@ -2465,10 +2344,6 @@
           actExpert: "Copy EU Expert ID",
           actLinkedin: "Copy LinkedIn URL",
           copied: "Copied!"
-        },
-        net: {
-          online: "Online",
-          offline: "Offline"
         }
       },
       ro: {
@@ -2609,14 +2484,7 @@
           allTitle: "Toate repository-urile publice",
           allDesc: "Fiecare repository public vizibil pe GitHub, inclusiv biblioteci de pachete, repo-ul site-ului și lucrările de temă.",
           repoFallback: "Repository",
-          viewBtn: "Vezi pe GitHub",
-          filter: {
-            all: "Toate",
-            csharp: "C#",
-            dart: "Dart",
-            swift: "Swift",
-            html: "HTML"
-          }
+          viewBtn: "Vezi pe GitHub"
         },
         skill1: {
           title: "Platforme",
@@ -2725,10 +2593,6 @@
           actExpert: "Copiază ID Expert UE",
           actLinkedin: "Copiază URL LinkedIn",
           copied: "Copiat!"
-        },
-        net: {
-          online: "Conectat",
-          offline: "Deconectat"
         }
       }
     };
@@ -2812,11 +2676,7 @@
       const btnText = (pack.github && pack.github.viewBtn) || "GitHub'da Gör";
       const repoFallback = (pack.github && pack.github.repoFallback) || "Repository";
       
-      const filteredRepos = activeRepoFilter === 'all' 
-        ? githubRepos 
-        : githubRepos.filter(repo => repo.lang === activeRepoFilter);
-
-      grid.innerHTML = filteredRepos.map((repo, index) => {
+      grid.innerHTML = githubRepos.map((repo, index) => {
         const description = (pack.repos && pack.repos[repo.name]) || repo.desc || (lang === 'tr' ? 'Açıklama bulunmuyor.' : lang === 'ro' ? 'Nicio descriere disponibilă.' : 'No description available.');
         const badge = repo.lang || repoFallback;
         const dotColor = getLangColor(repo.lang);
@@ -3231,60 +3091,7 @@
       });
     })();
 
-    // Network status monitoring
-    (function initNetworkStatus() {
-      const netStatus = document.getElementById('net-status');
-      const netText = netStatus ? netStatus.querySelector('.net-text') : null;
 
-      function updateStatus() {
-        if (!netStatus || !netText) return;
-        const isOnline = navigator.onLine;
-        const lang = document.documentElement.lang || 'tr';
-        const pack = translationsByLang[lang] || translationsByLang[defaultLang];
-        
-        if (isOnline) {
-          netStatus.classList.remove('offline');
-          netText.textContent = (pack.net && pack.net.online) || 'Online';
-        } else {
-          netStatus.classList.add('offline');
-          netText.textContent = (pack.net && pack.net.offline) || 'Offline';
-        }
-      }
-
-      window.addEventListener('online', updateStatus);
-      window.addEventListener('offline', updateStatus);
-      window.addEventListener('languagechange', updateStatus);
-      updateStatus();
-    })();
-
-    // Repository Tag Filters
-    let activeRepoFilter = 'all';
-
-    (function initRepoFilters() {
-      const container = document.getElementById('repo-filters');
-      if (!container) return;
-      
-      container.addEventListener('click', (e) => {
-        const btn = e.target.closest('.filter-btn');
-        if (!btn) return;
-        
-        container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        activeRepoFilter = btn.dataset.filter;
-        
-        const grid = document.getElementById('repo-grid');
-        if (grid) {
-          grid.classList.add('filtering');
-          setTimeout(() => {
-            renderRepos(document.documentElement.lang || 'tr');
-            grid.classList.remove('filtering');
-          }, 200);
-        } else {
-          renderRepos(document.documentElement.lang || 'tr');
-        }
-      });
-    })();
 
     // Lightweight PWA Service Worker caching
     if ('serviceWorker' in navigator) {
