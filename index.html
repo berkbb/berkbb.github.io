@@ -1266,7 +1266,75 @@
       font-family: monospace;
     }
 
+    /* Scroll Navigation */
+    .scroll-nav {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: var(--topbar-bg);
+      border: 1px solid var(--topbar-border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 6px;
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      z-index: 999;
+      transform: translateY(16px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), opacity 300ms cubic-bezier(0.16, 1, 0.3, 1), background 300ms ease, border-color 300ms ease;
+    }
 
+    .scroll-nav.visible {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .scroll-nav-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+      padding: 0;
+      outline: none;
+    }
+
+    .scroll-nav-btn:hover,
+    .scroll-nav-btn:focus-visible {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      transform: scale(1.05);
+    }
+
+    .scroll-nav-btn:active {
+      transform: scale(0.95);
+    }
+
+    .scroll-nav-btn .material-symbols-outlined {
+      font-size: 22px;
+    }
+
+    @media (max-width: 720px) {
+      .scroll-nav {
+        bottom: 20px;
+        right: 20px;
+      }
+      .scroll-nav-btn {
+        width: 40px;
+        height: 40px;
+      }
+    }
 
     /* Recruiter Print Media Layout */
     @media print {
@@ -1280,6 +1348,7 @@
       .scroll-progress,
       .topbar,
       .cmd-palette,
+      .scroll-nav,
       .button,
       .floating-pill,
       .tags,
@@ -1857,10 +1926,19 @@
       </section>
     </main>
 
-    <footer class="footer-note">
+    <footer id="footer" class="footer-note">
       <p>2026 © <a href="https://babadogan.net">Babadogan Tech and Edu</a></p>
     </footer>
   </div>
+
+  <nav class="scroll-nav" id="scroll-nav" data-i18n-attr="aria-label:scroll.nav" aria-label="Sayfa gezintisi">
+    <a href="#top" class="scroll-nav-btn" id="scroll-to-top" data-i18n-attr="aria-label:scroll.toTop|title:scroll.toTop" aria-label="Yukarı Git" title="Yukarı Git">
+      <span class="material-symbols-outlined">arrow_upward</span>
+    </a>
+    <a href="#footer" class="scroll-nav-btn" id="scroll-to-bottom" data-i18n-attr="aria-label:scroll.toBottom|title:scroll.toBottom" aria-label="Aşağı Git" title="Aşağı Git">
+      <span class="material-symbols-outlined">arrow_downward</span>
+    </a>
+  </nav>
 
   <script>
     const translations = {
@@ -1886,6 +1964,11 @@
           auto: "Otomatik",
           dark: "Koyu",
           light: "Açık"
+        },
+        scroll: {
+          nav: "Sayfa gezintisi",
+          toTop: "Yukarı Git",
+          toBottom: "Aşağı Git"
         },
         hero: {
           badge: "Yazılım mühendisliği, ürün geliştirme ve çapraz platform uygulamaları",
@@ -2139,6 +2222,11 @@
           dark: "Dark",
           light: "Light"
         },
+        scroll: {
+          nav: "Page navigation",
+          toTop: "Scroll to Top",
+          toBottom: "Scroll to Bottom"
+        },
         hero: {
           badge: "Software engineering, product development, and cross-platform apps",
           title: "Hi, I'm Berk Babadoğan.",
@@ -2387,6 +2475,11 @@
           auto: "Automat",
           dark: "Întunecat",
           light: "Deschis"
+        },
+        scroll: {
+          nav: "Navigarea paginii",
+          toTop: "Mergi sus",
+          toBottom: "Mergi jos"
         },
         hero: {
           badge: "Inginerie software, dezvoltare de produs și aplicații multi-platformă",
@@ -2856,14 +2949,25 @@
       });
     }
 
-    // Ultimate HTML Scripts - Scroll Progress
+    // Ultimate HTML Scripts - Scroll Progress & Floating Nav Visibility
     window.addEventListener('scroll', () => {
       const scrollBar = document.getElementById('scroll-bar');
-      if (!scrollBar) return;
-      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-      scrollBar.style.width = scrolled + '%';
+      const winScroll = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
+
+      if (scrollBar) {
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+        scrollBar.style.width = scrolled + '%';
+      }
+
+      const scrollNav = document.getElementById('scroll-nav');
+      if (scrollNav) {
+        if (winScroll > 200) {
+          scrollNav.classList.add('visible');
+        } else {
+          scrollNav.classList.remove('visible');
+        }
+      }
     });
 
     // Background Particles Canvas

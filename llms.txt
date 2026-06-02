@@ -8,7 +8,7 @@ Berk Babadoğan is a professional Software Engineer and Computer Engineer specia
 - **Location**: Ankara, Turkey
 - **Education**: Master's in Computer Engineering (Hacettepe University), Bachelor's in Computer Engineering (Çankaya University)
 - **Languages**: Turkish (Native), English (Fluent), Romanian (B1 Certified)
-- **Certificates**: ILR B1 Certificate in Romanian Language (February 2026)
+
 
 ## Contact & Links
 - **GitHub**: [github.com/berkbb](https://github.com/berkbb)
