@@ -6,13 +6,17 @@
   <meta name="description" content="Berk Babadoğan için üç dilli kişisel portfolyo: yazılım mühendisliği, projeler, eğitim ve iletişim." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Berk Babadoğan" />
-  <meta property="og:title" content="Berk Babadoğan | Software Engineer" />
+  <meta property="og:title" content="Berk Babadoğan | Yazılım Mühendisi" />
   <meta property="og:description" content="Berk Babadoğan için üç dilli kişisel portfolyo: yazılım mühendisliği, projeler, eğitim ve iletişim." />
   <meta property="og:locale" content="tr_TR" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Berk Babadoğan | Software Engineer" />
+  <meta name="twitter:title" content="Berk Babadoğan | Yazılım Mühendisi" />
   <meta name="twitter:description" content="Berk Babadoğan için üç dilli kişisel portfolyo: yazılım mühendisliği, projeler, eğitim ve iletişim." />
-  <title>Berk Babadoğan | Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+  <title>Berk Babadoğan | Yazılım Mühendisi</title>
+  <link rel="icon" href="Memoji.webp" type="image/webp">
   <style>
     :root {
       --bg: #08111f;
@@ -32,34 +36,88 @@
       --page-bg-3: #050b15;
       --glow-1: rgba(125, 211, 252, 0.22);
       --glow-2: rgba(167, 139, 250, 0.16);
-      --glow-3: rgba(52, 211, 153, 0.11);
+      --glow-3: rgba(5, 211, 153, 0.11);
       --grid-line: rgba(255, 255, 255, 0.03);
       --radius-xl: 32px;
       --radius-lg: 24px;
       --radius-md: 18px;
       --max: 1160px;
+      
+      /* Theme adaptation tokens */
+      --card-blend: rgba(11, 21, 39, 0.92);
+      --stat-bg: rgba(8, 15, 30, 0.58);
+      --stat-border: rgba(255, 255, 255, 0.08);
+      --profile-bg-start: rgba(13, 26, 47, 0.95);
+      --profile-bg-end: rgba(8, 16, 31, 0.9);
+      --profile-border: rgba(255, 255, 255, 0.12);
+      --info-bg: rgba(255, 255, 255, 0.05);
+      --info-border: rgba(255, 255, 255, 0.08);
+      --contact-bg-start: rgba(13, 26, 47, 0.96);
+      --contact-bg-end: rgba(8, 16, 31, 0.95);
+      --contact-border: rgba(255, 255, 255, 0.11);
+      --contact-link-bg: rgba(255, 255, 255, 0.05);
+      --contact-link-border: rgba(255, 255, 255, 0.08);
+      --pill-bg: rgba(255, 255, 255, 0.05);
+      --pill-border: rgba(255, 255, 255, 0.1);
+      --pill-text: #dbeafe;
+      --eyebrow-bg: rgba(255, 255, 255, 0.04);
+      --eyebrow-border: rgba(255, 255, 255, 0.12);
+      --eyebrow-text: #d8e7ff;
+      --btn-sec-bg: rgba(255, 255, 255, 0.04);
+      --btn-sec-border: rgba(255, 255, 255, 0.14);
+      --tag-bg: rgba(255, 255, 255, 0.06);
+      --tag-border: rgba(255, 255, 255, 0.08);
+      --skill-bg: rgba(255, 255, 255, 0.05);
+      --skill-border: rgba(255, 255, 255, 0.08);
     }
 
     html[data-theme="light"] {
-      --bg: #f4f7fb;
-      --bg-alt: #e9eef7;
-      --card: rgba(255, 255, 255, 0.84);
-      --card-strong: rgba(255, 255, 255, 0.94);
-      --line: rgba(16, 24, 40, 0.1);
-      --text: #0b1220;
-      --muted: #42536d;
-      --soft: #627089;
-      --accent: #2563eb;
+      --bg: #f8fafc;
+      --bg-alt: #f1f5f9;
+      --card: rgba(255, 255, 255, 0.75);
+      --card-strong: rgba(255, 255, 255, 0.95);
+      --line: rgba(15, 23, 42, 0.08);
+      --text: #0f172a;
+      --muted: #475569;
+      --soft: #64748b;
+      --accent: #0284c7;
       --accent-2: #7c3aed;
       --accent-3: #059669;
-      --shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
-      --page-bg-1: #f7fbff;
-      --page-bg-2: #edf3fb;
-      --page-bg-3: #f4f7fb;
-      --glow-1: rgba(37, 99, 235, 0.12);
-      --glow-2: rgba(124, 58, 237, 0.1);
-      --glow-3: rgba(5, 150, 105, 0.08);
-      --grid-line: rgba(15, 23, 42, 0.05);
+      --shadow: 0 24px 60px rgba(15, 23, 42, 0.06);
+      --page-bg-1: #f8fafc;
+      --page-bg-2: #f1f5f9;
+      --page-bg-3: #e2e8f0;
+      --glow-1: rgba(2, 132, 199, 0.08);
+      --glow-2: rgba(124, 58, 237, 0.06);
+      --glow-3: rgba(5, 150, 105, 0.04);
+      --grid-line: rgba(15, 23, 42, 0.04);
+      
+      --card-blend: rgba(255, 255, 255, 0.95);
+      --stat-bg: rgba(255, 255, 255, 0.8);
+      --stat-border: rgba(15, 23, 42, 0.08);
+      --profile-bg-start: rgba(255, 255, 255, 0.9);
+      --profile-bg-end: rgba(240, 245, 255, 0.85);
+      --profile-border: rgba(15, 23, 42, 0.08);
+      --info-bg: rgba(255, 255, 255, 0.7);
+      --info-border: rgba(15, 23, 42, 0.06);
+      --contact-bg-start: rgba(255, 255, 255, 0.95);
+      --contact-bg-end: rgba(240, 245, 255, 0.9);
+      --contact-border: rgba(15, 23, 42, 0.08);
+      --contact-link-bg: rgba(255, 255, 255, 0.75);
+      --contact-link-border: rgba(15, 23, 42, 0.06);
+      --pill-bg: rgba(15, 23, 42, 0.04);
+      --pill-border: rgba(15, 23, 42, 0.08);
+      --pill-text: #0284c7;
+      --eyebrow-bg: rgba(15, 23, 42, 0.04);
+      --eyebrow-border: rgba(15, 23, 42, 0.08);
+      --eyebrow-text: #0284c7;
+      --btn-sec-bg: rgba(255, 255, 255, 0.8);
+      --btn-sec-border: rgba(15, 23, 42, 0.12);
+      --tag-bg: rgba(15, 23, 42, 0.04);
+      --tag-border: rgba(15, 23, 42, 0.08);
+      --skill-bg: rgba(255, 255, 255, 0.75);
+      --skill-border: rgba(15, 23, 42, 0.06);
+    }d-line: rgba(15, 23, 42, 0.05);
     }
 
     * {
@@ -73,7 +131,7 @@
     body {
       margin: 0;
       color: var(--text);
-      font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: "Noto Sans", "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
       background:
         radial-gradient(circle at top left, var(--glow-1), transparent 30%),
         radial-gradient(circle at top right, var(--glow-2), transparent 28%),
@@ -134,7 +192,7 @@
     .brand-mark {
       width: 42px;
       height: 42px;
-      border-radius: 14px;
+      border-radius: 50%;
       display: grid;
       place-items: center;
       background: linear-gradient(135deg, rgba(125, 211, 252, 0.22), rgba(167, 139, 250, 0.3));
@@ -187,8 +245,7 @@
       flex-wrap: wrap;
     }
 
-    .lang-switcher button,
-    .theme-switcher button {
+    .lang-switcher button {
       appearance: none;
       border: 0;
       background: transparent;
@@ -199,6 +256,27 @@
       padding: 10px 14px;
       cursor: pointer;
       transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .theme-switcher button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      cursor: pointer;
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .theme-switcher button .material-symbols-outlined {
+      font-size: 20px;
+      display: block;
     }
 
     .lang-switcher button:hover,
@@ -266,9 +344,9 @@
       width: fit-content;
       padding: 10px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.04);
-      color: #d8e7ff;
+      border: 1px solid var(--eyebrow-border);
+      background: var(--eyebrow-bg);
+      color: var(--eyebrow-text);
       font-size: 0.88rem;
       letter-spacing: 0.02em;
     }
@@ -330,8 +408,8 @@
 
     .button.secondary {
       color: var(--text);
-      border-color: rgba(255, 255, 255, 0.14);
-      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--btn-sec-border);
+      background: var(--btn-sec-bg);
     }
 
     .hero-stats {
@@ -343,8 +421,8 @@
     .stat {
       border-radius: 22px;
       padding: 18px 16px;
-      background: rgba(8, 15, 30, 0.58);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--stat-bg);
+      border: 1px solid var(--stat-border);
     }
 
     .stat strong {
@@ -377,8 +455,8 @@
       background:
         radial-gradient(circle at 20% 20%, rgba(125, 211, 252, 0.28), transparent 34%),
         radial-gradient(circle at 80% 0%, rgba(167, 139, 250, 0.3), transparent 30%),
-        linear-gradient(160deg, rgba(13, 26, 47, 0.95), rgba(8, 16, 31, 0.9));
-      border: 1px solid rgba(255, 255, 255, 0.12);
+        linear-gradient(160deg, var(--profile-bg-start), var(--profile-bg-end));
+      border: 1px solid var(--profile-border);
       position: relative;
       overflow: hidden;
     }
@@ -398,7 +476,7 @@
     .avatar {
       width: 84px;
       height: 84px;
-      border-radius: 24px;
+      border-radius: 50%;
       background: linear-gradient(135deg, #dbeafe, #7dd3fc 42%, #a78bfa 100%);
       color: #07111d;
       display: grid;
@@ -431,8 +509,8 @@
     .info-card {
       border-radius: 22px;
       padding: 18px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--info-bg);
+      border: 1px solid var(--info-border);
     }
 
     .info-card .label {
@@ -500,31 +578,39 @@
       min-height: 260px;
     }
 
+    #repo-grid .project {
+      grid-column: span 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 220px;
+    }
+
     .project:nth-child(1) {
       grid-column: span 7;
       background:
-        linear-gradient(135deg, rgba(125, 211, 252, 0.14), rgba(11, 21, 39, 0.92) 56%),
+        linear-gradient(135deg, rgba(125, 211, 252, 0.14), var(--card-blend) 56%),
         var(--card);
     }
 
     .project:nth-child(2) {
       grid-column: span 5;
       background:
-        linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(11, 21, 39, 0.92) 58%),
+        linear-gradient(135deg, rgba(167, 139, 250, 0.15), var(--card-blend) 58%),
         var(--card);
     }
 
     .project:nth-child(3) {
       grid-column: span 5;
       background:
-        linear-gradient(135deg, rgba(52, 211, 153, 0.12), rgba(11, 21, 39, 0.92) 58%),
+        linear-gradient(135deg, rgba(52, 211, 153, 0.12), var(--card-blend) 58%),
         var(--card);
     }
 
     .project:nth-child(4) {
       grid-column: span 7;
       background:
-        linear-gradient(135deg, rgba(251, 191, 36, 0.11), rgba(11, 21, 39, 0.92) 58%),
+        linear-gradient(135deg, rgba(251, 191, 36, 0.11), var(--card-blend) 58%),
         var(--card);
     }
 
@@ -550,8 +636,8 @@
     .tag {
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
       color: var(--text);
       font-size: 0.82rem;
     }
@@ -583,8 +669,8 @@
     .skill {
       border-radius: 24px;
       padding: 22px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--skill-bg);
+      border: 1px solid var(--skill-border);
     }
 
     .skill .icon {
@@ -599,6 +685,11 @@
       font-size: 1.3rem;
     }
 
+    .skill .icon .material-symbols-outlined {
+      font-size: 1.6rem;
+      display: block;
+    }
+
     .skill h4 {
       margin: 0 0 10px;
       font-size: 1.08rem;
@@ -608,6 +699,33 @@
       margin: 0;
       color: var(--muted);
       line-height: 1.7;
+    }
+
+    .experience-education-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .timeline-column {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .column-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .column-title .material-symbols-outlined {
+      font-size: 1.5rem;
+      color: var(--accent);
     }
 
     .timeline {
@@ -653,8 +771,8 @@
       padding: 26px;
       background:
         radial-gradient(circle at top right, rgba(125, 211, 252, 0.18), transparent 34%),
-        linear-gradient(180deg, rgba(13, 26, 47, 0.96), rgba(8, 16, 31, 0.95));
-      border: 1px solid rgba(255, 255, 255, 0.11);
+        linear-gradient(180deg, var(--contact-bg-start), var(--contact-bg-end));
+      border: 1px solid var(--contact-border);
       box-shadow: var(--shadow);
     }
 
@@ -684,8 +802,8 @@
       gap: 14px;
       padding: 16px 18px;
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--contact-link-bg);
+      border: 1px solid var(--contact-link-border);
       transition: transform 180ms ease, background 180ms ease;
     }
 
@@ -717,9 +835,9 @@
       width: fit-content;
       padding: 12px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
-      color: #dbeafe;
+      border: 1px solid var(--pill-border);
+      background: var(--pill-bg);
+      color: var(--pill-text);
       margin-top: 18px;
     }
 
@@ -758,8 +876,13 @@
 
     @media (max-width: 980px) {
       .hero,
-      .contact {
+      .contact,
+      .experience-education-grid {
         grid-template-columns: 1fr;
+      }
+
+      #repo-grid .project {
+        grid-column: span 6;
       }
 
       .project:nth-child(1),
@@ -802,6 +925,10 @@
         grid-template-columns: 1fr;
       }
 
+      #repo-grid .project {
+        grid-column: span 12;
+      }
+
       .section-head {
         flex-direction: column;
         align-items: flex-start;
@@ -813,7 +940,9 @@
   <div class="page">
     <header class="topbar">
       <a class="brand" href="#top" data-i18n-attr="aria-label:brand.home" aria-label="Ana sayfa">
-        <span class="brand-mark">B</span>
+        <span class="brand-mark">
+          <img src="Memoji.webp" alt="Berk Babadoğan" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block;">
+        </span>
         <span data-i18n="brand.name">Berk Babadoğan</span>
       </a>
       <nav class="nav" data-i18n-attr="aria-label:nav.primary" aria-label="Birincil">
@@ -828,9 +957,15 @@
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
       </nav>
       <nav class="theme-switcher" data-i18n-attr="aria-label:theme.switcher" aria-label="Theme selector">
-        <button type="button" data-theme="auto" aria-pressed="true" data-i18n="theme.auto">AUTO</button>
-        <button type="button" data-theme="dark" aria-pressed="false" data-i18n="theme.dark">DARK</button>
-        <button type="button" data-theme="light" aria-pressed="false" data-i18n="theme.light">LIGHT</button>
+        <button type="button" data-theme="auto" aria-pressed="true" data-i18n-attr="aria-label:theme.auto|title:theme.auto" aria-label="Auto">
+          <span class="material-symbols-outlined">hdr_auto</span>
+        </button>
+        <button type="button" data-theme="dark" aria-pressed="false" data-i18n-attr="aria-label:theme.dark|title:theme.dark" aria-label="Dark">
+          <span class="material-symbols-outlined">dark_mode</span>
+        </button>
+        <button type="button" data-theme="light" aria-pressed="false" data-i18n-attr="aria-label:theme.light|title:theme.light" aria-label="Light">
+          <span class="material-symbols-outlined">light_mode</span>
+        </button>
       </nav>
     </header>
 
@@ -853,26 +988,11 @@
               <a class="button secondary" href="#iletisim" data-i18n="hero.cta.contact">Birlikte çalışalım</a>
             </div>
 
-            <div class="hero-stats">
-              <div class="stat">
-                <strong>⟡</strong>
-                <span data-i18n="hero.stat1">yayınlanmış ürün ve web deneyimi</span>
-              </div>
-              <div class="stat">
-                <strong>3 hafta</strong>
-                <span data-i18n="hero.stat2">ortalamada ilk çalışan prototip süresi</span>
-              </div>
-              <div class="stat">
-                <strong>1 hedef</strong>
-                <span data-i18n="hero.stat3">gösterişli değil, işe yarayan tasarım</span>
-              </div>
-            </div>
           </div>
         </div>
 
         <aside class="hero-side reveal delay-1">
           <div class="profile">
-            <div class="avatar">BB</div>
             <h2 data-i18n="profile.title">Ürün odaklı tasarımcı ve geliştirici</h2>
             <p data-i18n="profile.text">
               Hızlı prototiplemeden sezgisel arayüzlere, landing page’lerden kişisel markalara
@@ -1000,10 +1120,10 @@
 
         <div class="section-head reveal" style="margin-top: 10px;">
           <div>
-            <h3 data-i18n="github.allTitle">All Public Repos</h3>
+            <h3 data-i18n="github.allTitle">Tüm Herkese Açık Repolar</h3>
           </div>
           <p data-i18n="github.allDesc">
-            Every public repository visible on GitHub, including package libraries, the site repo, and theme work.
+            GitHub’da görünen herkese açık tüm repolar: paket kütüphaneleri, site deposu ve tema çalışmaları.
           </p>
         </div>
 
@@ -1115,21 +1235,21 @@
 
         <div class="skills">
           <div class="skill reveal">
-            <div class="icon">✦</div>
+            <div class="icon"><span class="material-symbols-outlined">palette</span></div>
             <h4 data-i18n="skill1.title">Arayüz Tasarımı</h4>
             <p data-i18n="skill1.desc">
               Bileşen bazlı düşünür, düzen, tipografi ve boşluklarla yüksek okunabilirlik kurarım.
             </p>
           </div>
           <div class="skill reveal delay-1">
-            <div class="icon">⌘</div>
+            <div class="icon"><span class="material-symbols-outlined">code</span></div>
             <h4 data-i18n="skill2.title">Front-end Geliştirme</h4>
             <p data-i18n="skill2.desc">
               Statik sitelerden etkileşimli deneyimlere kadar temiz, hızlı ve bakım dostu yapı kurarım.
             </p>
           </div>
           <div class="skill reveal delay-2">
-            <div class="icon">◌</div>
+            <div class="icon"><span class="material-symbols-outlined">auto_stories</span></div>
             <h4 data-i18n="skill3.title">Ürün Hikayesi</h4>
             <p data-i18n="skill3.desc">
               Kullanıcıya ne sunduğunuzu birkaç saniyede net anlatan sayfa akışları oluştururum.
@@ -1148,44 +1268,81 @@
           </p>
         </div>
 
-        <div class="timeline">
-          <div class="timeline-item reveal">
-            <time data-i18n="exp1.time">2024 - 2026</time>
-            <div>
-              <h4 data-i18n="exp1.title">Bağımsız tasarım ve geliştirme</h4>
-              <p data-i18n="exp1.desc">
-                Kişisel markalar, kurumsal tanıtım siteleri ve ürün odaklı arayüzler için
-                konseptten yayına kadar uçtan uca çalışmalar.
-              </p>
+        <div class="experience-education-grid">
+          <!-- Deneyim Sütunu -->
+          <div class="timeline-column">
+            <h4 class="column-title">
+              <span class="material-symbols-outlined">work</span>
+              <span data-i18n="experience.subtitle">Deneyim</span>
+            </h4>
+            <div class="timeline">
+              <div class="timeline-item reveal">
+                <time data-i18n="exp1.time">2024 - 2026</time>
+                <div>
+                  <h4 data-i18n="exp1.title">Bağımsız tasarım ve geliştirme</h4>
+                  <p data-i18n="exp1.desc">
+                    Kişisel markalar, kurumsal tanıtım siteleri ve ürün odaklı arayüzler için
+                    konseptten yayına kadar uçtan uca çalışmalar.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item reveal delay-1">
+                <time data-i18n="exp2.time">2022 - 2024</time>
+                <div>
+                  <h4 data-i18n="exp2.title">Ürün ekipleriyle çalışma</h4>
+                  <p data-i18n="exp2.desc">
+                    Tasarım sistemi, kullanım akışı ve içerik yapısı üzerinden kararları
+                    sadeleştirip uygulamaya dönüştürme.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="timeline-item reveal delay-1">
-            <time data-i18n="exp2.time">2022 - 2024</time>
-            <div>
-              <h4 data-i18n="exp2.title">Ürün ekipleriyle çalışma</h4>
-              <p data-i18n="exp2.desc">
-                Tasarım sistemi, kullanım akışı ve içerik yapısı üzerinden kararları
-                sadeleştirip uygulamaya dönüştürme.
-              </p>
-            </div>
-          </div>
-          <div class="timeline-item reveal delay-2">
-            <time data-i18n="exp3.time">Öncesi</time>
-            <div>
-              <h4 data-i18n="exp3.title">Kendi deneme alanım</h4>
-              <p data-i18n="exp3.desc">
-                Sitede gördüğünüz yaklaşım; düzenli denemeler, küçük iyileştirmeler ve
-                kullanıcı odaklı düşünme alışkanlığının bir sonucu.
-              </p>
-            </div>
-          </div>
-          <div class="timeline-item reveal delay-3">
-            <time data-i18n="exp4.time">2014 - 2016 · 2009 - 2013 · 1997 - 2009</time>
-            <div>
-              <h4 data-i18n="exp4.title">Hacettepe, Çankaya ve Bilim Özel Okulları</h4>
-              <p data-i18n="exp4.desc">
-                Yüksek lisans, lisans ve önceki eğitim geçmişi.
-              </p>
+
+          <!-- Eğitim Sütunu -->
+          <div class="timeline-column">
+            <h4 class="column-title">
+              <span class="material-symbols-outlined">school</span>
+              <span data-i18n="experience.educationSubtitle">Eğitim</span>
+            </h4>
+            <div class="timeline">
+              <div class="timeline-item reveal delay-2">
+                <time data-i18n="exp3.time">Öncesi</time>
+                <div>
+                  <h4 data-i18n="exp3.title">Kendi deneme alanım</h4>
+                  <p data-i18n="exp3.desc">
+                    Sitede gördüğünüz yaklaşım; düzenli denemeler, küçük iyileştirmeler ve
+                    kullanıcı odaklı düşünme alışkanlığının bir sonucu.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item reveal delay-3">
+                <time data-i18n="exp4.time">2014 - 2016</time>
+                <div>
+                  <h4 data-i18n="exp4.title">Hacettepe Üniversitesi</h4>
+                  <p data-i18n="exp4.desc">
+                    Yüksek Lisans - Yazılım Mühendisliği
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item reveal delay-4">
+                <time data-i18n="exp5.time">2009 - 2013</time>
+                <div>
+                  <h4 data-i18n="exp5.title">Çankaya Üniversitesi</h4>
+                  <p data-i18n="exp5.desc">
+                    Lisans - Bilgisayar Mühendisliği
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item reveal delay-4">
+                <time data-i18n="exp6.time">1997 - 2009</time>
+                <div>
+                  <h4 data-i18n="exp6.title">Bilim Özel Okulları</h4>
+                  <p data-i18n="exp6.desc">
+                    İlk, orta ve lise eğitimi
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1225,7 +1382,7 @@
             <div class="hero-stats" style="margin-top: 22px; grid-template-columns: 1fr;">
               <div class="stat">
                 <strong data-i18n="summary.card1.title">Responsive</strong>
-                <span data-i18n="summary.card1.desc">Mobil, tablet ve masaüstü için optimize edildi.</span>
+                <span><a href="https://orcid.org/0000-0002-8840-3992" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">0000-0002-8840-3992</a></span>
               </div>
               <div class="stat">
                 <strong data-i18n="summary.card2.title">Hızlı</strong>
@@ -1238,8 +1395,7 @@
     </main>
 
     <footer class="footer-note">
-      <span data-i18n="footer.left">© 2026 Berk Babadoğan</span>
-      <span data-i18n="footer.right">Modern, sade ve karakterli bir portfolyo</span>
+      <p>2026 © <a href="https://babadogan.net">Babadogan Tech and Edu</a></p>
     </footer>
   </div>
 
@@ -1247,7 +1403,7 @@
     const translations = {
       tr: {
         page: {
-          title: "Berk Babadoğan | Software Engineer",
+          title: "Berk Babadoğan | Yazılım Mühendisi",
           description: "Berk Babadoğan için üç dilli kişisel portfolyo: yazılım mühendisliği, projeler, eğitim ve iletişim.",
           locale: "tr_TR"
         },
@@ -1269,9 +1425,9 @@
           light: "Açık"
         },
         hero: {
-          badge: "Yazılım mühendisliği, ürün geliştirme ve çapraz platform uygulamalar",
+          badge: "Yazılım mühendisliği, ürün geliştirme ve çapraz platform uygulamaları",
           title: "Merhaba, ben Berk Babadoğan.",
-          lead: "Yazılım mühendisiyim ve Babadogan Tech and Edu'da kurucu ortak ile genel müdür olarak çalışıyorum. WinUI, .NET MAUI, Flutter, Azure ve Firebase ile masaüstü, mobil ve bulut çözümleri geliştiriyorum.",
+          lead: "Yazılım mühendisiyim ve Babadogan Tech and Edu'da kurucu ortak ve genel müdür olarak çalışıyorum. WinUI, .NET MAUI, Flutter, Azure ve Firebase ile masaüstü, mobil ve bulut çözümleri geliştiriyorum.",
           cta: {
             projects: "Projeleri incele",
             contact: "İletişime geç"
@@ -1281,8 +1437,8 @@
           stat3: "EX2023D833118 · ORCID"
         },
         profile: {
-          title: "Software Engineer ve ekip lideri",
-          text: "Çapraz platform uygulamalar, SaaS fikirleri, IoT, elektrikli ve otonom araçlara yönelik yazılım çözümleri üzerine çalışıyorum.",
+          title: "Yazılım mühendisi ve ekip lideri",
+          text: "Çapraz platform uygulamaları, SaaS fikirleri, IoT, elektrikli ve otonom araçlara yönelik yazılım çözümleri üzerine çalışıyorum.",
           status: "Yeni iş birliklerine açığım"
         },
         info: {
@@ -1308,9 +1464,9 @@
             value: "4",
             label: "pub.dev paketi",
             desc: "pub.dev üzerinde doğrulanmış yayıncı berk.babadogan.net altında dört Dart paketi bulunuyor: dart_encrypter, logbox_color, tcid_checker ve isbn_searcher.",
-            link: "Publisher page",
-            summaryTitle: "Publisher summary",
-            summaryDesc: "Publisher sayfası 4 paketi listeliyor ve berk.babadogan.net için doğrulanmış yayıncı rozeti gösteriyor."
+            link: "Yayıncı sayfası",
+            summaryTitle: "Yayıncı özeti",
+            summaryDesc: "Yayıncı sayfası 4 paketi listeliyor ve berk.babadogan.net için doğrulanmış yayıncı rozeti gösteriyor."
           },
           nuget: {
             value: "4",
@@ -1318,41 +1474,41 @@
             downloads: "7,318",
             downloadsLabel: "NuGet toplam indirme",
             desc: "NuGet profilinde dört .NET paketi bulunuyor: TCIDChecker_NET, ColorLogger_NET, Encrypter_NET ve ISBNSearcher_NET.",
-            link: "Profile page",
-            summaryTitle: "Profile summary",
+            link: "Profil sayfası",
+            summaryTitle: "Profil özeti",
             summaryDesc: "NuGet profili 4 paketi ve 7,318 toplam indirmeyi gösteriyor."
           },
-          publisher: "Verified",
+          publisher: "Doğrulanmış",
           publisherLabel: "pub.dev yayıncısı"
         },
         project1: {
           badge: "Araştırma projesi",
           title: "SKILLS4JUSTICE",
           desc: "HORIZON-CL2-2023-TRANSFORMATIONS-01: 101132435 kapsamında yer alan çalışma.",
-          tag1: "EU Project",
-          tag2: "Research",
-          tag3: "Transformation"
+          tag1: "AB Projesi",
+          tag2: "Araştırma",
+          tag3: "Dönüşüm"
         },
         project2: {
-          badge: "AI destekli uygulama",
+          badge: "Yapay zeka destekli uygulama",
           title: "BOWOFI",
-          desc: "Bologna Process Workflows App Optimized for Future Intelligence Supported with AI.",
-          tag1: "AI",
+          desc: "Geleceğin zekası için optimize edilmiş ve yapay zeka destekli Bologna Süreci iş akışları uygulaması.",
+          tag1: "Yapay Zeka",
           tag2: ".NET",
-          tag3: "Workflow"
+          tag3: "İş Akışı"
         },
         project3: {
           badge: "Eğitsel yazılım",
           title: "ESICSQ",
-          desc: "Educational Software to Improve Children's Sense of Quality.",
-          tag1: "Education",
-          tag2: "Software",
-          tag3: "UX"
+          desc: "Çocukların kalite algısını geliştirmeyi amaçlayan eğitsel yazılım.",
+          tag1: "Eğitim",
+          tag2: "Yazılım",
+          tag3: "Kullanıcı Deneyimi"
         },
         project4: {
           badge: "Masaüstü araç",
-          title: "Apartment Receipt Generator for macOS",
-          desc: "Swift Storyboard ile geliştirilen, JPEG çıktısı alabilen ve imza ekleme desteği olan apartman makbuzu üretici.",
+          title: "macOS için Apartman Makbuzu Üreticisi",
+          desc: "Swift Storyboard ile geliştirilen, JPEG çıktısı alabilen ve imza ekleme desteği olan apartman makbuzu üreticisi.",
           tag1: "Swift",
           tag2: "macOS",
           tag3: "Storyboard"
@@ -1363,25 +1519,27 @@
         },
         github: {
           title: "GitHub Öne Çıkanlar",
-          desc: "GitHub profilinde görünen repo sayısı, yıldızlar, takipçiler ve tüm public depolar.",
+          desc: "GitHub profilinde görünen repo sayısı, yıldızlar, takipçiler ve herkese açık tüm depolar.",
           stat1: {
             value: "13",
-            label: "repository"
+            label: "repo"
           },
           stat2: {
             value: "6",
-            label: "stars"
+            label: "yıldız"
           },
           stat3: {
             value: "5",
-            label: "followers"
+            label: "takipçi"
           },
           stat4: {
             value: "7",
-            label: "following"
+            label: "takip edilen"
           },
-          allTitle: "Tüm Public Repolar",
-          allDesc: "GitHub’da görünen tüm public repolar: paket kütüphaneleri, site deposu ve tema çalışmaları."
+          allTitle: "Tüm Herkese Açık Repolar",
+          allDesc: "GitHub’da görünen herkese açık tüm repolar: paket kütüphaneleri, site deposu ve tema çalışmaları.",
+          repoFallback: "Repo",
+          viewBtn: "GitHub'da Gör"
         },
         skill1: {
           title: "Platformlar",
@@ -1397,7 +1555,9 @@
         },
         experience: {
           title: "Eğitim ve Deneyim",
-          desc: "Akademik geçmiş, iş deneyimi ve uzmanlık kimlikleri."
+          desc: "Akademik geçmiş, iş deneyimi ve uzmanlık kimlikleri.",
+          subtitle: "Deneyim",
+          educationSubtitle: "Eğitim"
         },
         exp1: {
           time: "2022 - şimdi",
@@ -1415,9 +1575,19 @@
           desc: "Ön Lisans (uzaktan eğitim)."
         },
         exp4: {
-          time: "2014 - 2016 · 2009 - 2013 · 1997 - 2009",
-          title: "Hacettepe Üniversitesi, Çankaya Üniversitesi ve Bilim Özel Okulları",
-          desc: "Hacettepe Üniversitesi Yüksek Lisans - Yazılım Mühendisliği; Çankaya Üniversitesi Lisans - Bilgisayar Mühendisliği; Bilim Özel Okulları ilk, orta ve lise eğitimi."
+          time: "2014 - 2016",
+          title: "Hacettepe Üniversitesi",
+          desc: "Yüksek Lisans - Yazılım Mühendisliği"
+        },
+        exp5: {
+          time: "2009 - 2013",
+          title: "Çankaya Üniversitesi",
+          desc: "Lisans - Bilgisayar Mühendisliği"
+        },
+        exp6: {
+          time: "1997 - 2009",
+          title: "Bilim Özel Okulları",
+          desc: "İlk, orta ve lise eğitimi"
         },
         contact: {
           title: "İletişim ve bağlantılar",
@@ -1448,6 +1618,21 @@
         footer: {
           left: "© 2026 Berk Babadoğan",
           right: "Yazılım mühendisliği ve ürün geliştirme portfolyosu"
+        },
+        repos: {
+          aptreceipt: "Girilen verilerle apartman gelir/gider makbuzu oluşturur. Sonrasında makbuzu resim olarak dışa aktarabilirsiniz.",
+          berkbb: "GitHub profilim için yapılandırma dosyaları.",
+          "berkbb.github.io": "Kişisel portfolyo web sitesi.",
+          colorlogger_net: ".NET için renkli günlük kaydı (log) sınıfı.",
+          dart_encrypter: "Verilen Anahtar (Key) ve IV ile metinleri şifreler/deşifre eder. Dahili şifre oluşturucu da içerir. İsteğe bağlı olarak çıktılar için renkli kutular kullanır.",
+          devmatebb: "BB tarafından tasarlanmış özel bir VS Code teması.",
+          devorabb: "BB tarafından tasarlanmış özel bir VS Code teması.",
+          encrypter_net: "Verilen Anahtar (Key) ve IV ile metinleri şifreler/deşifre eder. Dahili şifre oluşturucu da içerir. İsteğe bağlı olarak çıktılar için renkli kutular kullanır.",
+          isbn_searcher: "Google tarafından sağlanan API aracılığıyla, verilen yerel JSON dosyası ile ISBN meta verilerini arar.",
+          isbn_searcher_net: "Google tarafından sağlanan API aracılığıyla, verilen yerel JSON dosyası ile ISBN meta verilerini arar.",
+          logbox_color: "Terminal üzerinde farklı günlük tiplerini (Verbose, Info, Debug, Uyarı, Hata vb.) renkli kutular içinde yazdırır.",
+          tcid_checker: "Dart ve Flutter için TC Kimlik Numarası doğrulayıcı.",
+          tcid_checker_net: ".NET için kurallara dayanarak verilen TC Kimlik Numarasının doğru veya yanlış olduğunu doğrular."
         }
       },
       en: {
@@ -1586,7 +1771,9 @@
             label: "following"
           },
           allTitle: "All Public Repos",
-          allDesc: "Every public repository visible on GitHub, including package libraries, the site repo, and theme work."
+          allDesc: "Every public repository visible on GitHub, including package libraries, the site repo, and theme work.",
+          repoFallback: "Repository",
+          viewBtn: "View on GitHub"
         },
         skill1: {
           title: "Platforms",
@@ -1602,7 +1789,9 @@
         },
         experience: {
           title: "Education and Experience",
-          desc: "Academic background, work history, and expert identifiers."
+          desc: "Academic background, work history, and expert identifiers.",
+          subtitle: "Experience",
+          educationSubtitle: "Education"
         },
         exp1: {
           time: "2022 - now",
@@ -1620,9 +1809,19 @@
           desc: "Associate degree (distance education)."
         },
         exp4: {
-          time: "2014 - 2016 · 2009 - 2013 · 1997 - 2009",
-          title: "Hacettepe University, Çankaya University, and Bilim Private Schools",
-          desc: "Hacettepe University MS - Software Engineering; Çankaya University BS - Computer Engineering; and primary, secondary, and high school at Bilim Private Schools."
+          time: "2014 - 2016",
+          title: "Hacettepe University",
+          desc: "MS - Software Engineering"
+        },
+        exp5: {
+          time: "2009 - 2013",
+          title: "Çankaya University",
+          desc: "BS - Computer Engineering"
+        },
+        exp6: {
+          time: "1997 - 2009",
+          title: "Bilim Private Schools",
+          desc: "Primary, secondary, and high school"
         },
         contact: {
           title: "Contact and links",
@@ -1650,6 +1849,21 @@
         footer: {
           left: "© 2026 Berk Babadoğan",
           right: "A software engineering and product development portfolio"
+        },
+        repos: {
+          aptreceipt: "Generates apartment income / expense receipt with given data. After that, you can export receipt as an image.",
+          berkbb: "Config files for my GitHub profile.",
+          "berkbb.github.io": "Personal portfolio website.",
+          colorlogger_net: "Color logger class for .NET.",
+          dart_encrypter: "Encrypt / Decrypt the String with given Key and IV. It includes built-in password generator also. It uses colored box for outputs if you want.",
+          devmatebb: "A custom VS Code theme by BB.",
+          devorabb: "A custom VS Code theme by BB.",
+          encrypter_net: "Encrypt / Decrypt the String with given Key and IV. It includes built-in password generator also. It uses colored box for outputs if you want.",
+          isbn_searcher: "Searches ISBN metadata with given local JSON via API supplied by Google.",
+          isbn_searcher_net: "Searches ISBN metadata with given local JSON via API supplied by Google.",
+          logbox_color: "Prints different log types (Verbose, Info, Debug, Warning, Error, etc.) in colored boxes on the terminal.",
+          tcid_checker: "TC ID Checker for Dart and Flutter.",
+          tcid_checker_net: "Determines that given TC ID is correct or wrong based on rules for .NET."
         }
       },
       ro: {
@@ -1743,18 +1957,18 @@
         project2: {
           badge: "Aplicație asistată de AI",
           title: "BOWOFI",
-          desc: "Bologna Process Workflows App Optimized for Future Intelligence Supported with AI.",
+          desc: "Aplicație pentru fluxurile de lucru ale procesului de la Bologna, optimizată pentru tehnologiile inteligente ale viitorului și asistată de AI.",
           tag1: "AI",
           tag2: ".NET",
-          tag3: "Workflow"
+          tag3: "Flux de lucru"
         },
         project3: {
           badge: "Software educațional",
           title: "ESICSQ",
-          desc: "Educational Software to Improve Children's Sense of Quality.",
+          desc: "Software educațional conceput pentru a îmbunătăți simțul calității la copii.",
           tag1: "Educație",
           tag2: "Software",
-          tag3: "UX"
+          tag3: "Experiență utilizator"
         },
         project4: {
           badge: "Instrument desktop",
@@ -1788,7 +2002,9 @@
             label: "urmăriți"
           },
           allTitle: "Toate repository-urile publice",
-          allDesc: "Fiecare repository public vizibil pe GitHub, inclusiv biblioteci de pachete, repo-ul site-ului și lucrările de temă."
+          allDesc: "Fiecare repository public vizibil pe GitHub, inclusiv biblioteci de pachete, repo-ul site-ului și lucrările de temă.",
+          repoFallback: "Repository",
+          viewBtn: "Vezi pe GitHub"
         },
         skill1: {
           title: "Platforme",
@@ -1804,7 +2020,9 @@
         },
         experience: {
           title: "Educație și experiență",
-          desc: "Context academic, istoric profesional și identificatori de expert."
+          desc: "Context academic, istoric profesional și identificatori de expert.",
+          subtitle: "Experiență",
+          educationSubtitle: "Educație"
         },
         exp1: {
           time: "2022 - acum",
@@ -1822,9 +2040,19 @@
           desc: "Studii de licență asociată (învățământ la distanță)."
         },
         exp4: {
-          time: "2014 - 2016 · 2009 - 2013 · 1997 - 2009",
-          title: "Universitatea Hacettepe, Universitatea Çankaya și Școlile Private Bilim",
-          desc: "Master în inginerie software la Hacettepe; licență în inginerie informatică la Çankaya; școala primară, gimnazială și liceul la Bilim Private Schools."
+          time: "2014 - 2016",
+          title: "Universitatea Hacettepe",
+          desc: "Master în inginerie software"
+        },
+        exp5: {
+          time: "2009 - 2013",
+          title: "Universitatea Çankaya",
+          desc: "Licență în inginerie informatică"
+        },
+        exp6: {
+          time: "1997 - 2009",
+          title: "Școlile Private Bilim",
+          desc: "Școala primară, gimnazială și liceul"
         },
         contact: {
           title: "Contact și linkuri",
@@ -1852,6 +2080,21 @@
         footer: {
           left: "© 2026 Berk Babadoğan",
           right: "Un portofoliu de inginerie software și dezvoltare de produs"
+        },
+        repos: {
+          aptreceipt: "Generează chitanțe de venituri/cheltuieli pentru apartament cu datele introduse. Ulterior, puteți exporta chitanța ca imagine.",
+          berkbb: "Fișiere de configurare pentru profilul meu de GitHub.",
+          "berkbb.github.io": "Site personal de portofoliu.",
+          colorlogger_net: "Clasă de logare colorată pentru .NET.",
+          dart_encrypter: "Criptează / decriptează un șir de caractere cu o cheie și un IV dat. Include, de asemenea, un generator de parole încorporat. Utilizează casete colorate pentru rezultate, dacă doriți.",
+          devmatebb: "O temă VS Code personalizată creată de BB.",
+          devorabb: "O temă VS Code personalizată creată de BB.",
+          encrypter_net: "Criptează / decriptează un șir de caractere cu o cheie și un IV dat. Include, de asemenea, un generator de parole încorporat. Utilizează casete colorate pentru rezultate, dacă doriți.",
+          isbn_searcher: "Caută metadate ISBN cu un fișier JSON local prin intermediul API-ului furnizat de Google.",
+          isbn_searcher_net: "Caută metadate ISBN cu un fișier JSON local prin intermediul API-ului furnizat de Google.",
+          logbox_color: "Afișează diferite tipuri de loguri (Verbose, Info, Debug, Warning, Error etc.) în casete colorate în terminal.",
+          tcid_checker: "Verificator de CNP turcesc (TC ID) pentru Dart și Flutter.",
+          tcid_checker_net: "Determină dacă un CNP turcesc (TC ID) dat este corect sau greșit pe baza regulilor, pentru .NET."
         }
       }
     };
@@ -1917,6 +2160,33 @@
       window.localStorage.setItem('portfolio-theme', mode);
     }
 
+    function renderRepos(lang) {
+      const grid = document.getElementById('repo-grid');
+      if (!grid) return;
+
+      const pack = translationsByLang[lang] || translationsByLang[defaultLang];
+      const btnText = (pack.github && pack.github.viewBtn) || "GitHub'da Gör";
+      const repoFallback = (pack.github && pack.github.repoFallback) || "Repository";
+      
+      grid.innerHTML = githubRepos.map((repo, index) => {
+        const description = (pack.repos && pack.repos[repo.name]) || repo.desc || (lang === 'tr' ? 'Açıklama bulunmuyor.' : lang === 'ro' ? 'Nicio descriere disponibilă.' : 'No description available.');
+        const badge = repo.lang || repoFallback;
+        
+        return `
+          <article class="project reveal" style="animation-delay: ${index * 40}ms;">
+            <div>
+              <span class="meta"><span class="meta-dot"></span> ${badge}</span>
+              <h4>${repo.name}</h4>
+              <p>${description}</p>
+            </div>
+            <div class="tags" style="margin-top: auto;">
+              <a class="tag" href="${repo.url}" target="_blank" rel="noopener noreferrer">${btnText}</a>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
     function applyLanguage(lang) {
       const pack = translationsByLang[lang] || translationsByLang[defaultLang];
 
@@ -1948,6 +2218,7 @@
       });
 
       window.localStorage.setItem('portfolio-lang', lang);
+      renderRepos(lang);
     }
 
     langButtons.forEach((button) => {
