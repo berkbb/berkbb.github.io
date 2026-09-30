@@ -46,6 +46,7 @@
         "C#",
         "Dart",
         "Swift",
+        "Kotlin",
         "Azure",
         "Firebase"
       ]
@@ -1455,12 +1456,12 @@
 - Name: Berk Babadoğan
 - Role: Software Engineer / Computer Engineer
 - Company: Babadogan Tech and Edu (Ankara Univ. Technopolis)
-- Tech Stack: C#, Dart, Swift, WinUI, .NET MAUI, Flutter, Azure, Firebase
+- Tech Stack: C#, Dart, Swift, Kotlin, WinUI, .NET MAUI, Flutter, Jetpack Compose, Azure, Firebase
 - GitHub: https://github.com/berkbb
 - LinkedIn: https://www.linkedin.com/in/berkbabadogan/
 - Contact ORCID: 0000-0002-8840-3992
 - EU Expert ID: EX2023D833118
-- Summary: Expert in cross-platform mobile & desktop development (Flutter, .NET MAUI, WinUI) and developer libraries (logbox_color, encrypter, tcid_checker).
+- Summary: Expert in cross-platform mobile, desktop & TV development (Flutter, .NET MAUI, WinUI, Jetpack Compose) and developer applications & libraries (androidtv_f1tv_manager, logbox_color, encrypter, tcid_checker).
     </pre>
   </section>
 
@@ -1631,7 +1632,7 @@
 
         <div class="hero-stats reveal delay-1" style="margin-bottom: 16px;">
           <div class="stat">
-            <strong data-i18n="github.stat1.value">13</strong>
+            <strong data-i18n="github.stat1.value">14</strong>
             <span data-i18n="github.stat1.label">repository</span>
           </div>
           <div class="stat">
@@ -1643,7 +1644,7 @@
             <span data-i18n="github.stat3.label">followers</span>
           </div>
           <div class="stat">
-            <strong data-i18n="github.stat4.value">7</strong>
+            <strong data-i18n="github.stat4.value">8</strong>
             <span data-i18n="github.stat4.label">following</span>
           </div>
         </div>
@@ -2067,7 +2068,7 @@
           title: "GitHub Öne Çıkanlar",
           desc: "GitHub profilinde görünen repo sayısı, yıldızlar, takipçiler ve herkese açık tüm depolar.",
           stat1: {
-            value: "13",
+            value: "14",
             label: "repo"
           },
           stat2: {
@@ -2079,7 +2080,7 @@
             label: "takipçi"
           },
           stat4: {
-            value: "7",
+            value: "8",
             label: "takip edilen"
           },
           allTitle: "Tüm Herkese Açık Repolar",
@@ -2093,7 +2094,7 @@
         },
         skill2: {
           title: "Programlama dilleri",
-          desc: "C#, Java, Dart ve Swift."
+          desc: "C#, Java, Kotlin, Dart ve Swift."
         },
         skill3: {
           title: "Araçlar ve alanlar",
@@ -2166,6 +2167,7 @@
           right: "Yazılım mühendisliği ve ürün geliştirme portfolyosu"
         },
         repos: {
+          androidtv_f1tv_manager: "Desteklenmeyen Android/Google TV'ler için özel F1 TV yöneticisi.",
           aptreceipt: "Girilen verilerle apartman gelir/gider makbuzu oluşturur. Sonrasında makbuzu resim olarak dışa aktarabilirsiniz.",
           berkbb: "GitHub profilim için yapılandırma dosyaları.",
           "berkbb.github.io": "Kişisel portfolyo web sitesi.",
@@ -2324,7 +2326,7 @@
           title: "GitHub Highlights",
           desc: "Repository count, stars, followers, and all public repositories visible on the GitHub profile.",
           stat1: {
-            value: "13",
+            value: "14",
             label: "repositories"
           },
           stat2: {
@@ -2336,7 +2338,7 @@
             label: "followers"
           },
           stat4: {
-            value: "7",
+            value: "8",
             label: "following"
           },
           allTitle: "All Public Repos",
@@ -2350,7 +2352,7 @@
         },
         skill2: {
           title: "Programming languages",
-          desc: "C#, Java, Dart, and Swift."
+          desc: "C#, Java, Kotlin, Dart, and Swift."
         },
         skill3: {
           title: "Tools and domains",
@@ -2420,6 +2422,7 @@
           right: "A software engineering and product development portfolio"
         },
         repos: {
+          androidtv_f1tv_manager: "Custom F1 TV Manager for Unsupported Android/Google TVs.",
           aptreceipt: "Generates apartment income / expense receipt with given data. After that, you can export receipt as an image.",
           berkbb: "Config files for my GitHub profile.",
           "berkbb.github.io": "Personal portfolio website.",
@@ -2578,7 +2581,7 @@
           title: "Repere GitHub",
           desc: "Numărul de repository-uri, staruri, urmăritori și toate repository-urile publice vizibile în profilul GitHub.",
           stat1: {
-            value: "13",
+            value: "14",
             label: "repository-uri"
           },
           stat2: {
@@ -2590,7 +2593,7 @@
             label: "urmăritori"
           },
           stat4: {
-            value: "7",
+            value: "8",
             label: "urmăriți"
           },
           allTitle: "Toate repository-urile publice",
@@ -2604,7 +2607,7 @@
         },
         skill2: {
           title: "Limbaje de programare",
-          desc: "C#, Java, Dart și Swift."
+          desc: "C#, Java, Kotlin, Dart și Swift."
         },
         skill3: {
           title: "Instrumente și domenii",
@@ -2674,6 +2677,7 @@
           right: "Un portofoliu de inginerie software și dezvoltare de produs"
         },
         repos: {
+          androidtv_f1tv_manager: "Manager personalizat F1 TV pentru televizoare Android/Google TV neacceptate.",
           aptreceipt: "Generează chitanțe de venituri/cheltuieli pentru apartament cu datele introduse. Ulterior, puteți exporta chitanța ca imagine.",
           berkbb: "Fișiere de configurare pentru profilul meu de GitHub.",
           "berkbb.github.io": "Site personal de portofoliu.",
@@ -2730,6 +2734,7 @@
     const initialLang = supportedLangs.has(savedLang) ? savedLang : defaultLang;
     let currentTheme = supportedThemes.has(savedTheme) ? savedTheme : 'auto';
     const githubRepos = [
+      { name: 'androidtv_f1tv_manager', desc: 'Custom F1 TV Manager for Unsupported Android/Google TVs.', lang: 'Kotlin', url: 'https://github.com/berkbb/androidtv_f1tv_manager' },
       { name: 'aptreceipt', desc: 'Generates apartment income / expense receipt with given data. After that , you can export receipt as an image.', lang: 'Swift', url: 'https://github.com/berkbb/aptreceipt' },
       { name: 'berkbb', desc: 'Config files for my GitHub profile.', lang: '', url: 'https://github.com/berkbb/berkbb' },
       { name: 'berkbb.github.io', desc: '', lang: 'HTML', url: 'https://github.com/berkbb/berkbb.github.io' },
@@ -2774,7 +2779,8 @@
         'C#': '#854cc7',
         'Swift': '#f05138',
         'Dart': '#00b4e0',
-        'HTML': '#e34c26'
+        'HTML': '#e34c26',
+        'Kotlin': '#A97BFF'
       };
       return colors[lang] || '#7dd3fc';
     }

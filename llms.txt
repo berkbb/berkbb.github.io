@@ -18,11 +18,12 @@ Berk Babadoğan is a professional Software Engineer and Computer Engineer specia
 - **EU F&T Expert ID**: EX2023D833118
 
 ## Technical Stack
-- **Languages**: C#, Dart, Swift, Java, HTML/CSS/JS
-- **Frameworks & Platforms**: WinUI, .NET MAUI, Flutter, iOS, macOS, iPadOS, Android, Microsoft .NET
+- **Languages**: C#, Dart, Swift, Kotlin, Java, HTML/CSS/JS
+- **Frameworks & Platforms**: WinUI, .NET MAUI, Flutter, Jetpack Compose, Android TV / Google TV, iOS, macOS, iPadOS, Android, Microsoft .NET
 - **Cloud/Databases**: Azure, Firebase
 
 ## Featured Projects & Repositories
+- **androidtv_f1tv_manager**: Custom F1 TV Manager application for unsupported Android/Google TV sets (Kotlin, Jetpack Compose, on-device DEX patching, split APK installer).
 - **aptreceipt**: Swift application to generate apartment income/expense receipts as images.
 - **dart_encrypter** & **encrypter_net**: Encryption/decryption libraries in Dart/Flutter and .NET.
 - **logbox_color**: Colored terminal log formatter package for Verbose, Info, Debug, Warning, and Error logs.
