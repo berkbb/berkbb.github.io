@@ -1,4 +1,4 @@
-const CACHE_NAME = 'berkbb-portfolio-cache-v3';
+const CACHE_NAME = 'berkbb-portfolio-cache-v4';
 const ASSETS = [
   './',
   './index.html',
@@ -29,14 +29,24 @@ self.addEventListener('activate', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
+  // Sayfa navigasyonu için Network-First: daima güncel HTML çekilir, çevrimdışıyken önbelleğe düşülür
+  if (e.request.mode === 'navigate') {
+    e.respondWith(
+      fetch(e.request)
+        .then((response) => {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(e.request, clone));
+          return response;
+        })
+        .catch(() => caches.match('./index.html'))
+    );
+    return;
+  }
+
+  // Statik varlıklar (resimler, fontlar) için Cache-First
   e.respondWith(
     caches.match(e.request).then((cached) => {
-      return cached || fetch(e.request).catch(() => {
-        // Fallback offline support
-        if (e.request.mode === 'navigate') {
-          return caches.match('./index.html');
-        }
-      });
+      return cached || fetch(e.request);
     })
   );
 });
