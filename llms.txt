@@ -19,7 +19,7 @@ Berk Babadoğan is a professional Software Engineer and Computer Engineer specia
 
 ## Technical Stack
 - **Languages**: C#, Dart, Swift, Kotlin, Java, HTML/CSS/JS
-- **Frameworks & Platforms**: WinUI, .NET MAUI, Flutter, Jetpack Compose, Android TV / Google TV, iOS, macOS, iPadOS, Android, Microsoft .NET
+- **Frameworks & Platforms**: WinUI, .NET MAUI, Flutter, Kotlin Multiplatform, Jetpack Compose, HarmonyOS Next, Android TV / Google TV, iOS, macOS, iPadOS, Android, Microsoft .NET
 - **Cloud/Databases**: Azure, Firebase
 
 ## Featured Projects & Repositories
