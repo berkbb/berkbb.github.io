@@ -6,8 +6,10 @@ Usage:
     python3 scripts/update_stats.py --dry-run  # only show what would change
 
 Set GITHUB_TOKEN to avoid the unauthenticated GitHub API rate limit.
-Forks are not counted as repositories. New/removed repos are only reported,
-because their descriptions have to be written in three languages by hand.
+Forks are not counted as repositories. New public repos are added to the
+githubRepos list with their GitHub description and language (the page shows that
+description until a translation is added to the `repos:` blocks); repos that are
+no longer public are removed from the list.
 """
 
 import argparse
@@ -57,7 +59,7 @@ def collect_stats():
     pub = fetch_json(f"https://pub.dev/api/search?q=publisher:{PUB_PUBLISHER}")["packages"]
 
     return {
-        "repo_names": sorted(r["name"] for r in repos),
+        "repos": {r["name"]: r for r in repos},
         "github.stat1": str(len(repos)),
         "github.stat2": str(len(starred)),
         "github.stat3": str(user["followers"]),
@@ -99,6 +101,33 @@ def replace_in_regions(html, name, old, new):
     return html
 
 
+def js_string(text):
+    return "'" + (text or "").replace("\\", "\\\\").replace("'", "\\'") + "'"
+
+
+def sync_repo_list(html, repos, changes):
+    """Add new public repos to / drop removed ones from the githubRepos array."""
+    match = re.search(r"(const githubRepos = \[\n)(.*?)(\n\s*\];)", html, re.S)
+    if not match:
+        sys.exit("Could not find the githubRepos array in index.html")
+    entries = {re.search(r"name: '([^']+)'", line).group(1): line
+               for line in match.group(2).split("\n") if "name: '" in line}
+    indent = re.match(r"\s*", next(iter(entries.values()))).group(0)
+
+    for name in sorted(set(repos) - set(entries)):
+        repo = repos[name]
+        entries[name] = (f"{indent}{{ name: {js_string(name)}, desc: {js_string(repo['description'])}, "
+                         f"lang: {js_string(repo['language'])}, url: {js_string(repo['html_url'])} }}")
+        changes.append(f"repo added: {name}")
+    for name in sorted(set(entries) - set(repos)):
+        del entries[name]
+        changes.append(f"repo removed: {name}")
+
+    lines = [entries[name].rstrip(",") for name in sorted(entries, key=str.lower)]
+    body = ",\n".join(lines)
+    return html[:match.start(2)] + body + html[match.end(2):]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--dry-run", action="store_true", help="show changes without writing files")
@@ -125,12 +154,7 @@ def main():
         changes.append(f"nuget downloads: {old_dl} -> {new_dl}")
         html = html.replace(old_dl, new_dl)
 
-    listed = set(re.findall(r"\{ name: '([^']+)'", html))
-    actual = set(stats["repo_names"])
-    for name in sorted(actual - listed):
-        print(f"! New repo not on the site: {name} (add it to githubRepos and the 3 `repos:` blocks)")
-    for name in sorted(listed - actual):
-        print(f"! Repo on the site but not public on GitHub: {name}")
+    html = sync_repo_list(html, stats["repos"], changes)
     if any(k.startswith("packages.") for k in (c.split(":")[0] for c in changes)):
         print("! Package count changed: also check the package names/number words in the descriptions.")
 
