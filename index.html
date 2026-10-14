@@ -650,19 +650,19 @@
       border-color: rgba(15, 23, 42, 0.16);
     }
 
-    #projeler .project:nth-child(1):hover {
+    #projeler .project--1:hover {
       box-shadow: 0 24px 50px rgba(125, 211, 252, 0.16), var(--shadow);
     }
 
-    #projeler .project:nth-child(2):hover {
+    #projeler .project--2:hover {
       box-shadow: 0 24px 50px rgba(167, 139, 250, 0.16), var(--shadow);
     }
 
-    #projeler .project:nth-child(3):hover {
+    #projeler .project--3:hover {
       box-shadow: 0 24px 50px rgba(52, 211, 153, 0.14), var(--shadow);
     }
 
-    #projeler .project:nth-child(4):hover {
+    #projeler .project--4:hover {
       box-shadow: 0 24px 50px rgba(251, 191, 36, 0.12), var(--shadow);
     }
 
@@ -678,32 +678,51 @@
       min-height: 220px;
     }
 
-    .project:nth-child(1) {
-      grid-column: span 7;
+    .project--1 {
+      grid-column: span 12;
       background:
         linear-gradient(135deg, rgba(125, 211, 252, 0.14), var(--card-blend) 56%),
         var(--card);
     }
 
-    .project:nth-child(2) {
-      grid-column: span 5;
+    .project--2 {
+      grid-column: span 6;
       background:
         linear-gradient(135deg, rgba(167, 139, 250, 0.15), var(--card-blend) 58%),
         var(--card);
     }
 
-    .project:nth-child(3) {
-      grid-column: span 5;
+    .project--3 {
+      grid-column: span 6;
       background:
         linear-gradient(135deg, rgba(52, 211, 153, 0.12), var(--card-blend) 58%),
         var(--card);
     }
 
-    .project:nth-child(4) {
-      grid-column: span 7;
+    .project--4 {
+      grid-column: span 6;
       background:
         linear-gradient(135deg, rgba(251, 191, 36, 0.11), var(--card-blend) 58%),
         var(--card);
+    }
+
+    .project-group + .project-group {
+      margin-top: 28px;
+    }
+
+    .project-group__title {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project-group__desc {
+      margin: -6px 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
     }
 
     .project h4 {
@@ -738,43 +757,43 @@
       transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
     }
 
-    #projeler .project:nth-child(1) .tag {
+    #projeler .project--1 .tag {
       background: rgba(125, 211, 252, 0.05);
       border: 1px solid rgba(125, 211, 252, 0.12);
       color: var(--accent);
     }
-    #projeler .project:nth-child(2) .tag {
+    #projeler .project--2 .tag {
       background: rgba(167, 139, 250, 0.05);
       border: 1px solid rgba(167, 139, 250, 0.12);
       color: var(--accent-2);
     }
-    #projeler .project:nth-child(3) .tag {
+    #projeler .project--3 .tag {
       background: rgba(52, 211, 153, 0.05);
       border: 1px solid rgba(52, 211, 153, 0.12);
       color: var(--accent-3);
     }
-    #projeler .project:nth-child(4) .tag {
+    #projeler .project--4 .tag {
       background: rgba(251, 191, 36, 0.05);
       border: 1px solid rgba(251, 191, 36, 0.12);
       color: #fbbf24;
     }
 
-    html[data-theme="light"] #projeler .project:nth-child(1) .tag {
+    html[data-theme="light"] #projeler .project--1 .tag {
       background: rgba(2, 132, 199, 0.06);
       border-color: rgba(2, 132, 199, 0.14);
       color: #0284c7;
     }
-    html[data-theme="light"] #projeler .project:nth-child(2) .tag {
+    html[data-theme="light"] #projeler .project--2 .tag {
       background: rgba(124, 58, 237, 0.06);
       border-color: rgba(124, 58, 237, 0.14);
       color: #7c3aed;
     }
-    html[data-theme="light"] #projeler .project:nth-child(3) .tag {
+    html[data-theme="light"] #projeler .project--3 .tag {
       background: rgba(5, 150, 105, 0.06);
       border-color: rgba(5, 150, 105, 0.14);
       color: #059669;
     }
-    html[data-theme="light"] #projeler .project:nth-child(4) .tag {
+    html[data-theme="light"] #projeler .project--4 .tag {
       background: rgba(217, 119, 6, 0.06);
       border-color: rgba(217, 119, 6, 0.14);
       color: #b45309;
@@ -1064,10 +1083,10 @@
         grid-column: span 6;
       }
 
-      .project:nth-child(1),
-      .project:nth-child(2),
-      .project:nth-child(3),
-      .project:nth-child(4) {
+      .project--1,
+      .project--2,
+      .project--3,
+      .project--4 {
         grid-column: span 12;
       }
 
@@ -1559,102 +1578,69 @@
             <h3 data-i18n="projects.title">Seçili Projeler</h3>
           </div>
           <p data-i18n="projects.desc">
-            Farklı ölçeklerdeki işlerden birkaç örnek. Her biri, tasarım kararlarının
-            sadece güzel görünmek için değil, kullanım kalitesi için verildiği işler.
+            Bireysel çalışmalar, şirket projeleri ve GitHub’daki açık kaynak depolar.
           </p>
         </div>
 
-        <div class="project-grid">
-          <article class="project reveal">
+        <div class="project-group">
+          <h4 class="project-group__title reveal" data-i18n="projects.groupPersonal">Bireysel</h4>
+          <div class="project-grid">
+          <article class="project project--1 reveal">
             <span class="meta"><span class="meta-dot"></span> <span data-i18n="project1.badge">Araştırma projesi</span></span>
             <h4 data-i18n="project1.title">SKILLS4JUSTICE</h4>
             <p data-i18n="project1.desc">
               HORIZON-CL2-2023-TRANSFORMATIONS-01: 101132435 kapsamında yer alan çalışma.
             </p>
-            <div class="tags">
-              <span class="tag" data-i18n="project1.tag1">AB Projesi</span>
-              <span class="tag" data-i18n="project1.tag2">Araştırma</span>
-              <span class="tag" data-i18n="project1.tag3">Dönüşüm</span>
-            </div>
           </article>
+          </div>
+        </div>
 
-          <article class="project reveal delay-1">
+        <div class="project-group">
+          <h4 class="project-group__title reveal" data-i18n="projects.groupCompany">Şirket</h4>
+          <div class="project-grid">
+          <article class="project project--2 reveal">
             <span class="meta"><span class="meta-dot"></span> <span data-i18n="project2.badge">Yapay zeka destekli uygulama</span></span>
             <h4 data-i18n="project2.title">BOWOFI</h4>
             <p data-i18n="project2.desc">
               Geleceğin zekası için optimize edilmiş, yapay zeka destekli Bologna Süreci iş akışları uygulaması.
             </p>
-            <div class="tags">
-              <span class="tag" data-i18n="project2.tag1">Yapay Zeka</span>
-              <span class="tag" data-i18n="project2.tag2">Flutter</span>
-              <span class="tag" data-i18n="project2.tag3">İş Akışı</span>
-            </div>
           </article>
 
-          <article class="project reveal delay-2">
+          <article class="project project--3 reveal delay-1">
             <span class="meta"><span class="meta-dot"></span> <span data-i18n="project3.badge">Eğitsel yazılım</span></span>
             <h4 data-i18n="project3.title">ESICSQ</h4>
             <p data-i18n="project3.desc">
               Çocukların kalite algısını geliştirmeyi amaçlayan eğitsel yazılım.
             </p>
-            <div class="tags">
-              <span class="tag" data-i18n="project3.tag1">Eğitim</span>
-              <span class="tag" data-i18n="project3.tag2">Yazılım</span>
-              <span class="tag" data-i18n="project3.tag3">Kullanıcı Deneyimi</span>
+          </article>
+          </div>
+        </div>
+
+        <div class="project-group">
+          <h4 class="project-group__title reveal" data-i18n="projects.groupGithub">GitHub</h4>
+          <div class="hero-stats reveal" style="margin-bottom: 16px;">
+            <div class="stat">
+              <strong data-i18n="github.stat1.value">14</strong>
+              <span data-i18n="github.stat1.label">repository</span>
             </div>
-          </article>
-
-          <article class="project reveal delay-3">
-            <span class="meta"><span class="meta-dot"></span> <span data-i18n="project4.badge">Masaüstü araç</span></span>
-            <h4 data-i18n="project4.title">macOS için Daire Makbuzu Oluşturucu</h4>
-            <p data-i18n="project4.desc">
-              Swift Storyboard ile geliştirilen; yazdırılabilir makbuzları JPEG olarak oluşturan, imza eklemeyi ve daire bilgilerini düzenlemeyi destekleyen uygulama.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section id="github" class="section">
-        <div class="section-head reveal">
-          <div>
-            <h3 data-i18n="github.title">GitHub Öne Çıkanlar</h3>
+            <div class="stat">
+              <strong data-i18n="github.stat2.value">7</strong>
+              <span data-i18n="github.stat2.label">stars</span>
+            </div>
+            <div class="stat">
+              <strong data-i18n="github.stat3.value">5</strong>
+              <span data-i18n="github.stat3.label">followers</span>
+            </div>
+            <div class="stat">
+              <strong data-i18n="github.stat4.value">8</strong>
+              <span data-i18n="github.stat4.label">following</span>
+            </div>
           </div>
-          <p data-i18n="github.desc">
-            GitHub profilinde görünen repo sayısı, yıldızlar, takipçiler ve öne çıkan depolar.
-          </p>
-        </div>
-
-        <div class="hero-stats reveal delay-1" style="margin-bottom: 16px;">
-          <div class="stat">
-            <strong data-i18n="github.stat1.value">14</strong>
-            <span data-i18n="github.stat1.label">repository</span>
-          </div>
-          <div class="stat">
-            <strong data-i18n="github.stat2.value">7</strong>
-            <span data-i18n="github.stat2.label">stars</span>
-          </div>
-          <div class="stat">
-            <strong data-i18n="github.stat3.value">5</strong>
-            <span data-i18n="github.stat3.label">followers</span>
-          </div>
-          <div class="stat">
-            <strong data-i18n="github.stat4.value">8</strong>
-            <span data-i18n="github.stat4.label">following</span>
-          </div>
-        </div>
-
-        <div class="section-head reveal" style="margin-top: 10px;">
-          <div>
-            <h3 data-i18n="github.allTitle">Tüm Herkese Açık Repolar</h3>
-          </div>
-          <p data-i18n="github.allDesc">
+          <p class="project-group__desc reveal" data-i18n="github.allDesc">
             GitHub’da görünen herkese açık tüm repolar: paket kütüphaneleri, site deposu ve tema çalışmaları.
           </p>
+          <div id="repo-grid" class="project-grid"></div>
         </div>
-
-
-
-        <div id="repo-grid" class="project-grid"></div>
       </section>
 
       <section id="packages" class="section">
@@ -1693,12 +1679,6 @@
             <p data-i18n="packages.pub.desc">
               Verified publisher on pub.dev with four Dart packages: dart_encrypter, logbox_color, tcid_checker, and isbn_searcher.
             </p>
-            <div class="tags">
-              <span class="tag">dart_encrypter</span>
-              <span class="tag">logbox_color</span>
-              <span class="tag">tcid_checker</span>
-              <span class="tag">isbn_searcher</span>
-            </div>
             <div class="tags" style="margin-top: 14px;">
               <a class="tag" href="https://pub.dev/publishers/berk.babadogan.net/packages" target="_blank" rel="noreferrer" data-i18n="packages.pub.link">Publisher page</a>
             </div>
@@ -1710,12 +1690,6 @@
             <p data-i18n="packages.nuget.desc">
               NuGet profile with four .NET packages: TCIDChecker_NET, ColorLogger_NET, Encrypter_NET, and ISBNSearcher_NET.
             </p>
-            <div class="tags">
-              <span class="tag">TCIDChecker_NET</span>
-              <span class="tag">ColorLogger_NET</span>
-              <span class="tag">Encrypter_NET</span>
-              <span class="tag">ISBNSearcher_NET</span>
-            </div>
             <div class="tags" style="margin-top: 14px;">
               <a class="tag" href="https://www.nuget.org/profiles/berkbaba" target="_blank" rel="noreferrer" data-i18n="packages.nuget.link">Profile page</a>
             </div>
@@ -1727,11 +1701,6 @@
             <p data-i18n="packages.pub.summaryDesc">
               The publisher page lists 4 packages and shows the verified publisher badge for berk.babadogan.net.
             </p>
-            <div class="tags">
-              <span class="tag">Verified publisher</span>
-              <span class="tag">4 packages</span>
-              <span class="tag">Dart</span>
-            </div>
           </article>
 
           <article class="project reveal delay-3">
@@ -1740,11 +1709,6 @@
             <p data-i18n="packages.nuget.summaryDesc">
               The NuGet profile shows 4 packages and 7,964 total downloads.
             </p>
-            <div class="tags">
-              <span class="tag">4 packages</span>
-              <span class="tag">7,964 downloads</span>
-              <span class="tag">.NET</span>
-            </div>
           </article>
         </div>
       </section>
@@ -1996,7 +1960,10 @@
         },
         projects: {
           title: "Seçili Projeler",
-          desc: "Resmî sitedeki öne çıkan projelerden kısa bir seçim."
+          desc: "Bireysel çalışmalar, şirket projeleri ve GitHub’daki açık kaynak depolar.",
+          groupPersonal: "Bireysel",
+          groupCompany: "Şirket",
+          groupGithub: "GitHub"
         },
         packages: {
           title: "Paket Yayıncıları",
@@ -2026,33 +1993,19 @@
           badge: "Araştırma projesi",
           title: "SKILLS4JUSTICE",
           fullTitle: "Sürdürülebilir ve Adil Göç Becerileri için Beceri Ortaklıkları",
-          desc: "HORIZON-CL2-2023-TRANSFORMATIONS-01: 101132435 kapsamında yer alan çalışma.",
-          tag1: "AB Projesi",
-          tag2: "Araştırma",
-          tag3: "Dönüşüm"
+          desc: "HORIZON-CL2-2023-TRANSFORMATIONS-01: 101132435 kapsamında yer alan çalışma."
         },
         project2: {
           badge: "Yapay zeka destekli uygulama",
           title: "BOWOFI",
           fullTitle: "Geleceğin Zekâsı için Optimize Edilmiş, Yapay Zekâ Destekli Bologna Süreci İş Akışları Uygulaması",
-          desc: "Geleceğin zekası için optimize edilmiş, yapay zeka destekli Bologna Süreci iş akışları uygulaması.",
-          tag1: "Yapay Zeka",
-          tag2: "Flutter",
-          tag3: "İş Akışı"
+          desc: "Geleceğin zekası için optimize edilmiş, yapay zeka destekli Bologna Süreci iş akışları uygulaması."
         },
         project3: {
           badge: "Eğitsel yazılım",
           title: "ESICSQ",
           fullTitle: "Çocukların Kalite Algısını Geliştirmeye Yönelik Eğitsel Yazılım",
-          desc: "Çocukların kalite algısını geliştirmeyi amaçlayan eğitsel yazılım.",
-          tag1: "Eğitim",
-          tag2: "Yazılım",
-          tag3: "Kullanıcı Deneyimi"
-        },
-        project4: {
-          badge: "Masaüstü araç",
-          title: "macOS için Daire Makbuzu Oluşturucu",
-          desc: "Swift Storyboard ile geliştirilen; yazdırılabilir makbuzları JPEG olarak oluşturan, imza eklemeyi ve daire bilgilerini düzenlemeyi destekleyen uygulama."
+          desc: "Çocukların kalite algısını geliştirmeyi amaçlayan eğitsel yazılım."
         },
         skills: {
           title: "Teknoloji Yığını",
@@ -2060,7 +2013,7 @@
         },
         github: {
           title: "GitHub Öne Çıkanlar",
-          desc: "GitHub profilinde görünen repo sayısı, yıldızlar, takipçiler ve herkese açık tüm depolar.",
+          desc: "GitHub profilindeki repo, yıldız, takipçi ve takip sayıları; depolar Seçili Projeler’in GitHub başlığında.",
           stat1: {
             value: "14",
             label: "repo"
@@ -2254,7 +2207,10 @@
         },
         projects: {
           title: "Selected Projects",
-          desc: "A short selection of featured projects from the official site."
+          desc: "Individual work, company projects and open source repositories on GitHub.",
+          groupPersonal: "Individual",
+          groupCompany: "Corporate",
+          groupGithub: "GitHub"
         },
         packages: {
           title: "Package Publishers",
@@ -2284,33 +2240,19 @@
           badge: "Research project",
           title: "SKILLS4JUSTICE",
           fullTitle: "Skill Partnerships for Sustainable and Just Migration Patterns",
-          desc: "A project under HORIZON-CL2-2023-TRANSFORMATIONS-01: 101132435.",
-          tag1: "EU Project",
-          tag2: "Research",
-          tag3: "Transformation"
+          desc: "A project under HORIZON-CL2-2023-TRANSFORMATIONS-01: 101132435."
         },
         project2: {
           badge: "AI-supported app",
           title: "BOWOFI",
           fullTitle: "Bologna Process Workflows Application Optimized for Future Intelligence Supported by AI",
-          desc: "An AI-supported Bologna Process workflows application optimized for future intelligence.",
-          tag1: "AI",
-          tag2: "Flutter",
-          tag3: "Workflow"
+          desc: "An AI-supported Bologna Process workflows application optimized for future intelligence."
         },
         project3: {
           badge: "Educational software",
           title: "ESICSQ",
           fullTitle: "Educational Software to Improve Children’s Sense of Quality",
-          desc: "Educational software to improve children's sense of quality.",
-          tag1: "Education",
-          tag2: "Software",
-          tag3: "User Experience"
-        },
-        project4: {
-          badge: "Desktop tool",
-          title: "Apartment Receipt Generator for macOS",
-          desc: "A Swift Storyboard app that generates printable receipts as JPEGs and supports signature embedding and apartment info editing."
+          desc: "Educational software to improve children's sense of quality."
         },
         skills: {
           title: "Tech Stack",
@@ -2318,7 +2260,7 @@
         },
         github: {
           title: "GitHub Highlights",
-          desc: "Repository count, stars, followers, and all public repositories visible on the GitHub profile.",
+          desc: "Repository, star, follower and following counts of the GitHub profile; the repositories are listed under GitHub in Selected Projects.",
           stat1: {
             value: "14",
             label: "repositories"
@@ -2509,7 +2451,10 @@
         },
         projects: {
           title: "Proiecte Selectate",
-          desc: "O selecție scurtă de proiecte evidențiate de pe site-ul oficial."
+          desc: "Lucrări individuale, proiecte ale companiei și repository-uri open source pe GitHub.",
+          groupPersonal: "Persoană fizică",
+          groupCompany: "Companie",
+          groupGithub: "GitHub"
         },
         packages: {
           title: "Publicatori de pachete",
@@ -2539,33 +2484,19 @@
           badge: "Proiect de cercetare",
           title: "SKILLS4JUSTICE",
           fullTitle: "Parteneriate de Competențe pentru Modele de Migrație Sustenabile și Echitabile",
-          desc: "Un proiect din HORIZON-CL2-2023-TRANSFORMATIONS-01: 101132435.",
-          tag1: "Proiect UE",
-          tag2: "Cercetare",
-          tag3: "Transformare"
+          desc: "Un proiect din HORIZON-CL2-2023-TRANSFORMATIONS-01: 101132435."
         },
         project2: {
           badge: "Aplicație asistată de AI",
           title: "BOWOFI",
           fullTitle: "Aplicație pentru Fluxurile de Lucru ale Procesului Bologna Optimizată pentru Inteligența Viitoare Susținută de IA",
-          desc: "Aplicație pentru fluxurile de lucru ale procesului de la Bologna, optimizată pentru tehnologiile inteligente ale viitorului și asistată de AI.",
-          tag1: "AI",
-          tag2: "Flutter",
-          tag3: "Flux de lucru"
+          desc: "Aplicație pentru fluxurile de lucru ale procesului de la Bologna, optimizată pentru tehnologiile inteligente ale viitorului și asistată de AI."
         },
         project3: {
           badge: "Software educațional",
           title: "ESICSQ",
           fullTitle: "Software Educațional pentru Îmbunătățirea Simțului Calității la Copii",
-          desc: "Software educațional conceput pentru a îmbunătăți simțul calității la copii.",
-          tag1: "Educație",
-          tag2: "Software",
-          tag3: "Experiență utilizator"
-        },
-        project4: {
-          badge: "Instrument desktop",
-          title: "Generator de chitanțe pentru apartamente pentru macOS",
-          desc: "O aplicație Swift Storyboard care generează chitanțe imprimabile ca JPEG și permite încorporarea semnăturii și editarea datelor apartamentului."
+          desc: "Software educațional conceput pentru a îmbunătăți simțul calității la copii."
         },
         skills: {
           title: "Stack tehnic",
@@ -2573,7 +2504,7 @@
         },
         github: {
           title: "Repere GitHub",
-          desc: "Numărul de repository-uri, staruri, urmăritori și toate repository-urile publice vizibile în profilul GitHub.",
+          desc: "Numărul de repository-uri, stele, urmăritori și urmăriri ale profilului GitHub; repository-urile sunt listate la GitHub în Proiecte Selectate.",
           stat1: {
             value: "14",
             label: "repository-uri"
