@@ -678,6 +678,34 @@
       min-height: 220px;
     }
 
+    #packages .project {
+      grid-column: span 6;
+    }
+
+    #packages .project:nth-child(1) {
+      background:
+        linear-gradient(135deg, rgba(125, 211, 252, 0.14), var(--card-blend) 56%),
+        var(--card);
+    }
+
+    #packages .project:nth-child(2) {
+      background:
+        linear-gradient(135deg, rgba(167, 139, 250, 0.15), var(--card-blend) 58%),
+        var(--card);
+    }
+
+    #packages .project:nth-child(3) {
+      background:
+        linear-gradient(135deg, rgba(52, 211, 153, 0.12), var(--card-blend) 58%),
+        var(--card);
+    }
+
+    #packages .project:nth-child(4) {
+      background:
+        linear-gradient(135deg, rgba(251, 191, 36, 0.11), var(--card-blend) 58%),
+        var(--card);
+    }
+
     .project--1 {
       grid-column: span 12;
       background:
@@ -1064,6 +1092,7 @@
         grid-column: span 6;
       }
 
+      #packages .project,
       .project--1,
       .project--2,
       .project--3,
