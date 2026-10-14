@@ -2745,17 +2745,17 @@
       { name: 'aptreceipt', desc: 'Generates apartment income / expense receipt with given data. After that , you can export receipt as an image.', lang: 'Swift', url: 'https://github.com/berkbb/aptreceipt' },
       { name: 'berkbb', desc: 'Config files for my GitHub profile.', lang: '', url: 'https://github.com/berkbb/berkbb' },
       { name: 'berkbb.github.io', desc: '', lang: 'HTML', url: 'https://github.com/berkbb/berkbb.github.io' },
-      { name: 'colorlogger_net', desc: 'Color logger class for .NET.', lang: 'C#', url: 'https://github.com/berkbb/colorlogger_net' },
-      { name: 'dart_encrypter', desc: 'Encrypt / Decrypt the String with given Key and IV. It includes built-in password generator also. It uses colored box for outputs if you want.', lang: 'Dart', url: 'https://github.com/berkbb/dart_encrypter' },
-      { name: 'devmatebb', desc: 'A custom VS Code theme by BB.', lang: '', url: 'https://github.com/berkbb/devmatebb' },
-      { name: 'devorabb', desc: 'A custom VS Code theme by BB.', lang: '', url: 'https://github.com/berkbb/devorabb' },
-      { name: 'encrypter_net', desc: 'Encrypt / Decrypt the String with given Key and IV. It includes built-in password generator also. It uses colored box for outputs if you want.  Resources', lang: 'C#', url: 'https://github.com/berkbb/encrypter_net' },
-      { name: 'isbn_searcher', desc: 'Searches ISBN metadata with given local JSON via API supplied by Google.', lang: 'Dart', url: 'https://github.com/berkbb/isbn_searcher' },
-      { name: 'isbn_searcher_net', desc: 'Searches ISBN metadata with given local JSON via API supplied by Google.', lang: 'C#', url: 'https://github.com/berkbb/isbn_searcher_net' },
-      { name: 'logbox_color', desc: '', lang: 'Dart', url: 'https://github.com/berkbb/logbox_color' },
+      { name: 'colorlogger_net', desc: 'Color logger class for .NET.', lang: 'C#', url: 'https://github.com/berkbb/colorlogger_net', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/ColorLogger_NET/' } },
+      { name: 'dart_encrypter', desc: 'Encrypt / Decrypt the String with given Key and IV. It includes built-in password generator also. It uses colored box for outputs if you want.', lang: 'Dart', url: 'https://github.com/berkbb/dart_encrypter', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/dart_encrypter' } },
+      { name: 'devmatebb', desc: 'A custom VS Code theme by BB.', lang: '', url: 'https://github.com/berkbb/devmatebb', pkg: { label: 'VS Marketplace', url: 'https://marketplace.visualstudio.com/items?itemName=berkbb.devmatebb-vscode-theme' } },
+      { name: 'devorabb', desc: 'A custom VS Code theme by BB.', lang: '', url: 'https://github.com/berkbb/devorabb', pkg: { label: 'VS Marketplace', url: 'https://marketplace.visualstudio.com/items?itemName=berkbb.devorabb-vscode-theme' } },
+      { name: 'encrypter_net', desc: 'Encrypt / Decrypt the String with given Key and IV. It includes built-in password generator also. It uses colored box for outputs if you want.  Resources', lang: 'C#', url: 'https://github.com/berkbb/encrypter_net', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/Encrypter_NET/' } },
+      { name: 'isbn_searcher', desc: 'Searches ISBN metadata with given local JSON via API supplied by Google.', lang: 'Dart', url: 'https://github.com/berkbb/isbn_searcher', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/isbn_searcher' } },
+      { name: 'isbn_searcher_net', desc: 'Searches ISBN metadata with given local JSON via API supplied by Google.', lang: 'C#', url: 'https://github.com/berkbb/isbn_searcher_net', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/ISBNSearcher_NET/' } },
+      { name: 'logbox_color', desc: '', lang: 'Dart', url: 'https://github.com/berkbb/logbox_color', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/logbox_color' } },
       { name: 'pitwall-updater', desc: 'Custom F1 TV Manager for Unsupported  Android/Google TV\'s.', lang: 'Kotlin', url: 'https://github.com/berkbb/pitwall-updater' },
-      { name: 'tcid_checker', desc: 'TC ID Checker for Dart and Flutter', lang: 'Dart', url: 'https://github.com/berkbb/tcid_checker' },
-      { name: 'tcid_checker_net', desc: 'Determines that given TC ID is correct or wrong based on rules fot .NET.', lang: 'C#', url: 'https://github.com/berkbb/tcid_checker_net' }
+      { name: 'tcid_checker', desc: 'TC ID Checker for Dart and Flutter', lang: 'Dart', url: 'https://github.com/berkbb/tcid_checker', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/tcid_checker' } },
+      { name: 'tcid_checker_net', desc: 'Determines that given TC ID is correct or wrong based on rules fot .NET.', lang: 'C#', url: 'https://github.com/berkbb/tcid_checker_net', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/TCIDChecker_NET/' } }
     ];
 
     function getValue(source, path) {
@@ -2816,6 +2816,7 @@
             </div>
             <div class="tags" style="margin-top: auto;">
               <a class="tag" href="${repo.url}" target="_blank" rel="noopener noreferrer">${btnText}</a>
+              ${repo.pkg ? `<a class="tag" href="${repo.pkg.url}" target="_blank" rel="noopener noreferrer">${repo.pkg.label} ↗</a>` : ''}
             </div>
           </article>
         `;

@@ -135,8 +135,29 @@ def js_string(text):
     return "'" + (text or "").replace("\\", "\\\\").replace("'", "\\'") + "'"
 
 
-def sync_repo_list(html, repos, changes):
-    """Add new public repos to / drop removed ones from the githubRepos array."""
+def name_key(name):
+    return re.sub(r"[^a-z0-9]", "", (name or "").lower())
+
+
+def package_link(repo_name, package_names):
+    """pub.dev or NuGet package published from a repo (matched by name), as a JS pkg object, or ''."""
+    key = name_key(repo_name)
+    for pub in package_names.get("pub", []):
+        if name_key(pub) == key:
+            return f", pkg: {{ label: 'pub.dev', url: {js_string('https://pub.dev/packages/' + pub)} }}"
+    for nuget in package_names.get("nuget", []):
+        if name_key(nuget) == key:
+            return f", pkg: {{ label: 'NuGet', url: {js_string('https://www.nuget.org/packages/' + nuget + '/')} }}"
+    return ""
+
+
+def sync_repo_list(html, repos, changes, package_names=None):
+    """Add new public repos to / drop removed ones from the githubRepos array.
+
+    A new repo published as a pub.dev or NuGet package gets a pkg link (a second
+    button on its card); existing entries, with any pkg link added by hand
+    (e.g. VS Marketplace), are kept as they are.
+    """
     match = re.search(r"(const githubRepos = \[\n)(.*?)(\n\s*\];)", html, re.S)
     if not match:
         sys.exit("Could not find the githubRepos array in index.html")
@@ -147,7 +168,8 @@ def sync_repo_list(html, repos, changes):
     for name in sorted(set(repos) - set(entries)):
         repo = repos[name]
         entries[name] = (f"{indent}{{ name: {js_string(name)}, desc: {js_string(repo['description'])}, "
-                         f"lang: {js_string(repo['language'])}, url: {js_string(repo['html_url'])} }}")
+                         f"lang: {js_string(repo['language'])}, url: {js_string(repo['html_url'])}"
+                         f"{package_link(name, package_names or {})} }}")
         changes.append(f"repo added: {name}")
     for name in sorted(set(entries) - set(repos)):
         del entries[name]
@@ -271,7 +293,7 @@ def main():
         changes.append(f"nuget downloads: {old_dl} -> {new_dl}")
         html = html.replace(old_dl, new_dl)
 
-    html = sync_repo_list(html, stats["repos"], changes)
+    html = sync_repo_list(html, stats["repos"], changes, stats["package_names"])
     html = sync_package_descriptions(html, stats["package_names"], changes)
 
     if html == original and not changes:
