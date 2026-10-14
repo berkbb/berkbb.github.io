@@ -1,4 +1,4 @@
-const CACHE_NAME = 'berkbb-portfolio-cache-v13';
+const CACHE_NAME = 'berkbb-portfolio-cache-v14';
 const ASSETS = [
   './',
   './index.html',
