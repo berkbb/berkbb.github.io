@@ -23,6 +23,7 @@ Berk Babadoğan is a professional Software Engineer and Computer Engineer specia
 - **Cloud/Databases**: Azure, Firebase
 
 ## Featured Projects & Repositories
+- **aynacast-player**: High-performance, ultra-low-latency, hardware-accelerated AirPlay receiver & screen mirroring engine engineered for Android TV and Google TV (C, Babadogan Tech and Edu).
 - **pitwall-updater**: Custom F1 TV Manager application for unsupported Android/Google TV sets (Kotlin, Jetpack Compose, on-device DEX patching, split APK installer).
 - **aptreceipt**: Swift application to generate apartment income/expense receipts as images.
 - **dart_encrypter** & **encrypter_net**: Encryption/decryption libraries in Dart/Flutter and .NET.
