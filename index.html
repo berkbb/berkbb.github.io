@@ -666,16 +666,106 @@
       box-shadow: 0 24px 50px rgba(251, 191, 36, 0.12), var(--shadow);
     }
 
+    #corporate-repo-grid .project:hover,
+    #personal-repo-grid .project:hover,
     #repo-grid .project:hover {
       box-shadow: 0 20px 40px rgba(125, 211, 252, 0.08), var(--shadow);
     }
 
+    #corporate-repo-grid .project,
+    #personal-repo-grid .project,
     #repo-grid .project {
       grid-column: span 4;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       min-height: 220px;
+    }
+
+    #corporate-repo-grid .project {
+      grid-column: span 6;
+    }
+
+    .repo-groups {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .repo-group-head {
+      margin-bottom: 14px;
+    }
+
+    .repo-group-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 6px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .repo-group-title .material-symbols-outlined {
+      font-size: 1.35rem;
+      color: var(--accent);
+    }
+
+    .repo-group-desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .repo-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .repo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+
+    .repo-badge .material-symbols-outlined {
+      font-size: 13px !important;
+    }
+
+    .repo-badge--corporate {
+      background: rgba(14, 165, 233, 0.12);
+      color: #38bdf8;
+      border: 1px solid rgba(14, 165, 233, 0.32);
+    }
+
+    html[data-theme="light"] .repo-badge--corporate {
+      background: rgba(2, 132, 199, 0.09);
+      color: #0284c7;
+      border: 1px solid rgba(2, 132, 199, 0.24);
+    }
+
+    .repo-badge--personal {
+      background: rgba(148, 163, 184, 0.1);
+      color: #cbd5e1;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+    }
+
+    html[data-theme="light"] .repo-badge--personal {
+      background: rgba(100, 116, 139, 0.08);
+      color: #475569;
+      border: 1px solid rgba(100, 116, 139, 0.2);
     }
 
     #packages .project {
@@ -1088,8 +1178,14 @@
         grid-template-columns: 1fr;
       }
 
+      #corporate-repo-grid .project,
+      #personal-repo-grid .project,
       #repo-grid .project {
         grid-column: span 6;
+      }
+
+      #corporate-repo-grid .project {
+        grid-column: span 12;
       }
 
       #packages .project,
@@ -1136,6 +1232,8 @@
         grid-template-columns: 1fr;
       }
 
+      #corporate-repo-grid .project,
+      #personal-repo-grid .project,
       #repo-grid .project {
         grid-column: span 12;
       }
@@ -1385,6 +1483,8 @@
       .button,
       .floating-pill,
       .tags,
+      #corporate-repo-grid,
+      #personal-repo-grid,
       #repo-grid,
       .section-head p,
       footer {
@@ -1642,9 +1742,9 @@
           </p>
         </div>
 
-        <div class="hero-stats reveal" style="margin-bottom: 16px;">
+        <div class="hero-stats reveal" style="margin-bottom: 24px;">
           <div class="stat">
-            <strong data-i18n="github.stat1.value">14</strong>
+            <strong data-i18n="github.stat1.value">15</strong>
             <span data-i18n="github.stat1.label">repository</span>
           </div>
           <div class="stat">
@@ -1661,7 +1761,33 @@
           </div>
         </div>
 
-        <div id="repo-grid" class="project-grid"></div>
+        <div class="repo-groups">
+          <div class="repo-group">
+            <div class="repo-group-head reveal">
+              <h4 class="repo-group-title">
+                <span class="material-symbols-outlined">domain</span>
+                <span data-i18n="github.groupCorporateTitle">Kurumsal (Babadogan Tech and Edu)</span>
+              </h4>
+              <p class="repo-group-desc" data-i18n="github.groupCorporateDesc">
+                Babadogan Tech and Edu bünyesinde açık kaynak olarak geliştirilen kurumsal çözümler ve motorlar.
+              </p>
+            </div>
+            <div id="corporate-repo-grid" class="project-grid"></div>
+          </div>
+
+          <div class="repo-group" style="margin-top: 36px;">
+            <div class="repo-group-head reveal">
+              <h4 class="repo-group-title">
+                <span class="material-symbols-outlined">person</span>
+                <span data-i18n="github.groupPersonalTitle">Bireysel</span>
+              </h4>
+              <p class="repo-group-desc" data-i18n="github.groupPersonalDesc">
+                berkbb ve berk.babadogan.net altında geliştirilen açık kaynak kütüphaneler, araçlar ve profiller.
+              </p>
+            </div>
+            <div id="personal-repo-grid" class="project-grid"></div>
+          </div>
+        </div>
       </section>
 
       <section id="packages" class="section">
@@ -2034,7 +2160,7 @@
         },
         github: {
           stat1: {
-            value: "14",
+            value: "15",
             label: "repo"
           },
           stat2: {
@@ -2051,7 +2177,13 @@
           },
           allDesc: "GitHub’da görünen herkese açık tüm repolar: paket kütüphaneleri, site deposu ve tema çalışmaları.",
           repoFallback: "Repo",
-          viewBtn: "GitHub'da Gör"
+          viewBtn: "GitHub'da Gör",
+          groupCorporateTitle: "Kurumsal (Babadogan Tech and Edu)",
+          groupCorporateDesc: "Babadogan Tech and Edu bünyesinde açık kaynak olarak geliştirilen kurumsal çözümler ve motorlar.",
+          groupPersonalTitle: "Bireysel",
+          groupPersonalDesc: "berkbb ve berk.babadogan.net altında geliştirilen açık kaynak kütüphaneler, araçlar ve profiller.",
+          badgeCorporate: "Kurumsal",
+          badgePersonal: "Bireysel"
         },
         skill1: {
           title: "Platformlar",
@@ -2133,6 +2265,7 @@
         },
         repos: {
           aptreceipt: "Girilen verilerle daire gelir/gider makbuzu oluşturur; makbuz daha sonra resim olarak dışa aktarılabilir.",
+          "aynacast-player": "Android TV ve Google TV için özel olarak geliştirilmiş, yüksek performanslı, ultra düşük gecikmeli ve donanım hızlandırmalı AirPlay Alıcısı ve Ekran Yansıtma Motoru: AynaCast TV.",
           berkbb: "GitHub profilim için yapılandırma dosyaları.",
           "berkbb.github.io": "Kişisel portfolyo web sitesi.",
           colorlogger_net: ".NET için renkli günlük kaydı (log) sınıfı.",
@@ -2278,7 +2411,7 @@
         },
         github: {
           stat1: {
-            value: "14",
+            value: "15",
             label: "repositories"
           },
           stat2: {
@@ -2295,7 +2428,13 @@
           },
           allDesc: "Every public repository visible on GitHub, including package libraries, the site repo, and theme work.",
           repoFallback: "Repository",
-          viewBtn: "View on GitHub"
+          viewBtn: "View on GitHub",
+          groupCorporateTitle: "Corporate (Babadogan Tech and Edu)",
+          groupCorporateDesc: "Open-source corporate solutions and engines developed under Babadogan Tech and Edu.",
+          groupPersonalTitle: "Personal",
+          groupPersonalDesc: "Open-source libraries, tools, and profile configurations developed under berkbb and berk.babadogan.net.",
+          badgeCorporate: "Corporate",
+          badgePersonal: "Personal"
         },
         skill1: {
           title: "Platforms",
@@ -2374,6 +2513,7 @@
         },
         repos: {
           aptreceipt: "Generates apartment income/expense receipts from the given data; the receipt can then be exported as an image.",
+          "aynacast-player": "A high-performance, ultra-low-latency, hardware-accelerated AirPlay Receiver & Screen Mirroring Engine engineered specifically for Android TV and Google TV: AynaCast TV.",
           berkbb: "Config files for my GitHub profile.",
           "berkbb.github.io": "Personal portfolio website.",
           colorlogger_net: "Color logger class for .NET.",
@@ -2519,7 +2659,7 @@
         },
         github: {
           stat1: {
-            value: "14",
+            value: "15",
             label: "repository-uri"
           },
           stat2: {
@@ -2536,7 +2676,13 @@
           },
           allDesc: "Fiecare repository public vizibil pe GitHub, inclusiv biblioteci de pachete, repo-ul site-ului și lucrările de temă.",
           repoFallback: "Repository",
-          viewBtn: "Vezi pe GitHub"
+          viewBtn: "Vezi pe GitHub",
+          groupCorporateTitle: "Corporativ (Babadogan Tech and Edu)",
+          groupCorporateDesc: "Soluții corporative open-source și motoare dezvoltate sub Babadogan Tech and Edu.",
+          groupPersonalTitle: "Personal",
+          groupPersonalDesc: "Biblioteci open-source, instrumente și profiluri dezvoltate sub berkbb și berk.babadogan.net.",
+          badgeCorporate: "Corporativ",
+          badgePersonal: "Personal"
         },
         skill1: {
           title: "Platforme",
@@ -2615,6 +2761,7 @@
         },
         repos: {
           aptreceipt: "Generează chitanțe de venituri/cheltuieli pentru apartamente din datele introduse; chitanța poate fi apoi exportată ca imagine.",
+          "aynacast-player": "Receptor AirPlay și motor de oglindire a ecranului de înaltă performanță, latență ultra-scăzută și accelerare hardware pentru Android TV și Google TV: AynaCast TV.",
           berkbb: "Fișiere de configurare pentru profilul meu de GitHub.",
           "berkbb.github.io": "Site personal de portofoliu.",
           colorlogger_net: "Clasă de logare colorată pentru .NET.",
@@ -2671,20 +2818,21 @@
     const initialLang = supportedLangs.has(savedLang) ? savedLang : defaultLang;
     let currentTheme = supportedThemes.has(savedTheme) ? savedTheme : 'auto';
     const githubRepos = [
-      { name: 'aptreceipt', desc: 'Generates apartment income / expense receipt with given data. After that , you can export receipt as an image.', lang: 'Swift', url: 'https://github.com/berkbb/aptreceipt' },
-      { name: 'berkbb', desc: 'Config files for my GitHub profile.', lang: '', url: 'https://github.com/berkbb/berkbb' },
-      { name: 'berkbb.github.io', desc: '', lang: 'HTML', url: 'https://github.com/berkbb/berkbb.github.io' },
-      { name: 'colorlogger_net', desc: 'Color logger class for .NET.', lang: 'C#', url: 'https://github.com/berkbb/colorlogger_net', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/ColorLogger_NET/' } },
-      { name: 'dart_encrypter', desc: 'Encrypt / Decrypt the String with given Key and IV. It includes built-in password generator also. It uses colored box for outputs if you want.', lang: 'Dart', url: 'https://github.com/berkbb/dart_encrypter', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/dart_encrypter' } },
-      { name: 'devmatebb', desc: 'A custom VS Code theme by BB.', lang: '', url: 'https://github.com/berkbb/devmatebb', pkg: { label: 'VS Marketplace', url: 'https://marketplace.visualstudio.com/items?itemName=berkbb.devmatebb-vscode-theme' } },
-      { name: 'devorabb', desc: 'A custom VS Code theme by BB.', lang: '', url: 'https://github.com/berkbb/devorabb', pkg: { label: 'VS Marketplace', url: 'https://marketplace.visualstudio.com/items?itemName=berkbb.devorabb-vscode-theme' } },
-      { name: 'encrypter_net', desc: 'Encrypt / Decrypt the String with given Key and IV. It includes built-in password generator also. It uses colored box for outputs if you want.  Resources', lang: 'C#', url: 'https://github.com/berkbb/encrypter_net', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/Encrypter_NET/' } },
-      { name: 'isbn_searcher', desc: 'Searches ISBN metadata with given local JSON via API supplied by Google.', lang: 'Dart', url: 'https://github.com/berkbb/isbn_searcher', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/isbn_searcher' } },
-      { name: 'isbn_searcher_net', desc: 'Searches ISBN metadata with given local JSON via API supplied by Google.', lang: 'C#', url: 'https://github.com/berkbb/isbn_searcher_net', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/ISBNSearcher_NET/' } },
-      { name: 'logbox_color', desc: '', lang: 'Dart', url: 'https://github.com/berkbb/logbox_color', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/logbox_color' } },
-      { name: 'pitwall-updater', desc: 'Custom F1 TV Manager for Unsupported  Android/Google TV\'s.', lang: 'Kotlin', url: 'https://github.com/berkbb/pitwall-updater' },
-      { name: 'tcid_checker', desc: 'TC ID Checker for Dart and Flutter', lang: 'Dart', url: 'https://github.com/berkbb/tcid_checker', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/tcid_checker' } },
-      { name: 'tcid_checker_net', desc: 'Determines that given TC ID is correct or wrong based on rules fot .NET.', lang: 'C#', url: 'https://github.com/berkbb/tcid_checker_net', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/TCIDChecker_NET/' } }
+      { name: 'aptreceipt', desc: 'Generates apartment income / expense receipt with given data. After that , you can export receipt as an image.', lang: 'Swift', url: 'https://github.com/berkbb/aptreceipt', category: 'personal' },
+      { name: 'aynacast-player', desc: 'High-performance, ultra-low-latency, hardware-accelerated AirPlay Receiver & Screen Mirroring Engine engineered for Android TV and Google TV: AynaCast TV.', lang: 'C', url: 'https://github.com/berkbb/aynacast-player', category: 'corporate' },
+      { name: 'berkbb', desc: 'Config files for my GitHub profile.', lang: '', url: 'https://github.com/berkbb/berkbb', category: 'personal' },
+      { name: 'berkbb.github.io', desc: '', lang: 'HTML', url: 'https://github.com/berkbb/berkbb.github.io', category: 'personal' },
+      { name: 'colorlogger_net', desc: 'Color logger class for .NET.', lang: 'C#', url: 'https://github.com/berkbb/colorlogger_net', category: 'personal', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/ColorLogger_NET/' } },
+      { name: 'dart_encrypter', desc: 'Encrypt / Decrypt the String with given Key and IV. It includes built-in password generator also. It uses colored box for outputs if you want.', lang: 'Dart', url: 'https://github.com/berkbb/dart_encrypter', category: 'personal', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/dart_encrypter' } },
+      { name: 'devmatebb', desc: 'A custom VS Code theme by BB.', lang: '', url: 'https://github.com/berkbb/devmatebb', category: 'personal', pkg: { label: 'VS Marketplace', url: 'https://marketplace.visualstudio.com/items?itemName=berkbb.devmatebb-vscode-theme' } },
+      { name: 'devorabb', desc: 'A custom VS Code theme by BB.', lang: '', url: 'https://github.com/berkbb/devorabb', category: 'personal', pkg: { label: 'VS Marketplace', url: 'https://marketplace.visualstudio.com/items?itemName=berkbb.devorabb-vscode-theme' } },
+      { name: 'encrypter_net', desc: 'Encrypt / Decrypt the String with given Key and IV. It includes built-in password generator also. It uses colored box for outputs if you want.  Resources', lang: 'C#', url: 'https://github.com/berkbb/encrypter_net', category: 'personal', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/Encrypter_NET/' } },
+      { name: 'isbn_searcher', desc: 'Searches ISBN metadata with given local JSON via API supplied by Google.', lang: 'Dart', url: 'https://github.com/berkbb/isbn_searcher', category: 'personal', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/isbn_searcher' } },
+      { name: 'isbn_searcher_net', desc: 'Searches ISBN metadata with given local JSON via API supplied by Google.', lang: 'C#', url: 'https://github.com/berkbb/isbn_searcher_net', category: 'personal', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/ISBNSearcher_NET/' } },
+      { name: 'logbox_color', desc: '', lang: 'Dart', url: 'https://github.com/berkbb/logbox_color', category: 'personal', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/logbox_color' } },
+      { name: 'pitwall-updater', desc: 'Custom F1 TV Manager for Unsupported  Android/Google TV\'s.', lang: 'Kotlin', url: 'https://github.com/berkbb/pitwall-updater', category: 'personal' },
+      { name: 'tcid_checker', desc: 'TC ID Checker for Dart and Flutter', lang: 'Dart', url: 'https://github.com/berkbb/tcid_checker', category: 'personal', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/tcid_checker' } },
+      { name: 'tcid_checker_net', desc: 'Determines that given TC ID is correct or wrong based on rules fot .NET.', lang: 'C#', url: 'https://github.com/berkbb/tcid_checker_net', category: 'personal', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/TCIDChecker_NET/' } }
     ];
 
     function getValue(source, path) {
@@ -2713,6 +2861,7 @@
 
     function getLangColor(lang) {
       const colors = {
+        'C': '#555555',
         'C#': '#854cc7',
         'Swift': '#f05138',
         'Dart': '#00b4e0',
@@ -2723,23 +2872,37 @@
     }
 
     function renderRepos(lang) {
-      const grid = document.getElementById('repo-grid');
-      if (!grid) return;
+      const corporateGrid = document.getElementById('corporate-repo-grid');
+      const personalGrid = document.getElementById('personal-repo-grid');
+      const legacyGrid = document.getElementById('repo-grid');
+      if (!corporateGrid && !personalGrid && !legacyGrid) return;
 
       const pack = translationsByLang[lang] || translationsByLang[defaultLang];
       const btnText = (pack.github && pack.github.viewBtn) || "GitHub'da Gör";
       const repoFallback = (pack.github && pack.github.repoFallback) || "Repository";
-      
-      grid.innerHTML = githubRepos.map((repo, index) => {
+      const badgeCorpText = (pack.github && pack.github.badgeCorporate) || "Kurumsal";
+      const badgePersText = (pack.github && pack.github.badgePersonal) || "Bireysel";
+
+      const renderCard = (repo, index) => {
         const description = (pack.repos && pack.repos[repo.name]) || repo.desc || (lang === 'tr' ? 'Açıklama bulunmuyor.' : lang === 'ro' ? 'Nicio descriere disponibilă.' : 'No description available.');
         const badge = repo.lang || repoFallback;
         const dotColor = getLangColor(repo.lang);
         const dotStyle = `background: ${dotColor}; box-shadow: 0 0 12px ${dotColor};`;
-        
+        const isCorp = repo.category === 'corporate';
+        const categoryBadgeText = isCorp ? badgeCorpText : badgePersText;
+        const categoryIcon = isCorp ? 'domain' : 'person';
+        const categoryClass = isCorp ? 'repo-badge--corporate' : 'repo-badge--personal';
+
         return `
           <article class="project reveal" style="animation-delay: ${index * 40}ms;">
             <div>
-              <span class="meta"><span class="meta-dot" style="${dotStyle}"></span> ${badge}</span>
+              <div class="repo-card-header">
+                <span class="meta"><span class="meta-dot" style="${dotStyle}"></span> ${badge}</span>
+                <span class="repo-badge ${categoryClass}">
+                  <span class="material-symbols-outlined">${categoryIcon}</span>
+                  ${categoryBadgeText}
+                </span>
+              </div>
               <h4>${repo.name}</h4>
               <p>${description}</p>
             </div>
@@ -2749,7 +2912,20 @@
             </div>
           </article>
         `;
-      }).join('');
+      };
+
+      const corporateRepos = githubRepos.filter(r => r.category === 'corporate');
+      const personalRepos = githubRepos.filter(r => r.category !== 'corporate');
+
+      if (corporateGrid) {
+        corporateGrid.innerHTML = corporateRepos.map(renderCard).join('');
+      }
+      if (personalGrid) {
+        personalGrid.innerHTML = personalRepos.map(renderCard).join('');
+      }
+      if (legacyGrid) {
+        legacyGrid.innerHTML = githubRepos.map(renderCard).join('');
+      }
     }
 
     class TextScramble {
