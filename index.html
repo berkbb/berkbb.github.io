@@ -2263,6 +2263,22 @@
           left: "© 2026 Berk Babadoğan",
           right: "Yazılım mühendisliği ve ürün geliştirme portfolyosu"
         },
+        repoTitles: {
+          aptreceipt: "AptReceipt",
+          "aynacast-player": "AynaCast",
+          colorlogger_net: "Color Logger for .NET",
+          dart_encrypter: "Encrypter for Dart & Flutter",
+          devmatebb: "DevmateBB",
+          devorabb: "DevoraBB",
+          encrypter_net: "Encrypter_NET",
+          isbn_searcher: "ISBN Searcher for Dart & Flutter",
+          isbn_searcher_net: "ISBNSearcher_NET",
+          logbox_color: "Color Box Logger for Dart & Flutter",
+          "pitwall-updater": "Pitwall Updater",
+          tcid_checker: "TC ID Checker for Dart & Flutter",
+          tcid_checker_net: "TC ID Checker for .NET",
+          tv_channel_logos: "Kanal Logoları"
+        },
         repos: {
           aptreceipt: "Girilen verilerle daire gelir/gider makbuzu oluşturur; makbuz daha sonra resim olarak dışa aktarılabilir.",
           "aynacast-player": "Android TV ve Google TV için özel olarak geliştirilmiş, yüksek performanslı, ultra düşük gecikmeli ve donanım hızlandırmalı AirPlay Alıcısı ve Ekran Yansıtma Motoru: AynaCast TV.",
@@ -2511,6 +2527,22 @@
         footer: {
           left: "© 2026 Berk Babadoğan",
           right: "A software engineering and product development portfolio"
+        },
+        repoTitles: {
+          aptreceipt: "AptReceipt",
+          "aynacast-player": "AynaCast",
+          colorlogger_net: "Color Logger for .NET",
+          dart_encrypter: "Encrypter for Dart & Flutter",
+          devmatebb: "DevmateBB",
+          devorabb: "DevoraBB",
+          encrypter_net: "Encrypter_NET",
+          isbn_searcher: "ISBN Searcher for Dart & Flutter",
+          isbn_searcher_net: "ISBNSearcher_NET",
+          logbox_color: "Color Box Logger for Dart & Flutter",
+          "pitwall-updater": "Pitwall Updater",
+          tcid_checker: "TC ID Checker for Dart & Flutter",
+          tcid_checker_net: "TC ID Checker for .NET",
+          tv_channel_logos: "Channel Logos"
         },
         repos: {
           aptreceipt: "Generates apartment income/expense receipts from the given data; the receipt can then be exported as an image.",
@@ -2761,6 +2793,22 @@
           left: "© 2026 Berk Babadoğan",
           right: "Un portofoliu de inginerie software și dezvoltare de produs"
         },
+        repoTitles: {
+          aptreceipt: "AptReceipt",
+          "aynacast-player": "AynaCast",
+          colorlogger_net: "Color Logger for .NET",
+          dart_encrypter: "Encrypter for Dart & Flutter",
+          devmatebb: "DevmateBB",
+          devorabb: "DevoraBB",
+          encrypter_net: "Encrypter_NET",
+          isbn_searcher: "ISBN Searcher for Dart & Flutter",
+          isbn_searcher_net: "ISBNSearcher_NET",
+          logbox_color: "Color Box Logger for Dart & Flutter",
+          "pitwall-updater": "Pitwall Updater",
+          tcid_checker: "TC ID Checker for Dart & Flutter",
+          tcid_checker_net: "TC ID Checker for .NET",
+          tv_channel_logos: "Logo-uri canal"
+        },
         repos: {
           aptreceipt: "Generează chitanțe de venituri/cheltuieli pentru apartamente din datele introduse; chitanța poate fi apoi exportată ca imagine.",
           "aynacast-player": "Receptor AirPlay și motor de oglindire a ecranului de înaltă performanță, latență ultra-scăzută și accelerare hardware pentru Android TV și Google TV: AynaCast TV.",
@@ -2907,7 +2955,7 @@
                   ${categoryBadgeText}
                 </span>
               </div>
-              <h4>${repo.name}</h4>
+              <h4>${(pack.repoTitles && pack.repoTitles[repo.name]) || repo.name}</h4>
               <p>${description}</p>
             </div>
             <div class="tags" style="margin-top: auto;">
