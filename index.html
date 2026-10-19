@@ -1744,7 +1744,7 @@
 
         <div class="hero-stats reveal" style="margin-bottom: 24px;">
           <div class="stat">
-            <strong data-i18n="github.stat1.value">15</strong>
+            <strong data-i18n="github.stat1.value">16</strong>
             <span data-i18n="github.stat1.label">repository</span>
           </div>
           <div class="stat">
@@ -2160,7 +2160,7 @@
         },
         github: {
           stat1: {
-            value: "15",
+            value: "16",
             label: "repo"
           },
           stat2: {
@@ -2278,7 +2278,8 @@
           logbox_color: "Terminalde farklı günlük türlerini (Verbose, Info, Debug, Warning, Error vb.) renkli kutular içinde yazdırır.",
           "pitwall-updater": "Desteklenmeyen Android/Google TV cihazları için özel F1 TV yöneticisi.",
           tcid_checker: "Dart ve Flutter için T.C. Kimlik Numarası doğrulayıcı.",
-          tcid_checker_net: "Verilen T.C. Kimlik Numarasının kurallara göre geçerli olup olmadığını denetler (.NET)."
+          tcid_checker_net: "Verilen T.C. Kimlik Numarasının kurallara göre geçerli olup olmadığını denetler (.NET).",
+          tv_channel_logos: "Android TV için kanal logosu yöneticisi; logosu eksik kanalları tespit eder, uygun logoyu önerir ve kanal veritabanına yazar."
         },
         cmd: {
           searchPlaceholder: "Komut arayın...",
@@ -2411,7 +2412,7 @@
         },
         github: {
           stat1: {
-            value: "15",
+            value: "16",
             label: "repositories"
           },
           stat2: {
@@ -2526,7 +2527,8 @@
           logbox_color: "Prints different log types (Verbose, Info, Debug, Warning, Error, etc.) in colored boxes on the terminal.",
           "pitwall-updater": "Custom F1 TV manager for unsupported Android/Google TV devices.",
           tcid_checker: "T.C. ID number checker for Dart and Flutter.",
-          tcid_checker_net: "Checks whether a given T.C. ID number is valid according to its rules (.NET)."
+          tcid_checker_net: "Checks whether a given T.C. ID number is valid according to its rules (.NET).",
+          tv_channel_logos: "TV channel logo manager for Android TV; finds channels without a logo, suggests a matching logo, and writes it to the channel database."
         },
         cmd: {
           searchPlaceholder: "Search commands...",
@@ -2659,7 +2661,7 @@
         },
         github: {
           stat1: {
-            value: "15",
+            value: "16",
             label: "repository-uri"
           },
           stat2: {
@@ -2774,7 +2776,8 @@
           logbox_color: "Afișează diferite tipuri de loguri (Verbose, Info, Debug, Warning, Error etc.) în casete colorate în terminal.",
           "pitwall-updater": "Manager F1 TV personalizat pentru dispozitive Android/Google TV neacceptate.",
           tcid_checker: "Verificator pentru numărul de identitate turcesc (T.C. Kimlik No) pentru Dart și Flutter.",
-          tcid_checker_net: "Verifică dacă un număr de identitate turcesc (T.C. Kimlik No) dat este valid conform regulilor (.NET)."
+          tcid_checker_net: "Verifică dacă un număr de identitate turcesc (T.C. Kimlik No) dat este valid conform regulilor (.NET).",
+          tv_channel_logos: "Manager de sigle pentru canale TV pe Android TV; identifică canalele fără siglă, sugerează sigla potrivită și o scrie în baza de date a canalelor."
         },
         cmd: {
           searchPlaceholder: "Caută comenzi...",
@@ -2818,7 +2821,7 @@
     const initialLang = supportedLangs.has(savedLang) ? savedLang : defaultLang;
     let currentTheme = supportedThemes.has(savedTheme) ? savedTheme : 'auto';
     const githubRepos = [
-      { name: 'aptreceipt', desc: 'Generates apartment income / expense receipt with given data. After that , you can export receipt as an image.', lang: 'Swift', url: 'https://github.com/berkbb/aptreceipt', category: 'personal' },
+      { name: 'aptreceipt', desc: 'Generates apartment income / expense receipt with given data. After that , you can export receipt as an image.', lang: 'Swift', url: 'https://github.com/berkbb/aptreceipt', category: 'corporate' },
       { name: 'aynacast-player', desc: 'High-performance, ultra-low-latency, hardware-accelerated AirPlay Receiver & Screen Mirroring Engine engineered for Android TV and Google TV: AynaCast TV.', lang: 'C', url: 'https://github.com/berkbb/aynacast-player', category: 'corporate' },
       { name: 'berkbb', desc: 'Config files for my GitHub profile.', lang: '', url: 'https://github.com/berkbb/berkbb', category: 'personal' },
       { name: 'berkbb.github.io', desc: '', lang: 'HTML', url: 'https://github.com/berkbb/berkbb.github.io', category: 'personal' },
@@ -2832,7 +2835,8 @@
       { name: 'logbox_color', desc: '', lang: 'Dart', url: 'https://github.com/berkbb/logbox_color', category: 'personal', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/logbox_color' } },
       { name: 'pitwall-updater', desc: 'Custom F1 TV Manager for Unsupported  Android/Google TV\'s.', lang: 'Kotlin', url: 'https://github.com/berkbb/pitwall-updater', category: 'personal' },
       { name: 'tcid_checker', desc: 'TC ID Checker for Dart and Flutter', lang: 'Dart', url: 'https://github.com/berkbb/tcid_checker', category: 'personal', pkg: { label: 'pub.dev', url: 'https://pub.dev/packages/tcid_checker' } },
-      { name: 'tcid_checker_net', desc: 'Determines that given TC ID is correct or wrong based on rules fot .NET.', lang: 'C#', url: 'https://github.com/berkbb/tcid_checker_net', category: 'personal', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/TCIDChecker_NET/' } }
+      { name: 'tcid_checker_net', desc: 'Determines that given TC ID is correct or wrong based on rules fot .NET.', lang: 'C#', url: 'https://github.com/berkbb/tcid_checker_net', category: 'personal', pkg: { label: 'NuGet', url: 'https://www.nuget.org/packages/TCIDChecker_NET/' } },
+      { name: 'tv_channel_logos', desc: 'TV Channel Logo Manage for Android TV\'s.', lang: 'Kotlin', url: 'https://github.com/berkbb/tv_channel_logos', category: 'personal' }
     ];
 
     function getValue(source, path) {
