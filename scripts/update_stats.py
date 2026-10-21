@@ -167,7 +167,7 @@ def sync_repo_list(html, repos, changes, package_names=None):
 
     for name in sorted(set(repos) - set(entries)):
         repo = repos[name]
-        cat = "corporate" if name in ("aynacast-player", "aptreceipt") or "babadogan" in (name + " " + (repo.get("description") or "")).lower() else "personal"
+        cat = "corporate" if name in ("aynacast-player", "aptreceipt", "arhivar-mac-universal") or "babadogan" in (name + " " + (repo.get("description") or "")).lower() else "personal"
         entries[name] = (f"{indent}{{ name: {js_string(name)}, desc: {js_string(repo['description'])}, "
                          f"lang: {js_string(repo['language'])}, url: {js_string(repo['html_url'])}, "
                          f"category: {js_string(cat)}"
